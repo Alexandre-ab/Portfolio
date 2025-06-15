@@ -1,0 +1,6 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#1e293b" />
+  <rect x="0" y="0" width="800" height="450" fill="#1e293b" />
+  <path d="M400,225 L250,175 L250,275 Z M400,225 L550,175 L550,275 Z" fill="#7c3aed" />
+  <text x="400" y="350" font-family="Arial" font-size="24" fill="#f1f5f9" text-anchor="middle">Projet BTS SIO</text>
+</svg> 

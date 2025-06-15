@@ -79,7 +79,7 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1" style={{
+          <div className="grid grid-cols-1 " style={{
             gap: '2rem',
             '@media (min-width: 768px)': {
               gridTemplateColumns: 'repeat(2, 1fr)'
@@ -87,7 +87,7 @@ export default function Contact() {
           }}>
             {/* Formulaire de contact */}
             <motion.div variants={fadeIn}>
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem',  padding: '2rem', borderRadius: '1rem' }}>
                 <div>
                   <label
                     htmlFor="name"
@@ -186,10 +186,10 @@ export default function Contact() {
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <p style={{ color: 'var(--text-light)' }}>
-                    Email : contact@example.com
+                    Email : Alexandre.boue7@gmail.com
                   </p>
                   <p style={{ color: 'var(--text-light)' }}>
-                    Localisation : [Votre ville]
+                    Localisation : Lyon, France
                   </p>
                 </div>
               </div>
@@ -241,13 +241,15 @@ export default function Contact() {
                   Télécharger mon CV
                 </h2>
                 <a
-                  href="/cv.pdf"
+                  href="CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    color: 'var(--primary-color)',
-                    transition: 'color 0.2s'
+                      color: 'var(--primary-color)',
+                      transition: 'color 0.2s'
                   }}
                 >
                   <ArrowDownTrayIcon style={{ height: '1.25rem', width: '1.25rem', marginRight: '0.5rem' }} />

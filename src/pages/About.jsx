@@ -10,7 +10,7 @@ const fadeIn = {
 const skills = [
   {
     category: 'Langages de programmation',
-    items: ['JavaScript', 'HTML/CSS', 'PHP', 'SQL', 'Python']
+    items: ['JavaScript', 'TypeScript', 'HTML/CSS', 'PHP', 'SQL', 'Python']
   },
   {
     category: 'Frameworks & Bibliothèques',
@@ -18,7 +18,7 @@ const skills = [
   },
   {
     category: 'Outils & Technologies',
-    items: ['Git', 'Docker', 'VS Code', 'Figma', 'PostgreSQL']
+    items: ['Git', 'Docker', 'VS Code', 'Figma', 'PostgreSQL', 'Cursor']
   },
   {
     category: 'Compétences comportementales',
@@ -60,13 +60,27 @@ export default function About() {
                   BTS SIO SLAM
                 </h3>
                 <p className="card-subtitle">
-                  Lycée [Nom de l'établissement] • 2023-2024
+                  Lycée Nexa Digital School • 2024-2026
                 </p>
                 <p className="card-text">
                   Formation en développement d'applications et solutions logicielles
                 </p>
               </motion.div>
-              {/* Ajoutez d'autres expériences ici */}
+              <motion.div 
+                className="card"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <h3 className="card-title">
+                  Ekium
+                </h3>
+                <p className="card-subtitle">
+                  Alternance
+                </p>
+                <p className="card-text">
+                  Ma mission est de gérer un parc de logiciels Métiers et de gérers l'assistance utilisateurs.
+                </p>
+              </motion.div>
             </div>
           </motion.div>
 

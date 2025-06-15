@@ -17,7 +17,7 @@ const projects = [
     technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
     skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
     github: 'https://github.com/username/project',
-    image: '/project1.jpg'
+    image: '/images/placeholder-project.svg'
   },
   {
     title: 'Site E-commerce',
@@ -27,70 +27,91 @@ const projects = [
     technologies: ['React', 'Redux', 'Stripe', 'Firebase'],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/username/project',
-    image: '/project2.jpg'
+    image: '/images/placeholder-project.svg'
   },
+  {
+    title: 'Malware',
+    period: 'Avril 2025',
+    context: 'Projet personnel, Projet cybersécurité',
+    description: 'Création d\'un malware avec un botnet.',
+    technologies: ['Javascript'],
+    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
+    github: 'https://github.com/Alexandre-ab/Malware-',
+    image: '/images/placeholder-project.svg'
+  },
+  {
+    title: 'Application Pokédex',
+    period: 'Décembre 2024',
+    context: 'Projet personnel',
+    description: 'Création d\'une application Pokédex',
+    technologies: ['C#', 'WPF', 'SQL',],
+    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
+    github: 'https://github.com/Alexandre-ab/Pokedex',
+    image: '/images/placeholder-project.svg'
+  },
+
   // Ajoutez d'autres projets ici
 ]
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-4">
+    <section className="section">
+      <div className="container">
         <motion.div
           initial="initial"
           animate="animate"
-          className="max-w-6xl mx-auto"
+          className="about-container"
         >
           {/* En-tête */}
-          <motion.div variants={fadeIn} className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={fadeIn} className="text-center mb-8">
+            <h1 className="section-title">
               Mes Projets
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="mb-4">
               Découvrez mes réalisations et les compétences mobilisées
             </p>
           </motion.div>
 
           {/* Grille de projets */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-3 gap-4">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+                className="card"
               >
                 {/* Image du projet */}
-                <div className="relative h-48">
+                <div className="aspect-video rounded-md">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="img-cover rounded-md"
                   />
                 </div>
 
                 {/* Contenu du projet */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <div className="card-content">
+                  <h3 className="card-title">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <p className="card-subtitle">
                     {project.period} • {project.context}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="card-text">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                    <h4 className="font-semibold mb-2">
                       Technologies utilisées
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="skill-tags">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full text-xs"
+                          className="badge"
                         >
                           {tech}
                         </span>
@@ -99,15 +120,15 @@ export default function Projects() {
                   </div>
 
                   {/* Compétences SLAM */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                  <div className="mb-4">
+                    <h4 className="font-semibold mb-2">
                       Compétences SLAM mobilisées
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="skill-tags">
                       {project.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-xs"
+                          className="badge"
                         >
                           {skill}
                         </span>
@@ -116,21 +137,21 @@ export default function Projects() {
                   </div>
 
                   {/* Liens */}
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700"
+                      className="btn btn-outline btn-with-icon"
                     >
-                      <CodeBracketIcon className="h-5 w-5 mr-1" />
+                      <CodeBracketIcon className="icon" />
                       Code source
                     </a>
                     <a
                       href="#"
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700"
+                      className="btn btn-outline btn-with-icon"
                     >
-                      <ArrowTopRightOnSquareIcon className="h-5 w-5 mr-1" />
+                      <ArrowTopRightOnSquareIcon className="icon" />
                       Voir le projet
                     </a>
                   </div>
@@ -140,6 +161,6 @@ export default function Projects() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   )
 } 

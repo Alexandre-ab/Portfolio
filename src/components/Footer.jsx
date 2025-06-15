@@ -45,15 +45,15 @@ export default function Footer() {
             <ul className="footer-links">
               <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:Alexandre.boue72@gmail.com"
                   className="footer-link"
                 >
-                  contact@example.com
+                  Alexandre.boue72@gmail.com
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
-                  href="https://linkedin.com/in/your-profile"
+                  href="https://www.linkedin.com/in/alexandre-bou%C3%A9-834807220/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
@@ -63,7 +63,7 @@ export default function Footer() {
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
-                  href="https://github.com/your-username"
+                  href="https://github.com/Alexandre-ab"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
