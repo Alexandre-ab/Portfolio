@@ -10,14 +10,14 @@ const fadeIn = {
 
 const projects = [
   {
-    title: 'Application de Gestion de Bibliothèque',
-    period: 'Janvier 2024',
+    title: 'Application de Gestion de Congés',
+    period: 'Janvier 2025',
     context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application web pour la gestion d\'une bibliothèque avec authentification, gestion des emprunts et recherche de livres.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+    description: 'Développement d\'une application web pour la gestion des congés des employés.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
     skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    github: 'https://github.com/username/project',
-    image: '/images/placeholder-project.svg'
+    github: 'https://github.com/Alexandre-ab/Gestion-de-cong-s',
+    image: '/images/conges.webp'
   },
   {
     title: 'Site E-commerce',
@@ -37,7 +37,7 @@ const projects = [
     technologies: ['Javascript'],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/Alexandre-ab/Malware-',
-    image: '/images/placeholder-project.svg'
+    image: '/images/malware.png'
   },
   {
     title: 'Application Pokédex',
@@ -47,7 +47,17 @@ const projects = [
     technologies: ['C#', 'WPF', 'SQL',],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/Alexandre-ab/Pokedex',
-    image: '/images/placeholder-project.svg'
+    image: '/images/pokedex.png'
+  },
+  {
+    title: 'GSB',
+    period: 'Avril 2025',
+    context: 'Projet scolaire - BTS SIO',
+    description: 'Développement d\'une application de gestion de stock pour une pharmacie.',
+    technologies: ['JavaScript', 'MongoDB', 'HTML/CSS', 'React', 'Node.js', 'Express'],
+    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
+    github: 'https://github.com/Alexandre-ab/GSB-',
+    image: '/images/GSB.png'
   },
 
   // Ajoutez d'autres projets ici
