@@ -10,28 +10,44 @@ const fadeIn = {
 
 const articles = [
   {
-    title: 'L\'impact de l\'IA sur le développement web',
-    date: '15 Mars 2024',
+    title: 'React 19 : les nouvelles fonctionnalités révolutionnaires',
+    date: '15 Janvier 2025',
+    category: 'React',
+    summary: 'Découverte des Server Components, des Actions et du nouveau compilateur React qui transforment le développement d\'applications web.',
+    source: 'https://react.dev/blog/2024/12/05/react-19',
+    sourceName: 'React Blog'
+  },
+  {
+    title: 'L\'essor de l\'IA générative dans le développement logiciel',
+    date: '10 Janvier 2025',
     category: 'Intelligence Artificielle',
-    summary: 'Analyse des dernières avancées en matière d\'IA générative et leur impact sur le développement web moderne.',
-    source: 'https://example.com/ai-web-dev',
-    sourceName: 'Tech Insights'
+    summary: 'Comment GitHub Copilot, Claude et ChatGPT révolutionnent la façon dont nous écrivons du code et automatisons les tâches de développement.',
+    source: 'https://github.blog/2024-12-10-how-ai-is-transforming-software-development/',
+    sourceName: 'GitHub Blog'
   },
   {
-    title: 'Les tendances de la cybersécurité en 2024',
-    date: '10 Mars 2024',
+    title: 'Vite 6.0 : performances et nouvelles fonctionnalités',
+    date: '8 Janvier 2025',
+    category: 'Outils de développement',
+    summary: 'La nouvelle version majeure de Vite apporte des améliorations significatives en termes de vitesse de build et de nouvelles APIs.',
+    source: 'https://vitejs.dev/blog/announcing-vite6',
+    sourceName: 'Vite.js'
+  },
+  {
+    title: 'Cybersécurité 2025 : nouvelles menaces et défenses',
+    date: '5 Janvier 2025',
     category: 'Cybersécurité',
-    summary: 'Panorama des nouvelles menaces et des solutions émergentes en matière de sécurité informatique.',
-    source: 'https://example.com/cyber-trends',
-    sourceName: 'Security Weekly'
+    summary: 'Analyse des cyberattaques émergentes liées à l\'IA et des nouvelles stratégies de protection pour les applications web modernes.',
+    source: 'https://owasp.org/www-project-top-ten/',
+    sourceName: 'OWASP Foundation'
   },
   {
-    title: 'Le futur du développement web avec WebAssembly',
-    date: '5 Mars 2024',
-    category: 'Web Development',
-    summary: 'Exploration des possibilités offertes par WebAssembly pour les applications web haute performance.',
-    source: 'https://example.com/webassembly',
-    sourceName: 'Web Dev Journal'
+    title: 'TypeScript 5.6 et l\'avenir du typage statique',
+    date: '2 Janvier 2025',
+    category: 'TypeScript',
+    summary: 'Les dernières améliorations de TypeScript et son impact croissant sur l\'écosystème JavaScript pour des applications plus robustes.',
+    source: 'https://devblogs.microsoft.com/typescript/',
+    sourceName: 'TypeScript Blog'
   }
 ]
 
