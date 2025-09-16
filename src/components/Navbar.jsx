@@ -9,6 +9,7 @@ const navLinks = [
   { path: '/projects', label: 'Projets' },
   { path: '/veille', label: 'Veille' },
   { path: '/contact', label: 'Contact' },
+  { path: '/entreprise', label: 'Entreprise' },
 ]
 
 export default function Navbar() {

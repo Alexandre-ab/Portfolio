@@ -34,6 +34,11 @@ export default function Footer() {
                   Veille
                 </Link>
               </motion.li>
+              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                <Link to="/entreprise" className="footer-link">
+                  Entreprise
+                </Link>
+              </motion.li>
             </ul>
           </div>
 

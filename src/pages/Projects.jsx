@@ -20,13 +20,13 @@ const projects = [
     image: '/images/conges.webp'
   },
   {
-    title: 'Site E-commerce',
-    period: 'Décembre 2023',
+    title: 'Versus',
+    period: 'Décembre 2024',
     context: 'Projet personnel',
-    description: 'Création d\'une plateforme e-commerce avec panier d\'achat, paiement en ligne et gestion des commandes.',
-    technologies: ['React', 'Redux', 'Stripe', 'Firebase'],
+    description: 'Création d\'un coach ia esport.',
+    technologies: ['React', 'Redux', 'Stripe', 'Firebase', 'Node.js', 'Express'],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/username/project',
+    github: 'https://github.com/Alexandre-ab/Versus',
     image: '/images/placeholder-project.svg'
   },
   {

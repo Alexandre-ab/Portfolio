@@ -7,6 +7,7 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Veille from './pages/Veille'
 import Contact from './pages/Contact'
+import Entreprise from './pages/Entreprise'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/veille" element={<Veille />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/entreprise" element={<Entreprise />} />
             </Routes>
           </AnimatePresence>
         </main>

@@ -81,7 +81,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Link to="/projects" className="card quick-link-card">
+              <Link to="/projects" className="quick-link-card">
                 <h3 className="quick-link-title">Projets</h3>
                 <p className="quick-link-text">
                   Découvrez mes réalisations et compétences
@@ -92,7 +92,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Link to="/about" className="card quick-link-card">
+              <Link to="/about" className="quick-link-card">
                 <h3 className="quick-link-title">À propos</h3>
                 <p className="quick-link-text">
                   En savoir plus sur mon parcours
@@ -103,13 +103,24 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Link to="/contact" className="card quick-link-card">
+              <Link to="/contact" className="quick-link-card">
                 <h3 className="quick-link-title">Contact</h3>
                 <p className="quick-link-text">
                   Prenons contact pour discuter de vos projets
                 </p>
               </Link>
             </motion.div>
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Link to="/entreprise" className="quick-link-card">
+              <h3 className="quick-link-title">Entreprise</h3>
+              <p className="quick-link-text">
+                Découvrez mon entreprise
+              </p>
+            </Link>
+          </motion.div>
           </motion.div>
         </div>
       </div>

@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -8,7 +8,8 @@ const fadeIn = {
   transition: { duration: 0.5 }
 }
 
-const articles = [
+// Fallback local si le chargement distant échoue
+const fallbackArticles = [
   {
     title: 'React 19 : les nouvelles fonctionnalités révolutionnaires',
     date: '15 Janvier 2025',
@@ -52,6 +53,80 @@ const articles = [
 ]
 
 export default function Veille() {
+  const [articles, setArticles] = useState(fallbackArticles)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+    ;(async () => {
+      try {
+        setLoading(true)
+        setError(null)
+
+        const feeds = [
+          { url: 'https://www.lemondeinformatique.fr/rss/rss.xml', category: 'Informatique' },
+          { url: 'https://korben.info/feed', category: 'Tech & Sécurité' },
+          { url: 'https://www.numerama.com/rss', category: 'Numérique' },
+          { url: 'https://www.clubic.com/feed/', category: 'High-Tech' },
+          { url: 'https://www.01net.com/rss/info/flux-rss/flux-toutes-les-actualites/', category: 'Actualités Tech' },
+          { url: 'https://www.journaldunet.com/rss/', category: 'Web & Tech' }
+        ]
+
+        const fetchFeed = async ({ url, category }) => {
+          const proxied = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url)
+          const res = await fetch(proxied)
+          if (!res.ok) throw new Error('HTTP ' + res.status)
+          const data = await res.json()
+          return parseRSS(data.contents, category)
+        }
+        const results = await Promise.allSettled(feeds.map(fetchFeed))
+        const items = results.flatMap(r => (r.status === 'fulfilled' ? r.value : []))
+
+        // Tri par date décroissante + on garde les 10 plus récents
+        const sorted = items
+          .sort((a, b) => new Date(b.isoDate || 0) - new Date(a.isoDate || 0))
+          .slice(0, 10)
+
+        if (!cancelled && sorted.length) {
+          setArticles(sorted)
+        }
+      } catch (e) {
+        if (!cancelled) setError("Impossible de charger les articles en ligne. Affichage des articles par défaut.")
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    })()
+    return () => { cancelled = true }
+  }, [])
+
+  const parseRSS = (xmlString, category) => {
+    const parser = new DOMParser()
+    const xml = parser.parseFromString(xmlString, 'text/xml')
+    const items = Array.from(xml.querySelectorAll('item'))
+
+    const getText = (node, tag) => node.querySelector(tag)?.textContent?.trim() || ''
+
+    return items.slice(0, 6).map(item => {
+      const link = getText(item, 'link')
+      const pubDate = getText(item, 'pubDate') || getText(item, 'updated') || ''
+      const title = getText(item, 'title')
+      const description = getText(item, 'description') || getText(item, 'content:encoded') || ''
+
+      return {
+        title,
+        date: pubDate
+          ? new Date(pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })
+          : '',
+        category,
+        summary: description.replace(/<[^>]*>/g, '').slice(0, 220) + (description.length > 220 ? '…' : ''),
+        source: link,
+        sourceName: link ? new URL(link).hostname.replace(/^www\./, '') : category,
+        isoDate: pubDate
+      }
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16">
       <div className="container mx-auto px-4">
@@ -69,6 +144,17 @@ export default function Veille() {
               Suivi des dernières tendances et innovations technologiques
             </p>
           </motion.div>
+
+          {loading && (
+            <motion.p variants={fadeIn} className="text-center text-gray-400 mb-8">
+              Chargement des articles…
+            </motion.p>
+          )}
+          {error && (
+            <motion.p variants={fadeIn} className="text-center text-yellow-400 mb-8">
+              {error}
+            </motion.p>
+          )}
 
           {/* Articles */}
           <div className="space-y-8">
@@ -141,4 +227,4 @@ export default function Veille() {
       </div>
     </div>
   )
-} 
+}
