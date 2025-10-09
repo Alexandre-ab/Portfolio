@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
@@ -8,52 +9,9 @@ const fadeIn = {
   transition: { duration: 0.5 }
 }
 
-// Fallback local si le chargement distant échoue
-const fallbackArticles = [
-  {
-    title: 'React 19 : les nouvelles fonctionnalités révolutionnaires',
-    date: '15 Janvier 2025',
-    category: 'React',
-    summary: 'Découverte des Server Components, des Actions et du nouveau compilateur React qui transforment le développement d\'applications web.',
-    source: 'https://react.dev/blog/2024/12/05/react-19',
-    sourceName: 'React Blog'
-  },
-  {
-    title: 'L\'essor de l\'IA générative dans le développement logiciel',
-    date: '10 Janvier 2025',
-    category: 'Intelligence Artificielle',
-    summary: 'Comment GitHub Copilot, Claude et ChatGPT révolutionnent la façon dont nous écrivons du code et automatisons les tâches de développement.',
-    source: 'https://github.blog/2024-12-10-how-ai-is-transforming-software-development/',
-    sourceName: 'GitHub Blog'
-  },
-  {
-    title: 'Vite 6.0 : performances et nouvelles fonctionnalités',
-    date: '8 Janvier 2025',
-    category: 'Outils de développement',
-    summary: 'La nouvelle version majeure de Vite apporte des améliorations significatives en termes de vitesse de build et de nouvelles APIs.',
-    source: 'https://vitejs.dev/blog/announcing-vite6',
-    sourceName: 'Vite.js'
-  },
-  {
-    title: 'Cybersécurité 2025 : nouvelles menaces et défenses',
-    date: '5 Janvier 2025',
-    category: 'Cybersécurité',
-    summary: 'Analyse des cyberattaques émergentes liées à l\'IA et des nouvelles stratégies de protection pour les applications web modernes.',
-    source: 'https://owasp.org/www-project-top-ten/',
-    sourceName: 'OWASP Foundation'
-  },
-  {
-    title: 'TypeScript 5.6 et l\'avenir du typage statique',
-    date: '2 Janvier 2025',
-    category: 'TypeScript',
-    summary: 'Les dernières améliorations de TypeScript et son impact croissant sur l\'écosystème JavaScript pour des applications plus robustes.',
-    source: 'https://devblogs.microsoft.com/typescript/',
-    sourceName: 'TypeScript Blog'
-  }
-]
 
 export default function Veille() {
-  const [articles, setArticles] = useState(fallbackArticles)
+  const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -80,7 +38,9 @@ export default function Veille() {
           const data = await res.json()
           return parseRSS(data.contents, category)
         }
-        const results = await Promise.allSettled(feeds.map(fetchFeed))
+        const [results] = await Promise.all([Promise.allSettled(feeds.map(fetchFeed)),
+          new Promise(resolve => setTimeout(resolve, 2000))
+        ])
         const items = results.flatMap(r => (r.status === 'fulfilled' ? r.value : []))
 
         // Tri par date décroissante + on garde les 10 plus récents
@@ -146,15 +106,33 @@ export default function Veille() {
           </motion.div>
 
           {loading && (
-            <motion.p variants={fadeIn} className="text-center text-gray-400 mb-8">
-              Chargement des articles…
-            </motion.p>
-          )}
-          {error && (
-            <motion.p variants={fadeIn} className="text-center text-yellow-400 mb-8">
-              {error}
-            </motion.p>
-          )}
+  <motion.div variants={fadeIn} className="flex flex-col items-center justify-center py-20">
+    {/* Spinner + Barre de progression */}
+    <div className="relative mb-6">
+      <div className="w-16 h-16 border-4 border-primary-200 dark:border-primary-800 rounded-full"></div>
+      <div className="absolute top-0 left-0 w-16 h-16 border-4 border-t-primary-600 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    {/* Barre de progression */}
+    <div className="w-80 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-4">
+      <motion.div
+        className="h-full bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600"
+        initial={{ x: "-100%" }}
+        animate={{ x: "100%" }}
+        transition={{ 
+          duration: 1.5, 
+          repeat: Infinity, 
+          ease: "linear" 
+        }}
+        style={{ width: "50%" }}
+      />
+    </div>
+    
+    <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+      Récupération des derniers articles technologiques...
+    </p>
+  </motion.div>
+)}
 
           {/* Articles */}
           <div className="space-y-8">

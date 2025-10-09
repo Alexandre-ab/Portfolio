@@ -58,7 +58,7 @@ function Entreprise() {
                  Ekium
                 </ScrollFloat>
                 <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                Ekium accompagne ses clients dans leur stratégie industrielle, la conception de leurs équipements et bâtiments, la gestion de la construction, le pilotage de la production et la maintenance des installations.
+                Ekium, un leader de l’ingénierie industrielle au service de vos projets 
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <span className="px-4 py-2 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">
@@ -92,9 +92,7 @@ function Entreprise() {
                 À Propos de Ekium
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
-                Fondée avec la passion de créer des solutions web exceptionnelles, notre entreprise 
-                s'engage à fournir des services de haute qualité qui répondent aux besoins évolutifs 
-                du marché digital.
+              Ekium accompagne ses clients dans leur stratégie industrielle, la conception de leurs équipements et bâtiments, la gestion de la construction, le pilotage de la production et la maintenance des installations.
               </p>
             </motion.div>
 
@@ -104,9 +102,7 @@ function Entreprise() {
                   Vision
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Devenir un acteur incontournable dans le domaine du développement web en proposant 
-                  des solutions innovantes, performantes et adaptées aux enjeux actuels du numérique. 
-                  Nous croyons en la puissance de la technologie pour transformer les entreprises.
+                Ekium intervient dans la chaîne de valeur du cycle de vie de l’industrie. Notre expérience nous permet de proposer des solutions innovantes dans des environnements industriels complexes et évolutifs.
                 </p>
               </motion.div>
 
@@ -142,8 +138,7 @@ function Entreprise() {
               </h2>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
-                Nous accompagnons nos clients dans toutes les étapes de leurs projets digitaux, 
-                de la conception à la mise en production.
+              L’un des enjeux du développement de notre société sur la scène internationale demeure sur son adaptation aux spécificités locales. La société d’ingénierie et d’automation Ekium s’engage à garantir la même qualité de prestations, méthodes de gestion des projets et la même qualité technique de conception. Pour cela, Ekium peut compter sur ces implantations locales.
               </p>
             </motion.div>
 
@@ -158,7 +153,7 @@ function Entreprise() {
                   </h3>
 
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Analyse des besoins et définition de la stratégie digitale optimale pour votre projet.
+                  Accompagnement technique et méthodologique pour la conception et la réalisation des projets
                   </p>
                 </div>
               </motion.div>
@@ -169,11 +164,11 @@ function Entreprise() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    Développement
+                    Conception
                   </h3>
 
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Création d'applications web modernes avec les dernières technologies et frameworks.
+                  Réalisation de projets industriels dans les domaines de l’automatisation, des systèmes d’information et des équipements spécifiques
                   </p>
                 </div>
               </motion.div>
@@ -184,11 +179,11 @@ function Entreprise() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    Accompagnement
+                    Accomplissement
                   </h3>
 
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Formation et support continu pour assurer le succès de vos solutions digitales.
+                  Accompagnement et assistance pour la mise en place des systèmes d’information et de l’automatisation
                   </p>
                 </div>
               </motion.div>
@@ -199,11 +194,11 @@ function Entreprise() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    Optimisation
+                    Maintenance
                   </h3>
 
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Amélioration continue des performances et de l'expérience utilisateur.
+                  Maintenance et assistance pour la mise en place des systèmes d’information et de l’automatisation
                   </p>
                 </div>
               </motion.div>
@@ -231,49 +226,49 @@ function Entreprise() {
             <div className="space-y-8">
               <motion.div variants={fadeIn} className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Développement Frontend
+                  Conception
                 </h3>
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Création d'interfaces utilisateur modernes et réactives avec React, Vue.js, et les dernières technologies CSS.
+                Réalisation de projets industriels dans les domaines de l’automatisation, des systèmes d’information et des équipements spécifiques
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Vue.js</span>
-                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Tailwind CSS</span>
-                  <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-sm mb-8">JavaScript</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">3D Studio Max</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-sm mb-8">3D Studio Max</span>
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Développement Backend
+                  Accomplissement
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Architecture serveur robuste avec Node.js, Python, et intégration de bases de données performantes.
+                Accompagnement et assistance pour la mise en place des systèmes d’information et de l’automatisation
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Node.js</span>
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Python</span>
-                  <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">MongoDB</span>
-                  <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-full text-sm mb-8">PostgreSQL</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">3D Studio Max</span>
+                  <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-full text-sm mb-8">3D Studio Max</span>
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg"> 
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Solutions Complètes
+                  Maintenance
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  De l'analyse des besoins au déploiement, nous gérons l'intégralité de vos projets web avec expertise.
+                  Maintenance et assistance pour la mise en place des systèmes d’information et de l’automatisation
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-sm">Architecture</span>
-                  <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 rounded-full text-sm">UX/UI Design</span>
-                  <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-sm">DevOps</span>
-                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm mb-8">Maintenance</span>
+                  <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-sm">Autodesk</span>
+                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm mb-8">3D Studio Max</span>
                 </div>
               </motion.div>
             </div>
