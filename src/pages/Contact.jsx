@@ -12,12 +12,12 @@ const fadeIn = {
 const inputStyle = {
   width: '100%',
   padding: '0.75rem 1rem',
-  border: '1px solid var(--border-color)',
+  border: '2px solidrgb(196, 175, 233)',
   borderRadius: 'var(--radius)',
   backgroundColor: 'var(--bg-color)',
   color: 'var(--text-color)',
   outline: 'none',
-  transition: 'border-color 0.2s, box-shadow 0.2s'
+  transition: 'border-color 0.2s, box-shadow 0.2s',
 }
 
 export default function Contact() {
@@ -97,6 +97,7 @@ export default function Contact() {
                       fontWeight: '500',
                       color: 'var(--text-color)',
                       marginBottom: '0.25rem'
+
                     }}
                   >
                     Nom
@@ -109,6 +110,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     style={inputStyle}
+                    
                   />
                 </div>
 

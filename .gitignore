@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# IDE supplémentaires
+.cursor/
+.windsurf/
+.claude/
+.claude.json
+.claude.json.backup
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Système Windows
+desktop.ini
+Thumbs.db
