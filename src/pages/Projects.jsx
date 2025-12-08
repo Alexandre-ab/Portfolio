@@ -1,6 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -153,7 +153,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-outline btn-with-icon"
-                    >
+                    > 
                       <CodeBracketIcon className="icon" />
                       Code source
                     </a>

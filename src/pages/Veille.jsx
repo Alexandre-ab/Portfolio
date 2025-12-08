@@ -13,7 +13,7 @@ const fadeIn = {
 export default function Veille() {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [Error, setError] = useState(null)
 
   useEffect(() => {
     let cancelled = false
@@ -51,8 +51,8 @@ export default function Veille() {
         if (!cancelled && sorted.length) {
           setArticles(sorted)
         }
-      } catch (e) {
-        if (!cancelled) setError("Impossible de charger les articles en ligne. Affichage des articles par défaut.")
+      } catch (error) {
+        if (!cancelled) setError(error.message)
       } finally {
         if (!cancelled) setLoading(false)
       }
