@@ -3,7 +3,17 @@ import { useState } from 'react'
 
 function Synthèse() {
   const [pdfError, setPdfError] = useState(false)
-  const pdfPath = '/images/Présentation de l\'entreprise.xlsx - Tableau de synthèse Épreuve E4.pdf'
+  // Encodage correct du chemin avec les caractères spéciaux
+  const pdfPath = '/images/Pr%C3%A9sentation%20de%20l%E2%80%99entreprise.xlsx%20-%20Tableau%20de%20synth%C3%A8se%20%C3%89preuve%20E4.pdf'
+
+  const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = pdfPath
+    link.download = 'Tableau_synthese_E4_Alexandre_Boue.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <section className="gradient-bg section">
@@ -29,25 +39,37 @@ function Synthèse() {
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
           }}>
             <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-              <a 
-                href={pdfPath}
-                download="Tableau_synthese_E4_Alexandre_Boue.pdf"
+              <button 
+                onClick={handleDownload}
                 className="btn btn-primary"
                 style={{
                   display: 'inline-block',
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: '#007bff',
+                  backgroundColor: '#7c3aed',
                   color: 'white',
                   textDecoration: 'none',
-                  borderRadius: '5px',
+                  borderRadius: '25px',
                   marginRight: '1rem',
                   marginBottom: '0.5rem',
                   fontWeight: '600',
-                  transition: 'background-color 0.3s'
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#6d28d9'
+                  e.target.style.transform = 'translateY(-2px)'
+                  e.target.style.boxShadow = '0 6px 15px rgba(124, 58, 237, 0.4)'
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#7c3aed'
+                  e.target.style.transform = 'translateY(0)'
+                  e.target.style.boxShadow = '0 4px 10px rgba(124, 58, 237, 0.3)'
                 }}
               >
                 📥 Télécharger le PDF
-              </a>
+              </button>
               <a 
                 href={pdfPath}
                 target="_blank"
@@ -56,13 +78,24 @@ function Synthèse() {
                 style={{
                   display: 'inline-block',
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: '#6c757d',
+                  backgroundColor: '#7c3aed',
                   color: 'white',
                   textDecoration: 'none',
-                  borderRadius: '5px',
+                  borderRadius: '25px',
                   marginBottom: '0.5rem',
                   fontWeight: '600',
-                  transition: 'background-color 0.3s'
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#6d28d9'
+                  e.target.style.transform = 'translateY(-2px)'
+                  e.target.style.boxShadow = '0 6px 15px rgba(124, 58, 237, 0.4)'
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#7c3aed'
+                  e.target.style.transform = 'translateY(0)'
+                  e.target.style.boxShadow = '0 4px 10px rgba(124, 58, 237, 0.3)'
                 }}
               >
                 🔗 Ouvrir dans un nouvel onglet
