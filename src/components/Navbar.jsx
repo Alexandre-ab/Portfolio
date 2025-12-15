@@ -10,6 +10,7 @@ const navLinks = [
   { path: '/veille', label: 'Veille' },
   { path: '/contact', label: 'Contact' },
   { path: '/entreprise', label: 'Entreprise' },
+  { path: '/synthèse', label: 'Synthèse' },
 ]
 
 export default function Navbar() {

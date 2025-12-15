@@ -44,7 +44,7 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
             >
               <a
-                href="/images/CV.pdf"
+                href="/images/BOUE Alexandre - CV Dev.pdf"
                 download
                 className="btn btn-with-icon animate-pulse"
               >
