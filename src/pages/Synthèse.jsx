@@ -1,13 +1,131 @@
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+
 function Synthèse() {
+  const [pdfError, setPdfError] = useState(false)
+  const pdfPath = '/images/Présentation de l\'entreprise.xlsx - Tableau de synthèse Épreuve E4.pdf'
+
   return (
     <section className="gradient-bg section">
       <div className="container">
         <motion.div
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="about-container"
         >
-          <h1>Synthèse</h1>
+          <h1 className="section-title" style={{ color: 'white', marginBottom: '1rem' }}>
+            Tableau de Synthèse - Épreuve E4
+          </h1>
+          <p style={{ color: 'var(--neutral-300)', fontSize: '1.125rem', marginBottom: '2rem' }}>
+            Synthèse des réalisations professionnelles - BTS SIO SLAM 2025
+          </p>
+          
+          <div className="pdf-container" style={{ 
+            marginTop: '2rem',
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            padding: '1.5rem',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+          }}>
+            <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+              <a 
+                href={pdfPath}
+                download="Tableau_synthese_E4_Alexandre_Boue.pdf"
+                className="btn btn-primary"
+                style={{
+                  display: 'inline-block',
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#007bff',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '5px',
+                  marginRight: '1rem',
+                  marginBottom: '0.5rem',
+                  fontWeight: '600',
+                  transition: 'background-color 0.3s'
+                }}
+              >
+                📥 Télécharger le PDF
+              </a>
+              <a 
+                href={pdfPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{
+                  display: 'inline-block',
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#6c757d',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '5px',
+                  marginBottom: '0.5rem',
+                  fontWeight: '600',
+                  transition: 'background-color 0.3s'
+                }}
+              >
+                🔗 Ouvrir dans un nouvel onglet
+              </a>
+            </div>
+            
+            {!pdfError ? (
+              <object
+                data={pdfPath}
+                type="application/pdf"
+                style={{
+                  width: '100%',
+                  height: '900px',
+                  border: 'none',
+                  borderRadius: '5px'
+                }}
+                onError={() => setPdfError(true)}
+              >
+                <iframe
+                  src={`${pdfPath}#view=FitH`}
+                  style={{
+                    width: '100%',
+                    height: '900px',
+                    border: 'none',
+                    borderRadius: '5px'
+                  }}
+                  title="Tableau de synthèse Épreuve E4"
+                  onError={() => setPdfError(true)}
+                />
+              </object>
+            ) : (
+              <div style={{
+                padding: '3rem',
+                textAlign: 'center',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '5px',
+                border: '2px dashed #dee2e6'
+              }}>
+                <p style={{ fontSize: '1.2rem', color: '#495057', marginBottom: '1rem' }}>
+                  📄 Votre navigateur ne peut pas afficher le PDF directement
+                </p>
+                <p style={{ color: '#6c757d', marginBottom: '1.5rem' }}>
+                  Veuillez utiliser les boutons ci-dessus pour télécharger ou ouvrir le document
+                </p>
+                <a 
+                  href={pdfPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-block',
+                    padding: '0.75rem 2rem',
+                    backgroundColor: '#28a745',
+                    color: 'white',
+                    textDecoration: 'none',
+                    borderRadius: '5px',
+                    fontWeight: '600'
+                  }}
+                >
+                  Voir le document
+                </a>
+              </div>
+            )}
+          </div>
         </motion.div>
       </div>
     </section>
