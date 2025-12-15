@@ -59,8 +59,36 @@ const projects = [
     github: 'https://github.com/Alexandre-ab/GSB-',
     image: '/images/GSB.png'
   },
-
-  // Ajoutez d'autres projets ici
+  {
+    title: 'Application de Gestion de Prescription  ',
+    period: 'Janvier 2025',
+    context: 'Projet scolaire - BTS SIO',
+    description: 'Développement d\'une application bureau pour la gestion des prescriptions des patients.',
+    technologies: ['C# ', 'WPF', 'SQL',],
+    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
+    github: 'https://github.com/Alexandre-ab/Gestion-de-prescription',
+    image: '/images/Medecin.png'
+  },
+  {
+    title: 'Bot shell windows',
+    period: 'Juin 2025',
+    context: 'Projet scolaire - BTS SIO',
+    description: 'Développement d\'un bot shell windows.',
+    technologies: [ 'Shell', 'Windows'],
+    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
+    github: 'https://github.com/Alexandre-ab/Bot-shell-windows',
+    image: '/images/shell.avif'
+  },
+  {
+    title: 'Script Batch pour Application Aveva',
+    period: 'Juillet 2025',
+    context: 'Projet scolaire - BTS SIO',
+    description: 'Développement d\'un script batch pour l\'application Aveva.',
+    technologies: [ 'Batch', 'Windows'],
+    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
+    github: 'https://github.com/Alexandre-ab/Script-batch-Aveva',
+    image: '/images/aveva.png'
+  }
 ]
 
 export default function Projects() {
