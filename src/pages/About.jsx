@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -10,15 +11,15 @@ const fadeIn = {
 const skills = [
   {
     category: 'Langages de programmation',
-    items: ['JavaScript', 'TypeScript', 'HTML/CSS', 'PHP', 'SQL', 'Python']
+    items: ['JavaScript', 'HTML/CSS', 'C#', 'SQL', 'Python']
   },
   {
     category: 'Frameworks & Bibliothèques',
-    items: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'Bootstrap']
+    items: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'Windows Forms']
   },
   {
     category: 'Outils & Technologies',
-    items: ['Git', 'Docker', 'VS Code', 'Figma', 'PostgreSQL', 'Cursor']
+    items: ['Git', 'Docker', 'VS Code', 'Figma', 'SQL', 'Cursor','Visual Studio']
   },
   {
     category: 'Compétences comportementales',

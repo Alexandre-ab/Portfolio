@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
@@ -118,6 +119,28 @@ export default function Home() {
               <h3 className="quick-link-title">Entreprise</h3>
               <p className="quick-link-text">
                 Découvrez mon entreprise
+              </p>
+            </Link>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+            <Link to="/veille" className="quick-link-card">
+              <h3 className="quick-link-title">Veille</h3>
+              <p className="quick-link-text">
+                Découvrez ma veille technologique
+              </p>
+            </Link>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+            <Link to="/synthèse" className="quick-link-card">
+              <h3 className="quick-link-title">Synthèse</h3>
+              <p className="quick-link-text">
+                Découvrez ma synthèse
               </p>
             </Link>
           </motion.div>

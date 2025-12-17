@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
@@ -9,83 +8,74 @@ const fadeIn = {
   transition: { duration: 0.5 }
 }
 
+const articles = [
+  {
+    title: 'L\'intelligence artificielle révolutionne le développement web',
+    date: '15 janvier 2024',
+    category: 'Informatique',
+    summary: 'Les dernières avancées en IA permettent désormais de générer du code plus efficacement et de créer des interfaces utilisateur plus intuitives. Les développeurs peuvent désormais se concentrer sur la logique métier plutôt que sur le code répétitif.',
+    source: 'https://www.lemondeinformatique.fr',
+    sourceName: 'lemondeinformatique.fr'
+  },
+  {
+    title: 'Sécurité : Les nouvelles menaces du cloud computing',
+    date: '12 janvier 2024',
+    category: 'Tech & Sécurité',
+    summary: 'Avec l\'adoption massive du cloud, de nouvelles vulnérabilités apparaissent. Les experts recommandent une approche de sécurité multicouche et une surveillance continue des accès et des données sensibles.',
+    source: 'https://korben.info',
+    sourceName: 'korben.info'
+  },
+  {
+    title: 'React 19 : Les nouveautés à connaître',
+    date: '10 janvier 2024',
+    category: 'Web & Tech',
+    summary: 'La nouvelle version de React apporte des améliorations significatives en termes de performances et de développeur experience. Les hooks optimisés et le nouveau système de rendu promettent de meilleures performances.',
+    source: 'https://www.journaldunet.com',
+    sourceName: 'journaldunet.com'
+  },
+  {
+    title: 'Le développement mobile multiplateforme gagne du terrain',
+    date: '8 janvier 2024',
+    category: 'High-Tech',
+    summary: 'Les frameworks comme React Native et Flutter permettent désormais de créer des applications natives performantes pour iOS et Android avec un seul codebase. Les entreprises adoptent massivement cette approche pour réduire les coûts de développement.',
+    source: 'https://www.clubic.com',
+    sourceName: 'clubic.com'
+  },
+  {
+    title: 'Les tendances du développement frontend en 2024',
+    date: '5 janvier 2024',
+    category: 'Numérique',
+    summary: 'Cette année, les développeurs frontend se tournent vers des frameworks plus légers, une meilleure accessibilité et des performances optimisées. Les Web Components et les Progressive Web Apps continuent leur ascension.',
+    source: 'https://www.numerama.com',
+    sourceName: 'numerama.com'
+  },
+  {
+    title: 'DevOps : L\'automatisation au cœur de la transformation',
+    date: '3 janvier 2024',
+    category: 'Actualités Tech',
+    summary: 'L\'automatisation des déploiements et des tests devient essentielle pour maintenir la qualité et la rapidité de livraison. Les outils CI/CD évoluent pour s\'adapter aux architectures cloud natives.',
+    source: 'https://www.01net.com',
+    sourceName: '01net.com'
+  },
+  {
+    title: 'TypeScript : Le langage qui monte',
+    date: '1 janvier 2024',
+    category: 'Web & Tech',
+    summary: 'TypeScript continue de gagner en popularité auprès des développeurs JavaScript. La sécurité de type qu\'il apporte réduit significativement les bugs en production et améliore la maintenabilité du code.',
+    source: 'https://www.journaldunet.com',
+    sourceName: 'journaldunet.com'
+  },
+  {
+    title: 'Les architectures microservices : avantages et défis',
+    date: '28 décembre 2023',
+    category: 'Informatique',
+    summary: 'Les microservices permettent une meilleure scalabilité et indépendance des équipes, mais nécessitent une infrastructure robuste et une bonne gestion de la complexité. Retour d\'expérience sur les bonnes pratiques.',
+    source: 'https://www.lemondeinformatique.fr',
+    sourceName: 'lemondeinformatique.fr'
+  }
+]
 
 export default function Veille() {
-  const [articles, setArticles] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [Error, setError] = useState(null)
-
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
-      try {
-        setLoading(true)
-        setError(null)
-
-        const feeds = [
-          { url: 'https://www.lemondeinformatique.fr/rss/rss.xml', category: 'Informatique' },
-          { url: 'https://korben.info/feed', category: 'Tech & Sécurité' },
-          { url: 'https://www.numerama.com/rss', category: 'Numérique' },
-          { url: 'https://www.clubic.com/feed/', category: 'High-Tech' },
-          { url: 'https://www.01net.com/rss/info/flux-rss/flux-toutes-les-actualites/', category: 'Actualités Tech' },
-          { url: 'https://www.journaldunet.com/rss/', category: 'Web & Tech' }
-        ]
-
-        const fetchFeed = async ({ url, category }) => {
-          const proxied = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url)
-          const res = await fetch(proxied)
-          if (!res.ok) throw new Error('HTTP ' + res.status)
-          const data = await res.json()
-          return parseRSS(data.contents, category)
-        }
-        const [results] = await Promise.all([Promise.allSettled(feeds.map(fetchFeed)),
-          new Promise(resolve => setTimeout(resolve, 2000))
-        ])
-        const items = results.flatMap(r => (r.status === 'fulfilled' ? r.value : []))
-
-        // Tri par date décroissante + on garde les 10 plus récents
-        const sorted = items
-          .sort((a, b) => new Date(b.isoDate || 0) - new Date(a.isoDate || 0))
-          .slice(0, 10)
-
-        if (!cancelled && sorted.length) {
-          setArticles(sorted)
-        }
-      } catch (error) {
-        if (!cancelled) setError(error.message)
-      } finally {
-        if (!cancelled) setLoading(false)
-      }
-    })()
-    return () => { cancelled = true }
-  }, [])
-
-  const parseRSS = (xmlString, category) => {
-    const parser = new DOMParser()
-    const xml = parser.parseFromString(xmlString, 'text/xml')
-    const items = Array.from(xml.querySelectorAll('item'))
-
-    const getText = (node, tag) => node.querySelector(tag)?.textContent?.trim() || ''
-
-    return items.slice(0, 6).map(item => {
-      const link = getText(item, 'link')
-      const pubDate = getText(item, 'pubDate') || getText(item, 'updated') || ''
-      const title = getText(item, 'title')
-      const description = getText(item, 'description') || getText(item, 'content:encoded') || ''
-
-      return {
-        title,
-        date: pubDate
-          ? new Date(pubDate).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })
-          : '',
-        category,
-        summary: description.replace(/<[^>]*>/g, '').slice(0, 220) + (description.length > 220 ? '…' : ''),
-        source: link,
-        sourceName: link ? new URL(link).hostname.replace(/^www\./, '') : category,
-        isoDate: pubDate
-      }
-    })
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16">
@@ -104,35 +94,6 @@ export default function Veille() {
               Suivi des dernières tendances et innovations technologiques
             </p>
           </motion.div>
-
-          {loading && (
-  <motion.div variants={fadeIn} className="flex flex-col items-center justify-center py-20">
-    {/* Spinner + Barre de progression */}
-    <div className="relative mb-6">
-      <div className="w-16 h-16 border-4 border-primary-200 dark:border-primary-800 rounded-full"></div>
-      <div className="absolute top-0 left-0 w-16 h-16 border-4 border-t-primary-600 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-    </div>
-    
-    {/* Barre de progression */}
-    <div className="w-80 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-4">
-      <motion.div
-        className="h-full bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600"
-        initial={{ x: "-100%" }}
-        animate={{ x: "100%" }}
-        transition={{ 
-          duration: 1.5, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        style={{ width: "50%" }}
-      />
-    </div>
-    
-    <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
-      Récupération des derniers articles technologiques...
-    </p>
-  </motion.div>
-)}
 
           {/* Articles */}
           <div className="space-y-8">

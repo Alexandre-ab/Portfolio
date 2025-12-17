@@ -16,6 +16,7 @@ const projects = [
     description: 'Développement d\'une application web pour la gestion des congés des employés.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
     skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
+    url: 'https://gestion-de-cong-s-asxt.vercel.app/',
     github: 'https://github.com/Alexandre-ab/Gestion-de-cong-s',
     image: '/images/conges.webp'
   },
@@ -44,7 +45,7 @@ const projects = [
     period: 'Décembre 2024',
     context: 'Projet personnel',
     description: 'Création d\'une application Pokédex',
-    technologies: ['C#', 'WPF', 'SQL',],
+    technologies: ['C#', 'Windows Forms', 'SQL',],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/Alexandre-ab/Pokedex',
     image: '/images/pokedex.png'
@@ -64,7 +65,7 @@ const projects = [
     period: 'Janvier 2025',
     context: 'Projet scolaire - BTS SIO',
     description: 'Développement d\'une application bureau pour la gestion des prescriptions des patients.',
-    technologies: ['C# ', 'WPF', 'SQL',],
+    technologies: ['C# ', 'Windows Forms', 'SQL',],
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/Alexandre-ab/Gestion-de-prescription',
     image: '/images/Medecin.png'
@@ -88,6 +89,17 @@ const projects = [
     skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
     github: 'https://github.com/Alexandre-ab/Script-batch-Aveva',
     image: '/images/aveva.png'
+  },
+
+  {
+    title: 'Site web pour un salon de coiffure',
+    period: 'Décembre 2025',
+    context: 'Projet scolaire - BTS SIO',
+    description: 'Développement d\'un site web pour un salon de coiffure.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Figma','React'],
+    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
+    github: 'https://github.com/RyukSylux/revealBarber/tree/main',
+    image: '/images/hero-background.jpg'
   }
 ]
 
@@ -186,7 +198,7 @@ export default function Projects() {
                       Code source
                     </a>
                     <a
-                      href="#"
+                      href={project.url}
                       className="btn btn-outline btn-with-icon"
                     >
                       <ArrowTopRightOnSquareIcon className="icon" />
