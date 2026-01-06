@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon, PlayIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -10,6 +11,7 @@ const fadeIn = {
 
 const projects = [
   {
+    id: 'gestion-conges',
     title: 'Application de Gestion de Congés',
     period: 'Janvier 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -21,6 +23,7 @@ const projects = [
     image: '/images/conges.webp'
   },
   {
+    id: 'versus',
     title: 'Versus',
     period: 'Décembre 2024',
     context: 'Projet personnel',
@@ -31,6 +34,7 @@ const projects = [
     image: '/images/placeholder-project.svg'
   },
   {
+    id: 'malware',
     title: 'Malware',
     period: 'Avril 2025',
     context: 'Projet personnel, Projet cybersécurité',
@@ -41,6 +45,7 @@ const projects = [
     image: '/images/malware.png'
   },
   {
+    id: 'pokedex',
     title: 'Application Pokédex',
     period: 'Décembre 2024',
     context: 'Projet personnel',
@@ -51,6 +56,7 @@ const projects = [
     image: '/images/pokedex.png'
   },
   {
+    id: 'gsb',
     title: 'GSB',
     period: 'Avril 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -61,6 +67,7 @@ const projects = [
     image: '/images/GSB.png'
   },
   {
+    id: 'gestion-prescription',
     title: 'Application de Gestion de Prescription  ',
     period: 'Janvier 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -71,6 +78,7 @@ const projects = [
     image: '/images/Medecin.png'
   },
   {
+    id: 'bot-shell',
     title: 'Bot shell windows',
     period: 'Juin 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -81,6 +89,7 @@ const projects = [
     image: '/images/shell.avif'
   },
   {
+    id: 'script-aveva',
     title: 'Script Batch pour Application Aveva',
     period: 'Juillet 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -92,6 +101,7 @@ const projects = [
   },
 
   {
+    id: 'salon-coiffure',
     title: 'Site web pour un salon de coiffure',
     period: 'Décembre 2025',
     context: 'Projet scolaire - BTS SIO',
@@ -187,23 +197,38 @@ export default function Projects() {
                   </div>
 
                   {/* Liens */}
-                  <div className="flex justify-between">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <Link
+                      to={`/projects/${project.id}`}
                       className="btn btn-outline btn-with-icon"
-                    > 
-                      <CodeBracketIcon className="icon" />
-                      Code source
-                    </a>
-                    <a
-                      href={project.url}
-                      className="btn btn-outline btn-with-icon"
+                      style={{ width: '100%' }}
                     >
-                      <ArrowTopRightOnSquareIcon className="icon" />
-                      Voir le projet
-                    </a>
+                      <PlayIcon className="icon" />
+                      Voir les détails
+                    </Link>
+                    
+                    <div className="flex justify-between gap-2">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline btn-with-icon"
+                        style={{ flex: 1 }}
+                      > 
+                        <CodeBracketIcon className="icon" />
+                        Code source
+                      </a>
+                      <a
+                        href={project.url || project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline btn-with-icon"
+                        style={{ flex: 1 }}
+                      >
+                        <ArrowTopRightOnSquareIcon className="icon" />
+                        Voir le projet
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
