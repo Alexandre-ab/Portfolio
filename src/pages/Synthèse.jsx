@@ -82,6 +82,7 @@ function Synthèse() {
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '25px',
+                  marginRight: '1rem',
                   marginBottom: '0.5rem',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',

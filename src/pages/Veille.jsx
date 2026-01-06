@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, ClockIcon, TagIcon } from '@heroicons/react/24/outline'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNewspaper, faUsers, faRss, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -12,127 +14,156 @@ const articles = [
   {
     title: 'L\'intelligence artificielle révolutionne le développement web',
     date: '15 janvier 2024',
-    category: 'Informatique',
+    category: 'IA & Développement',
     summary: 'Les dernières avancées en IA permettent désormais de générer du code plus efficacement et de créer des interfaces utilisateur plus intuitives. Les développeurs peuvent désormais se concentrer sur la logique métier plutôt que sur le code répétitif.',
     source: 'https://www.lemondeinformatique.fr',
-    sourceName: 'lemondeinformatique.fr'
+    sourceName: 'Le Monde Informatique',
+    tags: ['IA', 'Développement', 'Productivité']
   },
   {
     title: 'Sécurité : Les nouvelles menaces du cloud computing',
     date: '12 janvier 2024',
-    category: 'Tech & Sécurité',
+    category: 'Cybersécurité',
     summary: 'Avec l\'adoption massive du cloud, de nouvelles vulnérabilités apparaissent. Les experts recommandent une approche de sécurité multicouche et une surveillance continue des accès et des données sensibles.',
     source: 'https://korben.info',
-    sourceName: 'korben.info'
+    sourceName: 'Korben',
+    tags: ['Sécurité', 'Cloud', 'DevSecOps']
   },
   {
     title: 'React 19 : Les nouveautés à connaître',
     date: '10 janvier 2024',
-    category: 'Web & Tech',
+    category: 'Framework',
     summary: 'La nouvelle version de React apporte des améliorations significatives en termes de performances et de développeur experience. Les hooks optimisés et le nouveau système de rendu promettent de meilleures performances.',
     source: 'https://www.journaldunet.com',
-    sourceName: 'journaldunet.com'
+    sourceName: 'Journal du Net',
+    tags: ['React', 'Frontend', 'JavaScript']
   },
   {
     title: 'Le développement mobile multiplateforme gagne du terrain',
     date: '8 janvier 2024',
-    category: 'High-Tech',
-    summary: 'Les frameworks comme React Native et Flutter permettent désormais de créer des applications natives performantes pour iOS et Android avec un seul codebase. Les entreprises adoptent massivement cette approche pour réduire les coûts de développement.',
+    category: 'Mobile',
+    summary: 'Les frameworks comme React Native et Flutter permettent désormais de créer des applications natives performantes pour iOS et Android avec un seul codebase. Les entreprises adoptent massivement cette approche pour réduire les coûts.',
     source: 'https://www.clubic.com',
-    sourceName: 'clubic.com'
+    sourceName: 'Clubic',
+    tags: ['Mobile', 'React Native', 'Flutter']
   },
   {
     title: 'Les tendances du développement frontend en 2024',
     date: '5 janvier 2024',
-    category: 'Numérique',
+    category: 'Tendances',
     summary: 'Cette année, les développeurs frontend se tournent vers des frameworks plus légers, une meilleure accessibilité et des performances optimisées. Les Web Components et les Progressive Web Apps continuent leur ascension.',
     source: 'https://www.numerama.com',
-    sourceName: 'numerama.com'
+    sourceName: 'Numerama',
+    tags: ['Frontend', 'Web', 'Tendances']
   },
   {
     title: 'DevOps : L\'automatisation au cœur de la transformation',
     date: '3 janvier 2024',
-    category: 'Actualités Tech',
+    category: 'DevOps',
     summary: 'L\'automatisation des déploiements et des tests devient essentielle pour maintenir la qualité et la rapidité de livraison. Les outils CI/CD évoluent pour s\'adapter aux architectures cloud natives.',
     source: 'https://www.01net.com',
-    sourceName: '01net.com'
+    sourceName: '01net',
+    tags: ['DevOps', 'CI/CD', 'Automation']
   },
   {
     title: 'TypeScript : Le langage qui monte',
     date: '1 janvier 2024',
-    category: 'Web & Tech',
+    category: 'Langage',
     summary: 'TypeScript continue de gagner en popularité auprès des développeurs JavaScript. La sécurité de type qu\'il apporte réduit significativement les bugs en production et améliore la maintenabilité du code.',
     source: 'https://www.journaldunet.com',
-    sourceName: 'journaldunet.com'
+    sourceName: 'Journal du Net',
+    tags: ['TypeScript', 'JavaScript', 'Backend']
   },
   {
     title: 'Les architectures microservices : avantages et défis',
     date: '28 décembre 2023',
-    category: 'Informatique',
+    category: 'Architecture',
     summary: 'Les microservices permettent une meilleure scalabilité et indépendance des équipes, mais nécessitent une infrastructure robuste et une bonne gestion de la complexité. Retour d\'expérience sur les bonnes pratiques.',
     source: 'https://www.lemondeinformatique.fr',
-    sourceName: 'lemondeinformatique.fr'
+    sourceName: 'Le Monde Informatique',
+    tags: ['Microservices', 'Architecture', 'Scalabilité']
   }
 ]
 
 export default function Veille() {
-
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-4">
+    <section className="section gradient-bg">
+      <div className="container">
         <motion.div
           initial="initial"
           animate="animate"
-          className="max-w-4xl mx-auto"
+          className="about-container"
         >
           {/* En-tête */}
-          <motion.div variants={fadeIn} className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={fadeIn} className="text-center mb-8">
+            <h1 className="hero-title">
               Veille Technologique
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Suivi des dernières tendances et innovations technologiques
+            <p className="hero-text">
+              Suivi des dernières tendances et innovations dans le domaine du développement web et de l'informatique
             </p>
           </motion.div>
 
-          {/* Articles */}
-          <div className="space-y-8">
+          {/* Grille d'articles */}
+          <div className="grid grid-2 gap-4 mb-8">
             {articles.map((article, index) => (
               <motion.article
                 key={index}
                 variants={fadeIn}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+                whileHover={{ y: -5 }}
+                className="card"
               >
-                <div className="p-6">
+                {/* En-tête de l'article */}
+                <div className="mb-4">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full text-sm">
+                    <span className="badge" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
                       {article.category}
                     </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center gap-1" style={{ color: 'var(--neutral-400)', fontSize: '0.875rem' }}>
+                      <ClockIcon style={{ width: '1rem', height: '1rem' }} />
                       {article.date}
-                    </span>
+                    </div>
                   </div>
 
-                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h2 className="card-title" style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>
                     {article.title}
                   </h2>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="card-text" style={{ marginBottom: '1rem' }}>
                     {article.summary}
                   </p>
+                </div>
 
+                {/* Tags */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-1 mb-4" style={{ color: 'var(--neutral-400)', fontSize: '0.875rem' }}>
+                    <TagIcon style={{ width: '1rem', height: '1rem' }} />
+                    <span>Tags</span>
+                  </div>
+                  <div className="skill-tags">
+                    {article.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="badge">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer de l'article */}
+                <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1rem' }}>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span style={{ color: 'var(--neutral-400)', fontSize: '0.875rem' }}>
                       Source : {article.sourceName}
                     </span>
                     <a
                       href={article.source}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700"
+                      className="btn btn-outline btn-with-icon"
+                      style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}
                     >
+                      <ArrowTopRightOnSquareIcon className="icon" />
                       Lire l'article
-                      <ArrowTopRightOnSquareIcon className="h-4 w-4 ml-1" />
                     </a>
                   </div>
                 </div>
@@ -140,30 +171,89 @@ export default function Veille() {
             ))}
           </div>
 
-          {/* Méthodologie */}
-          <motion.div
-            variants={fadeIn}
-            className="mt-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-          >
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+          {/* Section Méthodologie */}
+          <motion.div variants={fadeIn} className="card">
+            <h2 className="section-title">
               Ma Méthodologie de Veille
             </h2>
-            <div className="space-y-4 text-gray-600 dark:text-gray-300">
-              <p>
-                Pour maintenir une veille technologique efficace, je m'appuie sur
-                plusieurs sources et outils :
+            
+            <div className="mb-6">
+              <h3 className="card-title" style={{ fontSize: '1.125rem', marginBottom: '1rem' }}>
+                Sources d'information
+              </h3>
+              <div className="grid grid-2 gap-4">
+                <div>
+                  <h4 className="card-subtitle" style={{ color: 'var(--primary-light)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <FontAwesomeIcon icon={faNewspaper} />
+                    Sites spécialisés
+                  </h4>
+                  <ul className="card-text" style={{ listStyle: 'none', padding: 0 }}>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      Le Monde Informatique
+                    </li>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      Journal du Net
+                    </li>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      Korben.info
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="card-subtitle" style={{ color: 'var(--primary-light)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <FontAwesomeIcon icon={faUsers} />
+                    Communautés
+                  </h4>
+                  <ul className="card-text" style={{ listStyle: 'none', padding: 0 }}>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      GitHub
+                    </li>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      Stack Overflow
+                    </li>
+                    <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--secondary)' }}>•</span>
+                      Dev.to
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="card-title" style={{ fontSize: '1.125rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <FontAwesomeIcon icon={faRss} />
+                Outils de veille
+              </h3>
+              <div className="skill-tags">
+                <span className="badge">RSS Feeds</span>
+                <span className="badge">Feedly</span>
+                <span className="badge">LinkedIn</span>
+                <span className="badge">Twitter</span>
+                <span className="badge">Newsletters</span>
+                <span className="badge">Podcasts</span>
+                <span className="badge">YouTube</span>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: 'rgba(124, 58, 237, 0.1)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--primary)' }}>
+              <p className="card-text" style={{ marginBottom: 0, display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                <FontAwesomeIcon icon={faLightbulb} style={{ color: 'var(--primary)', marginTop: '0.2rem' }} />
+                <span>
+                  <strong>Fréquence de veille :</strong> Je consacre environ 1 heure par jour à ma veille technologique, 
+                  répartie entre la lecture d'articles, le suivi de communautés et l'expérimentation de nouvelles technologies.
+                </span>
               </p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Newsletters spécialisées</li>
-                <li>Réseaux sociaux professionnels (LinkedIn, Twitter)</li>
-                <li>Blogs et sites d'actualités techniques</li>
-                <li>Communautés de développeurs (GitHub, Stack Overflow)</li>
-                <li>Podcasts et webinaires</li>
-              </ul>
             </div>
           </motion.div>
         </motion.div>
       </div>
-    </div>
+    </section>
   )
 }

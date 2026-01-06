@@ -189,7 +189,7 @@ export default function Contact() {
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <p style={{ color: 'var(--text-light)' }}>
-                    Email : Alexandre.boue7@gmail.com
+                    Email : Alexandre.boue72@gmail.com
                   </p>
                   <p style={{ color: 'var(--text-light)' }}>
                     Localisation : Lyon, France
