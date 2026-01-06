@@ -32,13 +32,6 @@ export default function Home() {
             >
               Étudiant en BTS SIO SLAM
             </motion.h2>
-            <motion.p
-              variants={fadeIn}
-              className="hero-text"
-            >
-              "Passionné par le développement web et les nouvelles technologies,
-              je m'efforce de créer des solutions innovantes et performantes."
-            </motion.p>
             <motion.div 
               variants={fadeIn}
               whileHover={{ scale: 1.05 }}
