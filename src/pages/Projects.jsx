@@ -1,7 +1,8 @@
-// eslint-disable-next-line no-unused-vars
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowTopRightOnSquareIcon, CodeBracketIcon, PlayIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import { projectsData } from '../data/projectsData'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -9,113 +10,17 @@ const fadeIn = {
   transition: { duration: 0.5 }
 }
 
-const projects = [
-  {
-    id: 'gestion-conges',
-    title: 'Application de Gestion de Congés',
-    period: 'Janvier 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application web pour la gestion des congés des employés.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    url: 'https://gestion-de-cong-s-asxt.vercel.app/',
-    github: 'https://github.com/Alexandre-ab/Gestion-de-cong-s',
-    image: '/images/conges.webp'
-  },
-  {
-    id: 'versus',
-    title: 'Versus',
-    period: 'Décembre 2024',
-    context: 'Projet personnel',
-    description: 'Création d\'un coach ia esport.',
-    technologies: ['React', 'Redux', 'Stripe', 'Firebase', 'Node.js', 'Express'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Versus',
-    image: '/images/placeholder-project.svg'
-  },
-  {
-    id: 'malware',
-    title: 'Malware',
-    period: 'Avril 2025',
-    context: 'Projet personnel, Projet cybersécurité',
-    description: 'Création d\'un malware avec un botnet.',
-    technologies: ['Javascript'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Malware-',
-    image: '/images/malware.png'
-  },
-  {
-    id: 'pokedex',
-    title: 'Application Pokédex',
-    period: 'Décembre 2024',
-    context: 'Projet personnel',
-    description: 'Création d\'une application Pokédex',
-    technologies: ['C#', 'Windows Forms', 'SQL',],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Pokedex',
-    image: '/images/pokedex.png'
-  },
-  {
-    id: 'gsb',
-    title: 'GSB',
-    period: 'Avril 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application de gestion de stock pour une pharmacie.',
-    technologies: ['JavaScript', 'MongoDB', 'HTML/CSS', 'React', 'Node.js', 'Express'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    github: 'https://github.com/Alexandre-ab/GSB-',
-    image: '/images/GSB.png'
-  },
-  {
-    id: 'gestion-prescription',
-    title: 'Application de Gestion de Prescription  ',
-    period: 'Janvier 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application bureau pour la gestion des prescriptions des patients.',
-    technologies: ['C# ', 'Windows Forms', 'SQL',],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Gestion-de-prescription',
-    image: '/images/Medecin.png'
-  },
-  {
-    id: 'bot-shell',
-    title: 'Bot shell windows',
-    period: 'Juin 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un bot shell windows.',
-    technologies: [ 'Shell', 'Windows'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Bot-shell-windows',
-    image: '/images/shell.avif'
-  },
-  {
-    id: 'script-aveva',
-    title: 'Script Batch pour Application Aveva',
-    period: 'Juillet 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un script batch pour l\'application Aveva.',
-    technologies: [ 'Batch', 'Windows'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Script-batch-Aveva',
-    image: '/images/aveva.png'
-  },
-
-  {
-    id: 'salon-coiffure',
-    title: 'Site web pour un salon de coiffure',
-    period: 'Décembre 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un site web pour un salon de coiffure.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Figma','React'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    github: 'https://github.com/RyukSylux/revealBarber/tree/main',
-    image: '/images/hero-background.jpg'
-  }
-]
+const projects = projectsData
 
 export default function Projects() {
+  const [filter, setFilter] = useState('tous')
+  
+  const filteredProjects = filter === 'tous' 
+    ? projects 
+    : projects.filter(project => project.category === filter)
+
   return (
-    <section className="section">
+    <section className="section gradient-bg">
       <div className="container">
         <motion.div
           initial="initial"
@@ -124,48 +29,139 @@ export default function Projects() {
         >
           {/* En-tête */}
           <motion.div variants={fadeIn} className="text-center mb-8">
-            <h1 className="section-title">
+            <h1 className="hero-title">
               Mes Projets
             </h1>
-            <p className="mb-4">
-              Découvrez mes réalisations et les compétences mobilisées
+            <p className="hero-text">
+              Découvrez mes réalisations et les compétences SLAM mobilisées
             </p>
+          </motion.div>
+
+          {/* Filtres */}
+          <motion.div variants={fadeIn} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => setFilter('tous')}
+              className={filter === 'tous' ? 'btn btn-primary' : 'btn btn-outline'}
+              style={{ minWidth: '150px' }}
+            >
+              📚 Tous les projets
+            </button>
+            <button
+              onClick={() => setFilter('scolaire')}
+              className={filter === 'scolaire' ? 'btn btn-primary' : 'btn btn-outline'}
+              style={{ minWidth: '150px' }}
+            >
+              🎓 Projets scolaires
+            </button>
+            <button
+              onClick={() => setFilter('entreprise')}
+              className={filter === 'entreprise' ? 'btn btn-primary' : 'btn btn-outline'}
+              style={{ minWidth: '150px' }}
+            >
+              💼 Projets entreprise
+            </button>
+            <button
+              onClick={() => setFilter('personnel')}
+              className={filter === 'personnel' ? 'btn btn-primary' : 'btn btn-outline'}
+              style={{ minWidth: '150px' }}
+            >
+              👤 Projets personnels
+            </button>
+          </motion.div>
+
+          {/* Statistiques */}
+          <motion.div variants={fadeIn} className="grid grid-3 gap-4 mb-8">
+            <div className="card text-center">
+              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>
+                {filteredProjects.length}
+              </div>
+              <div className="card-subtitle">Projets {filter === 'tous' ? 'réalisés' : filter === 'scolaire' ? 'scolaires' : 'entreprise'}</div>
+            </div>
+            <div className="card text-center">
+              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '0.5rem' }}>
+                {[...new Set(filteredProjects.flatMap(p => p.technologies))].length}
+              </div>
+              <div className="card-subtitle">Technologies maîtrisées</div>
+            </div>
+            <div className="card text-center">
+              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent)', marginBottom: '0.5rem' }}>
+                {[...new Set(filteredProjects.flatMap(p => p.skills))].length}
+              </div>
+              <div className="card-subtitle">Compétences SLAM</div>
+            </div>
           </motion.div>
 
           {/* Grille de projets */}
           <div className="grid grid-3 gap-4">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
                 className="card"
+                style={{ position: 'relative' }}
               >
+                {/* Badge Featured */}
+                {project.featured && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    zIndex: 10,
+                    backgroundColor: 'var(--accent)',
+                    color: 'white',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: 'var(--radius-full)',
+                    fontSize: '0.75rem',
+                    fontWeight: 'bold'
+                  }}>
+                    ⭐ En vedette
+                  </div>
+                )}
+
                 {/* Image du projet */}
-                <div className="aspect-video rounded-md">
+                <div className="aspect-video rounded-md" style={{ position: 'relative', overflow: 'hidden' }}>
                   <img
                     src={project.image}
                     alt={project.title}
                     className="img-cover rounded-md"
+                    style={{ transition: 'transform 0.3s ease' }}
+                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                   />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                    padding: '1rem',
+                    color: 'white'
+                  }}>
+                    <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>
+                      {project.period}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Contenu du projet */}
                 <div className="card-content">
-                  <h3 className="card-title">
-                    {project.title}
-                  </h3>
-                  <p className="card-subtitle">
-                    {project.period} • {project.context}
-                  </p>
-                  <p className="card-text">
-                    {project.description}
-                  </p>
+                  <div className="mb-3">
+                    <h3 className="card-title" style={{ marginBottom: '0.5rem' }}>
+                      {project.title}
+                    </h3>
+                    <p className="card-subtitle" style={{ marginBottom: '0.75rem' }}>
+                      {project.context}
+                    </p>
+                    <p className="card-text">
+                      {project.description}
+                    </p>
+                  </div>
 
                   {/* Technologies */}
                   <div className="mb-4">
-                    <h4 className="font-semibold mb-2">
-                      Technologies utilisées
+                    <h4 style={{ fontSize: '0.875rem', fontWeight: '600', marginBottom: '0.5rem', color: 'var(--neutral-400)' }}>
+                      Technologies
                     </h4>
                     <div className="skill-tags">
                       {project.technologies.map((tech, techIndex) => (
@@ -181,14 +177,15 @@ export default function Projects() {
 
                   {/* Compétences SLAM */}
                   <div className="mb-4">
-                    <h4 className="font-semibold mb-2">
-                      Compétences SLAM mobilisées
+                    <h4 style={{ fontSize: '0.875rem', fontWeight: '600', marginBottom: '0.5rem', color: 'var(--neutral-400)' }}>
+                      Compétences SLAM
                     </h4>
                     <div className="skill-tags">
                       {project.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
                           className="badge"
+                          style={{ backgroundColor: 'var(--secondary)', color: 'white' }}
                         >
                           {skill}
                         </span>
@@ -203,7 +200,7 @@ export default function Projects() {
                       className="btn btn-outline btn-with-icon"
                       style={{ width: '100%' }}
                     >
-                      <PlayIcon className="icon" />
+                      <InformationCircleIcon className="icon" />
                       Voir les détails
                     </Link>
                     
@@ -216,18 +213,20 @@ export default function Projects() {
                         style={{ flex: 1 }}
                       > 
                         <CodeBracketIcon className="icon" />
-                        Code source
+                        Code
                       </a>
-                      <a
-                        href={project.url || project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-outline btn-with-icon"
-                        style={{ flex: 1 }}
-                      >
-                        <ArrowTopRightOnSquareIcon className="icon" />
-                        Voir le projet
-                      </a>
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-outline btn-with-icon"
+                          style={{ flex: 1 }}
+                        >
+                          <ArrowTopRightOnSquareIcon className="icon" />
+                          Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -238,4 +237,4 @@ export default function Projects() {
       </div>
     </section>
   )
-} 
+}

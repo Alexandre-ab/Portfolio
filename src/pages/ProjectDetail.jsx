@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { projectsData } from '../data/projectsData'
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -28,228 +29,10 @@ const competencesReferentiel = {
   'A1.4.3': 'Adaptation d\'une solution applicative aux évolutions de ses composants'
 }
 
-const projects = [
-  {
-    id: 'gestion-conges',
-    title: 'Application de Gestion de Congés',
-    period: 'Janvier 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application web pour la gestion des congés des employés.',
-    detailedDescription: 'Application complète de gestion des congés permettant aux employés de soumettre des demandes de congés, aux managers de les approuver ou rejeter, et aux RH de gérer l\'ensemble du processus. Intègre un système de notifications en temps réel et un tableau de bord analytique.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    url: 'https://gestion-de-cong-s-asxt.vercel.app/',
-    github: 'https://github.com/Alexandre-ab/Gestion-de-cong-s',
-    image: '/images/conges.webp',
-    features: [
-      'Système de demande de congés en ligne',
-      'Workflow d\'approbation multi-niveaux',
-      'Notifications en temps réel',
-      'Tableau de bord analytique',
-      'Gestion des soldes de congés',
-      'Export des données en PDF'
-    ],
-    challenges: [
-      'Mise en place d\'un système de notifications en temps réel avec WebSocket',
-      'Gestion des droits d\'accès selon les rôles (employé, manager, RH)',
-      'Optimisation des performances pour gérer un grand nombre d\'utilisateurs'
-    ]
-  },
-  {
-    id: 'versus',
-    title: 'Versus',
-    period: 'Décembre 2024',
-    context: 'Projet personnel',
-    description: 'Création d\'un coach ia esport.',
-    detailedDescription: 'Plateforme de coaching eSport utilisant l\'intelligence artificielle pour analyser les performances des joueurs et fournir des recommandations personnalisées.',
-    technologies: ['React', 'Redux', 'Stripe', 'Firebase', 'Node.js', 'Express'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Versus',
-    image: '/images/placeholder-project.svg',
-    features: [
-      'Analyse IA des performances de jeu',
-      'Recommandations personnalisées',
-      'Système de paiement intégré',
-      'Authentification sécurisée',
-      'Suivi de progression'
-    ],
-    challenges: [
-      'Intégration de l\'IA pour l\'analyse des performances',
-      'Mise en place du système de paiement Stripe',
-      'Gestion de l\'état global avec Redux'
-    ]
-  },
-  {
-    id: 'malware',
-    title: 'Malware',
-    period: 'Avril 2025',
-    context: 'Projet personnel, Projet cybersécurité',
-    description: 'Création d\'un malware avec un botnet.',
-    detailedDescription: 'Projet éducatif de cybersécurité visant à comprendre le fonctionnement des malwares et des botnets. Développé dans un environnement contrôlé à des fins d\'apprentissage.',
-    technologies: ['Javascript'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Malware-',
-    image: '/images/malware.png',
-    features: [
-      'Étude des techniques de propagation',
-      'Analyse du comportement des botnets',
-      'Environnement de test isolé',
-      'Documentation des vulnérabilités'
-    ],
-    challenges: [
-      'Comprendre les mécanismes de sécurité',
-      'Développer dans un environnement sécurisé',
-      'Documenter les risques et préventions'
-    ]
-  },
-  {
-    id: 'pokedex',
-    title: 'Application Pokédex',
-    period: 'Décembre 2024',
-    context: 'Projet personnel',
-    description: 'Création d\'une application Pokédex',
-    detailedDescription: 'Application desktop complète permettant de consulter les informations détaillées sur tous les Pokémon.',
-    technologies: ['C#', 'Windows Forms', 'SQL'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Pokedex',
-    image: '/images/pokedex.png',
-    features: [
-      'Base de données complète des Pokémon',
-      'Système de recherche avancé',
-      'Filtres par type et génération',
-      'Affichage des statistiques détaillées',
-      'Interface utilisateur intuitive'
-    ],
-    challenges: [
-      'Conception de la base de données SQL',
-      'Optimisation des requêtes',
-      'Création d\'une interface ergonomique'
-    ]
-  },
-  {
-    id: 'gsb',
-    title: 'GSB',
-    period: 'Avril 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application de gestion de stock pour une pharmacie.',
-    detailedDescription: 'Système complet de gestion de stock pharmaceutique incluant le suivi des médicaments et la gestion des péremptions.',
-    technologies: ['JavaScript', 'MongoDB', 'HTML/CSS', 'React', 'Node.js', 'Express'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    github: 'https://github.com/Alexandre-ab/GSB-',
-    image: '/images/GSB.png',
-    features: [
-      'Gestion des stocks de médicaments',
-      'Alertes de péremption',
-      'Alertes de stock bas',
-      'Génération de rapports',
-      'Interface intuitive'
-    ],
-    challenges: [
-      'Gestion des dates de péremption',
-      'Système d\'alertes automatiques',
-      'Génération de rapports PDF'
-    ]
-  },
-  {
-    id: 'gestion-prescription',
-    title: 'Application de Gestion de Prescription',
-    period: 'Janvier 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'une application bureau pour la gestion des prescriptions des patients.',
-    detailedDescription: 'Application médicale permettant aux médecins de créer, modifier et gérer les prescriptions de leurs patients.',
-    technologies: ['C#', 'Windows Forms', 'SQL'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Gestion-de-prescription',
-    image: '/images/Medecin.png',
-    features: [
-      'Création de prescriptions',
-      'Gestion des dossiers patients',
-      'Historique des prescriptions',
-      'Vérification des interactions médicamenteuses',
-      'Impression des ordonnances'
-    ],
-    challenges: [
-      'Sécurité des données médicales',
-      'Vérification des interactions',
-      'Interface adaptée aux professionnels de santé'
-    ]
-  },
-  {
-    id: 'bot-shell',
-    title: 'Bot shell windows',
-    period: 'Juin 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un bot shell windows.',
-    detailedDescription: 'Bot automatisé en ligne de commande Windows permettant d\'exécuter des tâches répétitives.',
-    technologies: ['Shell', 'Windows'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Bot-shell-windows',
-    image: '/images/shell.avif',
-    features: [
-      'Automatisation de tâches',
-      'Gestion de fichiers système',
-      'Scripts shell avancés',
-      'Optimisation des opérations'
-    ],
-    challenges: [
-      'Gestion des erreurs système',
-      'Compatibilité Windows',
-      'Sécurité des scripts'
-    ]
-  },
-  {
-    id: 'script-aveva',
-    title: 'Script Batch pour Application Aveva',
-    period: 'Juillet 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un script batch pour l\'application Aveva.',
-    detailedDescription: 'Script batch personnalisé pour automatiser les tâches liées à l\'application Aveva.',
-    technologies: ['Batch', 'Windows'],
-    skills: ['A1.1.1', 'A1.2.2', 'A1.3.2', 'A1.4.1'],
-    github: 'https://github.com/Alexandre-ab/Script-batch-Aveva',
-    image: '/images/aveva.png',
-    features: [
-      'Installation automatique',
-      'Configuration des paramètres',
-      'Maintenance du logiciel',
-      'Réduction du temps de déploiement'
-    ],
-    challenges: [
-      'Automatisation complète',
-      'Gestion des erreurs',
-      'Documentation du processus'
-    ]
-  },
-  {
-    id: 'salon-coiffure',
-    title: 'Site web pour un salon de coiffure',
-    period: 'Décembre 2025',
-    context: 'Projet scolaire - BTS SIO',
-    description: 'Développement d\'un site web pour un salon de coiffure.',
-    detailedDescription: 'Site web moderne et responsive pour un salon de coiffure incluant une galerie de réalisations.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Figma', 'React'],
-    skills: ['A1.1.1', 'A1.1.2', 'A1.2.3', 'A1.3.1'],
-    github: 'https://github.com/RyukSylux/revealBarber/tree/main',
-    image: '/images/hero-background.jpg',
-    features: [
-      'Galerie de réalisations',
-      'Système de prise de rendez-vous',
-      'Présentation des services',
-      'Section blog',
-      'Design responsive'
-    ],
-    challenges: [
-      'Design moderne et attractif',
-      'Système de réservation',
-      'Optimisation mobile'
-    ]
-  }
-]
-
 export default function ProjectDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const project = projects.find(p => p.id === id)
+  const project = projectsData.find(p => p.id === id)
 
   if (!project) {
     return (
@@ -309,14 +92,80 @@ export default function ProjectDetail() {
             <p className="card-text">{project.detailedDescription}</p>
           </motion.div>
 
+          {/* NOUVEAU: Choix technologiques justifiés */}
+          {project.technicalChoices && (
+            <motion.div variants={fadeIn} className="card mb-8">
+              <h2 className="section-title">💡 Choix technologiques justifiés</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: 'var(--neutral-400)' }}>
+                Chaque technologie a été sélectionnée pour des raisons précises, en fonction des besoins du projet et des contraintes techniques.
+              </p>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {project.technicalChoices.map((choice, index) => (
+                  <div key={index} style={{ 
+                    padding: '1.25rem', 
+                    backgroundColor: 'rgba(124, 58, 237, 0.08)', 
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: '4px solid var(--primary)'
+                  }}>
+                    <h4 style={{ 
+                      color: 'var(--primary-light)', 
+                      marginBottom: '0.75rem',
+                      fontSize: '1.125rem',
+                      fontWeight: 600
+                    }}>
+                      🔧 {choice.technology}
+                    </h4>
+                    <p className="card-text" style={{ marginBottom: 0, lineHeight: '1.7' }}>
+                      {choice.reason}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* NOUVEAU: Architecture technique */}
+          {project.architecture && (
+            <motion.div variants={fadeIn} className="card mb-8">
+              <h2 className="section-title">🏗️ Architecture technique</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', fontSize: '1.05rem' }}>
+                {project.architecture.description}
+              </p>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {project.architecture.layers.map((layer, index) => (
+                  <div key={index} style={{ 
+                    padding: '1.25rem', 
+                    backgroundColor: 'rgba(20, 184, 166, 0.08)', 
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: '4px solid var(--secondary)'
+                  }}>
+                    <h4 style={{ 
+                      color: 'var(--secondary)', 
+                      marginBottom: '0.5rem',
+                      fontSize: '1rem',
+                      fontWeight: 600
+                    }}>
+                      📦 {layer.name}
+                    </h4>
+                    <p className="card-text" style={{ marginBottom: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>
+                      {layer.role}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {/* Fonctionnalités */}
           {project.features && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">Fonctionnalités principales</h2>
+              <h2 className="section-title">✨ Fonctionnalités principales</h2>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {project.features.map((feature, index) => (
                   <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary-light)' }}>✓</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary-light)', fontSize: '1.2rem' }}>✓</span>
                     {feature}
                   </li>
                 ))}
@@ -324,14 +173,48 @@ export default function ProjectDetail() {
             </motion.div>
           )}
 
+          {/* NOUVEAU: Détails techniques approfondis */}
+          {project.technicalDetails && (
+            <motion.div variants={fadeIn} className="card mb-8">
+              <h2 className="section-title">⚙️ Détails techniques approfondis</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: 'var(--neutral-400)' }}>
+                Implémentation technique détaillée montrant la profondeur de la solution développée.
+              </p>
+              <div className="grid grid-2 gap-4">
+                {Object.entries(project.technicalDetails).map(([key, value], index) => (
+                  <div key={index} style={{ 
+                    padding: '1.25rem', 
+                    backgroundColor: 'rgba(244, 63, 94, 0.08)', 
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: '3px solid var(--accent)'
+                  }}>
+                    <h4 style={{ 
+                      color: 'var(--accent)', 
+                      marginBottom: '0.75rem',
+                      fontSize: '0.9rem',
+                      fontWeight: 600,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}>
+                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                    </h4>
+                    <p className="card-text" style={{ marginBottom: 0, fontSize: '0.9rem', lineHeight: '1.6' }}>
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {/* Défis techniques */}
           {project.challenges && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">Défis techniques</h2>
+              <h2 className="section-title">⚡ Défis techniques relevés</h2>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {project.challenges.map((challenge, index) => (
                   <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)' }}>⚡</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', fontSize: '1.2rem' }}>⚡</span>
                     {challenge}
                   </li>
                 ))}
@@ -341,19 +224,45 @@ export default function ProjectDetail() {
 
           {/* Technologies */}
           <motion.div variants={fadeIn} className="card mb-8">
-            <h2 className="section-title">Technologies utilisées</h2>
+            <h2 className="section-title">🛠️ Technologies utilisées</h2>
             <div className="skill-tags">
               {project.technologies.map((tech, index) => (
-                <span key={index} className="badge">
+                <span key={index} className="badge" style={{ fontSize: '0.95rem', padding: '0.5rem 1rem' }}>
                   {tech}
                 </span>
               ))}
             </div>
           </motion.div>
 
+          {/* NOUVEAU: Évolutions futures */}
+          {project.futureEnhancements && (
+            <motion.div variants={fadeIn} className="card mb-8" style={{ 
+              backgroundColor: 'rgba(124, 58, 237, 0.1)', 
+              borderLeft: '4px solid var(--primary)' 
+            }}>
+              <h2 className="section-title">🚀 Évolutions futures envisagées</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                Ce projet possède un potentiel d'évolution important. Voici les fonctionnalités et améliorations que je prévois d'implémenter :
+              </p>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {project.futureEnhancements.map((enhancement, index) => (
+                  <li key={index} className="card-text" style={{ 
+                    marginBottom: '1rem', 
+                    paddingLeft: '1.5rem', 
+                    position: 'relative',
+                    lineHeight: '1.6' 
+                  }}>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary-light)', fontWeight: 'bold' }}>→</span>
+                    {enhancement}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
           {/* Compétences SLAM */}
           <motion.div variants={fadeIn} className="card mb-8">
-            <h2 className="section-title">Compétences SLAM mobilisées</h2>
+            <h2 className="section-title">📚 Compétences SLAM mobilisées</h2>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {project.skills.map((skill, index) => (
                 <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
@@ -367,14 +276,14 @@ export default function ProjectDetail() {
           </motion.div>
 
           {/* Liens */}
-          <motion.div variants={fadeIn} className="flex gap-4" style={{ justifyContent: 'center' }}>
+          <motion.div variants={fadeIn} className="flex gap-4" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
               className="btn"
             >
-              Voir le code source
+              📂 Voir le code source
             </a>
             {project.url && (
               <a
@@ -383,7 +292,7 @@ export default function ProjectDetail() {
                 rel="noopener noreferrer"
                 className="btn btn-outline"
               >
-                Voir le projet en ligne
+                🌐 Voir le projet en ligne
               </a>
             )}
           </motion.div>
@@ -392,4 +301,3 @@ export default function ProjectDetail() {
     </section>
   )
 }
-

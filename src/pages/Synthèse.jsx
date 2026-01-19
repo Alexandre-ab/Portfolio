@@ -43,7 +43,9 @@ function Synthèse() {
                 onClick={handleDownload}
                 className="btn btn-primary"
                 style={{
-                  display: 'inline-block',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   padding: '0.75rem 1.5rem',
                   backgroundColor: '#7c3aed',
                   color: 'white',
@@ -52,10 +54,13 @@ function Synthèse() {
                   marginRight: '1rem',
                   marginBottom: '0.5rem',
                   fontWeight: '600',
+                  fontSize: '1rem',
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)'
+                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)',
+                  minWidth: '250px',
+                  height: '48px'
                 }}
                 onMouseOver={(e) => {
                   e.target.style.backgroundColor = '#6d28d9'
@@ -76,7 +81,9 @@ function Synthèse() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
                 style={{
-                  display: 'inline-block',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   padding: '0.75rem 1.5rem',
                   backgroundColor: '#7c3aed',
                   color: 'white',
@@ -85,8 +92,13 @@ function Synthèse() {
                   marginRight: '1rem',
                   marginBottom: '0.5rem',
                   fontWeight: '600',
+                  fontSize: '1rem',
+                  border: 'none',
+                  cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)'
+                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)',
+                  minWidth: '250px',
+                  height: '48px'
                 }}
                 onMouseOver={(e) => {
                   e.target.style.backgroundColor = '#6d28d9'

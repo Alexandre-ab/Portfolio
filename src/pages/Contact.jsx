@@ -244,7 +244,7 @@ export default function Contact() {
                   Télécharger mon CV
                 </h2>
                 <a
-                  href="CV.pdf"
+                  href="/images/BOUE Alexandre - CV Dev.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download
