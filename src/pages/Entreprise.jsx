@@ -152,7 +152,7 @@ export default function Entreprise() {
                   width: '3rem', 
                   height: '3rem', 
                   borderRadius: '50%', 
-                  backgroundColor: 'rgba(124, 58, 237, 0.1)', 
+                  backgroundColor: 'rgba(26, 63, 191, 0.05)', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
@@ -287,7 +287,7 @@ export default function Entreprise() {
           </motion.div>
 
           {/* Mon rôle */}
-          <motion.div variants={fadeIn} className="card" style={{ backgroundColor: 'rgba(124, 58, 237, 0.1)', borderLeft: '4px solid var(--primary)' }}>
+          <motion.div variants={fadeIn} className="card" style={{ backgroundColor: 'rgba(26, 63, 191, 0.05)', borderLeft: '4px solid var(--primary)' }}>
             <div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
               <div style={{ 
                 width: '3rem', 

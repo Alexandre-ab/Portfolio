@@ -38,53 +38,40 @@ export default function Projects() {
           </motion.div>
 
           {/* Filtres */}
-          <motion.div variants={fadeIn} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            <button
-              onClick={() => setFilter('tous')}
-              className={filter === 'tous' ? 'btn btn-primary' : 'btn btn-outline'}
-              style={{ minWidth: '150px' }}
-            >
-              📚 Tous les projets
-            </button>
-            <button
-              onClick={() => setFilter('scolaire')}
-              className={filter === 'scolaire' ? 'btn btn-primary' : 'btn btn-outline'}
-              style={{ minWidth: '150px' }}
-            >
-              🎓 Projets scolaires
-            </button>
-            <button
-              onClick={() => setFilter('entreprise')}
-              className={filter === 'entreprise' ? 'btn btn-primary' : 'btn btn-outline'}
-              style={{ minWidth: '150px' }}
-            >
-              💼 Projets entreprise
-            </button>
-            <button
-              onClick={() => setFilter('personnel')}
-              className={filter === 'personnel' ? 'btn btn-primary' : 'btn btn-outline'}
-              style={{ minWidth: '150px' }}
-            >
-              👤 Projets personnels
-            </button>
+          <motion.div variants={fadeIn} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+            {[
+              { key: 'tous',       label: 'Tous' },
+              { key: 'scolaire',   label: 'Scolaires' },
+              { key: 'entreprise', label: 'Entreprise' },
+              { key: 'personnel',  label: 'Personnels' },
+            ].map(f => (
+              <button
+                key={f.key}
+                onClick={() => setFilter(f.key)}
+                className={filter === f.key ? 'btn btn-primary' : 'btn btn-outline'}
+                style={{ minWidth: '120px' }}
+              >
+                {f.label}
+              </button>
+            ))}
           </motion.div>
 
           {/* Statistiques */}
           <motion.div variants={fadeIn} className="grid grid-3 gap-4 mb-8">
             <div className="card text-center">
-              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>
+              <div style={{ fontFamily: 'var(--font-sans)', fontSize: '3rem', fontWeight: 800, letterSpacing: '-0.04em', color: 'var(--foreground)', marginBottom: '0.25rem', lineHeight: 1 }}>
                 {filteredProjects.length}
               </div>
               <div className="card-subtitle">Projets {filter === 'tous' ? 'réalisés' : filter === 'scolaire' ? 'scolaires' : 'entreprise'}</div>
             </div>
             <div className="card text-center">
-              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '0.5rem' }}>
+              <div style={{ fontFamily: 'var(--font-sans)', fontSize: '3rem', fontWeight: 800, letterSpacing: '-0.04em', color: 'var(--foreground)', marginBottom: '0.25rem', lineHeight: 1 }}>
                 {[...new Set(filteredProjects.flatMap(p => p.technologies))].length}
               </div>
               <div className="card-subtitle">Technologies maîtrisées</div>
             </div>
             <div className="card text-center">
-              <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent)', marginBottom: '0.5rem' }}>
+              <div style={{ fontFamily: 'var(--font-sans)', fontSize: '3rem', fontWeight: 800, letterSpacing: '-0.04em', color: 'var(--foreground)', marginBottom: '0.25rem', lineHeight: 1 }}>
                 {[...new Set(filteredProjects.flatMap(p => p.skills))].length}
               </div>
               <div className="card-subtitle">Compétences SLAM</div>

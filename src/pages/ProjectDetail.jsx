@@ -95,26 +95,28 @@ export default function ProjectDetail() {
           {/* NOUVEAU: Choix technologiques justifiés */}
           {project.technicalChoices && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">💡 Choix technologiques justifiés</h2>
-              <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: 'var(--neutral-400)' }}>
+              <h2 className="section-title">Choix technologiques</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', color: 'var(--neutral-400)' }}>
                 Chaque technologie a été sélectionnée pour des raisons précises, en fonction des besoins du projet et des contraintes techniques.
               </p>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {project.technicalChoices.map((choice, index) => (
-                  <div key={index} style={{ 
-                    padding: '1.25rem', 
-                    backgroundColor: 'rgba(124, 58, 237, 0.08)', 
+                  <div key={index} style={{
+                    padding: '1.25rem',
+                    backgroundColor: 'rgba(26, 63, 191, 0.05)',
                     borderRadius: 'var(--radius-md)',
-                    borderLeft: '4px solid var(--primary)'
+                    borderLeft: '3px solid var(--primary)'
                   }}>
-                    <h4 style={{ 
-                      color: 'var(--primary-light)', 
+                    <h4 style={{
+                      color: 'var(--primary)',
                       marginBottom: '0.75rem',
-                      fontSize: '1.125rem',
-                      fontWeight: 600
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      fontFamily: 'var(--font-mono)',
+                      letterSpacing: '0.03em',
                     }}>
-                      🔧 {choice.technology}
+                      {choice.technology}
                     </h4>
                     <p className="card-text" style={{ marginBottom: 0, lineHeight: '1.7' }}>
                       {choice.reason}
@@ -128,26 +130,28 @@ export default function ProjectDetail() {
           {/* NOUVEAU: Architecture technique */}
           {project.architecture && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">🏗️ Architecture technique</h2>
-              <p className="card-text" style={{ marginBottom: '1.5rem', fontSize: '1.05rem' }}>
+              <h2 className="section-title">Architecture technique</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem' }}>
                 {project.architecture.description}
               </p>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {project.architecture.layers.map((layer, index) => (
-                  <div key={index} style={{ 
-                    padding: '1.25rem', 
-                    backgroundColor: 'rgba(20, 184, 166, 0.08)', 
+                  <div key={index} style={{
+                    padding: '1.25rem',
+                    backgroundColor: 'rgba(26, 122, 74, 0.05)',
                     borderRadius: 'var(--radius-md)',
-                    borderLeft: '4px solid var(--secondary)'
+                    borderLeft: '3px solid var(--secondary)'
                   }}>
-                    <h4 style={{ 
-                      color: 'var(--secondary)', 
+                    <h4 style={{
+                      color: 'var(--secondary)',
                       marginBottom: '0.5rem',
-                      fontSize: '1rem',
-                      fontWeight: 600
+                      fontSize: '0.875rem',
+                      fontWeight: 700,
+                      fontFamily: 'var(--font-mono)',
+                      letterSpacing: '0.03em',
                     }}>
-                      📦 {layer.name}
+                      {layer.name}
                     </h4>
                     <p className="card-text" style={{ marginBottom: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>
                       {layer.role}
@@ -161,11 +165,11 @@ export default function ProjectDetail() {
           {/* Fonctionnalités */}
           {project.features && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">✨ Fonctionnalités principales</h2>
+              <h2 className="section-title">Fonctionnalités principales</h2>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {project.features.map((feature, index) => (
                   <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary-light)', fontSize: '1.2rem' }}>✓</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--primary)', fontWeight: 700 }}>→</span>
                     {feature}
                   </li>
                 ))}
@@ -176,25 +180,26 @@ export default function ProjectDetail() {
           {/* NOUVEAU: Détails techniques approfondis */}
           {project.technicalDetails && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">⚙️ Détails techniques approfondis</h2>
-              <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: 'var(--neutral-400)' }}>
+              <h2 className="section-title">Détails techniques</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', color: 'var(--neutral-400)' }}>
                 Implémentation technique détaillée montrant la profondeur de la solution développée.
               </p>
               <div className="grid grid-2 gap-4">
                 {Object.entries(project.technicalDetails).map(([key, value], index) => (
-                  <div key={index} style={{ 
-                    padding: '1.25rem', 
-                    backgroundColor: 'rgba(244, 63, 94, 0.08)', 
+                  <div key={index} style={{
+                    padding: '1.25rem',
+                    backgroundColor: 'rgba(200, 54, 10, 0.05)',
                     borderRadius: 'var(--radius-md)',
                     borderLeft: '3px solid var(--accent)'
                   }}>
-                    <h4 style={{ 
-                      color: 'var(--accent)', 
+                    <h4 style={{
+                      color: 'var(--accent)',
                       marginBottom: '0.75rem',
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      fontFamily: 'var(--font-mono)',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.05em'
+                      letterSpacing: '0.08em'
                     }}>
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </h4>
@@ -210,11 +215,11 @@ export default function ProjectDetail() {
           {/* Défis techniques */}
           {project.challenges && (
             <motion.div variants={fadeIn} className="card mb-8">
-              <h2 className="section-title">⚡ Défis techniques relevés</h2>
+              <h2 className="section-title">Défis techniques</h2>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {project.challenges.map((challenge, index) => (
                   <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', fontSize: '1.2rem' }}>⚡</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', fontWeight: 700 }}>—</span>
                     {challenge}
                   </li>
                 ))}
@@ -224,7 +229,7 @@ export default function ProjectDetail() {
 
           {/* Technologies */}
           <motion.div variants={fadeIn} className="card mb-8">
-            <h2 className="section-title">🛠️ Technologies utilisées</h2>
+            <h2 className="section-title">Technologies utilisées</h2>
             <div className="skill-tags">
               {project.technologies.map((tech, index) => (
                 <span key={index} className="badge" style={{ fontSize: '0.95rem', padding: '0.5rem 1rem' }}>
@@ -237,10 +242,10 @@ export default function ProjectDetail() {
           {/* NOUVEAU: Évolutions futures */}
           {project.futureEnhancements && (
             <motion.div variants={fadeIn} className="card mb-8" style={{ 
-              backgroundColor: 'rgba(124, 58, 237, 0.1)', 
+              backgroundColor: 'rgba(26, 63, 191, 0.05)', 
               borderLeft: '4px solid var(--primary)' 
             }}>
-              <h2 className="section-title">🚀 Évolutions futures envisagées</h2>
+              <h2 className="section-title">Évolutions futures</h2>
               <p className="card-text" style={{ marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 Ce projet possède un potentiel d'évolution important. Voici les fonctionnalités et améliorations que je prévois d'implémenter :
               </p>
@@ -262,7 +267,7 @@ export default function ProjectDetail() {
 
           {/* Compétences SLAM */}
           <motion.div variants={fadeIn} className="card mb-8">
-            <h2 className="section-title">📚 Compétences SLAM mobilisées</h2>
+            <h2 className="section-title">Compétences SLAM mobilisées</h2>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {project.skills.map((skill, index) => (
                 <li key={index} className="card-text" style={{ marginBottom: '0.75rem', paddingLeft: '1.5rem', position: 'relative' }}>
@@ -283,7 +288,7 @@ export default function ProjectDetail() {
               rel="noopener noreferrer"
               className="btn"
             >
-              📂 Voir le code source
+              Code source ↗
             </a>
             {project.url && (
               <a
@@ -292,7 +297,7 @@ export default function ProjectDetail() {
                 rel="noopener noreferrer"
                 className="btn btn-outline"
               >
-                🌐 Voir le projet en ligne
+                Voir en ligne ↗
               </a>
             )}
           </motion.div>

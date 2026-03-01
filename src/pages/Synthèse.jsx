@@ -31,12 +31,13 @@ function Synthèse() {
             Synthèse des réalisations professionnelles - BTS SIO SLAM 2026
           </p>
           
-          <div className="pdf-container" style={{ 
+          <div className="pdf-container" style={{
             marginTop: '2rem',
-            backgroundColor: 'white',
-            borderRadius: '10px',
+            backgroundColor: 'var(--card)',
+            borderRadius: 'var(--radius-md)',
             padding: '1.5rem',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            border: '1px solid var(--border)',
+            boxShadow: 'var(--shadow-sm)'
           }}>
             <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
               <button 
@@ -143,31 +144,23 @@ function Synthèse() {
               <div style={{
                 padding: '3rem',
                 textAlign: 'center',
-                backgroundColor: '#f8f9fa',
-                borderRadius: '5px',
-                border: '2px dashed #dee2e6'
+                backgroundColor: 'var(--background)',
+                borderRadius: 'var(--radius-md)',
+                border: '1px dashed var(--border)'
               }}>
-                <p style={{ fontSize: '1.2rem', color: '#495057', marginBottom: '1rem' }}>
-                  📄 Votre navigateur ne peut pas afficher le PDF directement
+                <p style={{ fontSize: '1rem', color: 'var(--neutral-500)', marginBottom: '1rem' }}>
+                  Votre navigateur ne peut pas afficher le PDF directement
                 </p>
-                <p style={{ color: '#6c757d', marginBottom: '1.5rem' }}>
-                  Veuillez utiliser les boutons ci-dessus pour télécharger ou ouvrir le document
+                <p style={{ color: 'var(--neutral-400)', marginBottom: '1.5rem', fontSize: '0.875rem' }}>
+                  Utilisez les boutons ci-dessus pour télécharger ou ouvrir le document
                 </p>
-                <a 
+                <a
                   href={pdfPath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-block',
-                    padding: '0.75rem 2rem',
-                    backgroundColor: '#28a745',
-                    color: 'white',
-                    textDecoration: 'none',
-                    borderRadius: '5px',
-                    fontWeight: '600'
-                  }}
+                  className="btn btn-primary"
                 >
-                  Voir le document
+                  Ouvrir le document →
                 </a>
               </div>
             )}
