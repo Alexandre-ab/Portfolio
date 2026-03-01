@@ -1,106 +1,216 @@
-// eslint-disable-next-line no-unused-vars
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
 }
 
-const inputStyle = {
-  width: '100%',
-  padding: '0.75rem 1rem',
-  border: '2px solidrgb(196, 175, 233)',
-  borderRadius: 'var(--radius)',
-  backgroundColor: 'var(--bg-color)',
-  color: 'var(--text-color)',
-  outline: 'none',
-  transition: 'border-color 0.2s, box-shadow 0.2s',
-}
+const links = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexandre-bou%C3%A9-834807220/', arrow: '↗' },
+  { label: 'GitHub',   href: 'https://github.com/Alexandre-ab', arrow: '↗' },
+]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [sent, setSent] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Ici, vous pouvez ajouter la logique d'envoi du formulaire
-    console.log('Form submitted:', formData)
+    const subject = encodeURIComponent(`Message de ${formData.name} — Portfolio`)
+    const body    = encodeURIComponent(formData.message)
+    window.location.href = `mailto:Alexandre.boue72@gmail.com?subject=${subject}&body=${body}`
+    setSent(true)
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: 'var(--bg-secondary)',
-      paddingTop: '4rem',
-      paddingBottom: '4rem'
-    }}>
+    <section className="gradient-bg section">
       <div className="container">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          style={{
-            maxWidth: '64rem',
-            margin: '0 auto'
-          }}
-        >
-          {/* En-tête */}
-          <motion.div 
-            variants={fadeIn} 
-            className="text-center" 
-            style={{ marginBottom: '4rem' }}
-          >
+        <div className="about-container">
+
+          {/* ── Titre ───────────────────────────────────── */}
+          <motion.div {...fadeUp} style={{ marginBottom: '3.5rem' }}>
             <h1 style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              color: 'var(--text-color)',
-              marginBottom: '1rem'
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'clamp(3.5rem, 9vw, 7rem)',
+              fontWeight: 800,
+              lineHeight: 0.92,
+              letterSpacing: '-0.035em',
+              color: 'var(--foreground)',
+              marginBottom: '1.5rem',
             }}>
-              Contact
+              CONTACT
             </h1>
-            <p style={{
-              fontSize: '1.125rem',
-              color: 'var(--text-light)'
-            }}>
-              N'hésitez pas à me contacter pour toute question ou opportunité
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ width: '2.5rem', height: '2px', backgroundColor: 'var(--primary)', flexShrink: 0 }} />
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.68rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--neutral-400)',
+              }}>
+                Une question · Un projet · Une opportunité
+              </span>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 " style={{
-            gap: '2rem',
-            '@media (min-width: 768px)': {
-              gridTemplateColumns: 'repeat(2, 1fr)'
-            }
+          {/* ── Grille info + formulaire ─────────────────── */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1.4fr',
+            gap: '5rem',
+            alignItems: 'start',
           }}>
-            {/* Formulaire de contact */}
-            <motion.div variants={fadeIn}>
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem',  padding: '2rem', borderRadius: '1rem' }}>
-                <div>
-                  <label
-                    htmlFor="name"
-                    style={{
-                      display: 'block',
-                      fontSize: '0.875rem',
-                      fontWeight: '500',
-                      color: 'var(--text-color)',
-                      marginBottom: '0.25rem'
 
+            {/* ── Colonne info ─────────────────────────── */}
+            <motion.div
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.1 }}
+            >
+              {/* Email */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--neutral-400)',
+                  marginBottom: '0.5rem',
+                }}>
+                  Email
+                </p>
+                <a
+                  href="mailto:Alexandre.boue72@gmail.com"
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    color: 'var(--foreground)',
+                    letterSpacing: '-0.01em',
+                    borderBottom: '1px solid var(--border)',
+                    paddingBottom: '0.15rem',
+                    transition: 'color 0.2s, border-color 0.2s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.borderColor = 'var(--primary)' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--foreground)'; e.currentTarget.style.borderColor = 'var(--border)' }}
+                >
+                  Alexandre.boue72@gmail.com
+                </a>
+              </div>
+
+              {/* Localisation */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--neutral-400)',
+                  marginBottom: '0.5rem',
+                }}>
+                  Localisation
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  color: 'var(--foreground)',
+                  letterSpacing: '-0.01em',
+                  marginBottom: 0,
+                }}>
+                  Lyon, France
+                </p>
+              </div>
+
+              {/* Séparateur */}
+              <div style={{ height: '1px', backgroundColor: 'var(--border)', marginBottom: '2rem' }} />
+
+              {/* Liens */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+                {links.map(link => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 6 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '0.875rem 0',
+                      borderBottom: '1px solid var(--border)',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 700,
+                      fontSize: '1.125rem',
+                      letterSpacing: '-0.02em',
+                      color: 'var(--foreground)',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
                     }}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--primary)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--foreground)'}
                   >
+                    <span>{link.label}</span>
+                    <span style={{ fontSize: '1rem', opacity: 0.5 }}>{link.arrow}</span>
+                  </motion.a>
+                ))}
+
+                {/* CV */}
+                <motion.a
+                  href="/images/BOUE Alexandre - CV Dev.pdf"
+                  download
+                  whileHover={{ x: 6 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '0.875rem 0',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 700,
+                    fontSize: '1.125rem',
+                    letterSpacing: '-0.02em',
+                    color: 'var(--foreground)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--primary)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'var(--foreground)'}
+                >
+                  <span>Curriculum Vitæ</span>
+                  <ArrowDownTrayIcon style={{ width: '1.125rem', height: '1.125rem', opacity: 0.5 }} />
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* ── Formulaire ───────────────────────────── */}
+            <motion.div
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.2 }}
+            >
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+
+                {/* Nom */}
+                <div>
+                  <label htmlFor="name" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--neutral-400)',
+                    display: 'block',
+                    marginBottom: '0.75rem',
+                  }}>
                     Nom
                   </label>
                   <input
@@ -110,22 +220,37 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    style={inputStyle}
-                    
+                    placeholder="Votre nom"
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '2px solid var(--border)',
+                      borderRadius: 0,
+                      padding: '0.5rem 0',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 600,
+                      fontSize: '1rem',
+                      color: 'var(--foreground)',
+                      outline: 'none',
+                      transition: 'border-color 0.2s',
+                    }}
+                    onFocus={e => e.target.style.borderColor = 'var(--primary)'}
+                    onBlur={e => e.target.style.borderColor = 'var(--border)'}
                   />
                 </div>
 
+                {/* Email */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    style={{
-                      display: 'block',
-                      fontSize: '0.875rem',
-                      fontWeight: '500',
-                      color: 'var(--text-color)',
-                      marginBottom: '0.25rem'
-                    }}
-                  >
+                  <label htmlFor="email" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--neutral-400)',
+                    display: 'block',
+                    marginBottom: '0.75rem',
+                  }}>
                     Email
                   </label>
                   <input
@@ -135,21 +260,37 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    style={inputStyle}
+                    placeholder="votre@email.com"
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '2px solid var(--border)',
+                      borderRadius: 0,
+                      padding: '0.5rem 0',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 600,
+                      fontSize: '1rem',
+                      color: 'var(--foreground)',
+                      outline: 'none',
+                      transition: 'border-color 0.2s',
+                    }}
+                    onFocus={e => e.target.style.borderColor = 'var(--primary)'}
+                    onBlur={e => e.target.style.borderColor = 'var(--border)'}
                   />
                 </div>
 
+                {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    style={{
-                      display: 'block',
-                      fontSize: '0.875rem',
-                      fontWeight: '500',
-                      color: 'var(--text-color)',
-                      marginBottom: '0.25rem'
-                    }}
-                  >
+                  <label htmlFor="message" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--neutral-400)',
+                    display: 'block',
+                    marginBottom: '0.75rem',
+                  }}>
                     Message
                   </label>
                   <textarea
@@ -158,111 +299,60 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="4"
-                    style={inputStyle}
+                    rows="5"
+                    placeholder="Votre message..."
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '2px solid var(--border)',
+                      borderRadius: 0,
+                      padding: '0.5rem 0',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 600,
+                      fontSize: '1rem',
+                      color: 'var(--foreground)',
+                      outline: 'none',
+                      resize: 'none',
+                      transition: 'border-color 0.2s',
+                    }}
+                    onFocus={e => e.target.style.borderColor = 'var(--primary)'}
+                    onBlur={e => e.target.style.borderColor = 'var(--border)'}
                   />
                 </div>
 
-                <button
+                {/* Bouton */}
+                <motion.button
                   type="submit"
-                  className="btn"
+                  whileHover={{ x: 6 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                   style={{
-                    width: '100%',
-                    padding: '0.75rem 1.5rem'
-                  }}
-                >
-                  Envoyer le message
-                </button>
-              </form>
-            </motion.div>
-
-            {/* Informations de contact */}
-            <motion.div variants={fadeIn} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="card">
-                <h2 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '600',
-                  color: 'var(--text-color)',
-                  marginBottom: '1rem'
-                }}>
-                  Informations de contact
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <p style={{ color: 'var(--text-light)' }}>
-                    Email : Alexandre.boue72@gmail.com
-                  </p>
-                  <p style={{ color: 'var(--text-light)' }}>
-                    Localisation : Lyon, France
-                  </p>
-                </div>
-              </div>
-
-              <div className="card">
-                <h2 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '600',
-                  color: 'var(--text-color)',
-                  marginBottom: '1rem'
-                }}>
-                  Liens professionnels
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <a
-                    href="https://www.linkedin.com/in/alexandre-bou%C3%A9-834807220/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'block',
-                      color: 'var(--primary-color)',
-                      transition: 'color 0.2s'
-                    }}
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href="https://github.com/Alexandre-ab"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'block',
-                      color: 'var(--primary-color)',
-                      transition: 'color 0.2s'
-                    }}
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-
-              <div className="card">
-                <h2 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '600',
-                  color: 'var(--text-color)',
-                  marginBottom: '1rem'
-                }}>
-                  Télécharger mon CV
-                </h2>
-                <a
-                  href="/images/BOUE Alexandre - CV Dev.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  style={{
+                    alignSelf: 'flex-start',
                     display: 'inline-flex',
                     alignItems: 'center',
-                      color: 'var(--primary-color)',
-                      transition: 'color 0.2s'
+                    gap: '0.75rem',
+                    background: 'none',
+                    border: 'none',
+                    padding: '0',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    color: 'var(--foreground)',
+                    paddingBottom: '0.25rem',
+                    borderBottom: '2px solid var(--primary)',
                   }}
                 >
-                  <ArrowDownTrayIcon style={{ height: '1.25rem', width: '1.25rem', marginRight: '0.5rem' }} />
-                  Télécharger le CV
-                </a>
-              </div>
+                  {sent ? '✓ Message préparé' : 'Envoyer le message →'}
+                </motion.button>
+
+              </form>
             </motion.div>
           </div>
-        </motion.div>
+
+        </div>
       </div>
-    </div>
+    </section>
   )
-} 
+}

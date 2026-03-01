@@ -1,145 +1,156 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-}
+const quickLinks = [
+  { to: '/projects',  label: 'Projets',    num: '01', desc: 'Réalisations & compétences' },
+  { to: '/about',     label: 'À propos',   num: '02', desc: 'Parcours & formation' },
+  { to: '/contact',   label: 'Contact',    num: '03', desc: 'Discutons ensemble' },
+  { to: '/entreprise',label: 'Entreprise', num: '04', desc: 'Ekium & alternance' },
+  { to: '/veille',    label: 'Veille',     num: '05', desc: 'Tendances technologiques' },
+  { to: '/synthèse',  label: 'Synthèse',   num: '06', desc: 'Tableau E5 — Session 2026' },
+]
 
 export default function Home() {
   return (
-    <section className="hero-section gradient-bg">
+    <section className="hero-section">
       <div className="container">
-        <div className="hero-content">
-          {/* Hero Section */}
+
+        {/* ── Bloc héros ──────────────────────────────────── */}
+        <div className="home-hero-grid">
+
+          {/* Colonne texte */}
           <motion.div
-            initial="initial"
-            animate="animate"
-            className="text-center mb-8"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.h1
-              variants={fadeIn}
-              className="hero-title"
+            <h1 style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'clamp(4.5rem, 11vw, 8.5rem)',
+              fontWeight: 800,
+              lineHeight: 0.92,
+              letterSpacing: '-0.035em',
+              color: 'var(--foreground)',
+              marginBottom: '2rem',
+              background: 'none',
+              WebkitTextFillColor: 'var(--foreground)',
+            }}>
+              ALEXANDRE<br />BOUÉ
+            </h1>
+
+            {/* Trait + label */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <div style={{ width: '2.5rem', height: '2px', backgroundColor: 'var(--primary)', flexShrink: 0 }} />
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.7rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--neutral-400)',
+              }}>
+                Développeur · BTS SIO SLAM · Session 2026
+              </span>
+            </div>
+
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.7rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--neutral-400)',
+              marginBottom: '2.5rem',
+            }}>
+              Alternant @ Ekium · Lyon, France
+            </p>
+
+            {/* CTA CV */}
+            <motion.a
+              href="/images/BOUE Alexandre - CV Dev.pdf"
+              download
+              whileHover={{ x: 8 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                color: 'var(--foreground)',
+                textDecoration: 'none',
+                paddingBottom: '0.25rem',
+                borderBottom: '2px solid var(--primary)',
+              }}
             >
-              Alexandre Boué
-            </motion.h1>
-            <motion.h2
-              variants={fadeIn}
-              className="hero-subtitle"
-            >
-              Étudiant en BTS SIO SLAM
-            </motion.h2>
-            <motion.div 
-              variants={fadeIn}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="/images/BOUE Alexandre - CV Dev.pdf"
-                download
-                className="btn btn-with-icon animate-pulse"
-              >
-                <ArrowDownTrayIcon className="icon" />
-                Télécharger mon CV
-              </a>
-            </motion.div>
+              ↓ Télécharger mon CV
+            </motion.a>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* Photo carrée */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="profile-image-container"
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="profile-image-container animate-float"
+            transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="profile-image">
               <img
                 src="/images/1730314601565.jpg"
-                alt="Photo de profil"
+                alt="Alexandre Boué"
                 className="img-cover"
               />
             </div>
           </motion.div>
-
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-3 quick-links"
-          >
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link to="/projects" className="quick-link-card">
-                <h3 className="quick-link-title">Projets</h3>
-                <p className="quick-link-text">
-                  Découvrez mes réalisations et compétences
-                </p>
-              </Link>
-            </motion.div>
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link to="/about" className="quick-link-card">
-                <h3 className="quick-link-title">À propos</h3>
-                <p className="quick-link-text">
-                  En savoir plus sur mon parcours
-                </p>
-              </Link>
-            </motion.div>
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link to="/contact" className="quick-link-card">
-                <h3 className="quick-link-title">Contact</h3>
-                <p className="quick-link-text">
-                  Prenons contact pour discuter de vos projets
-                </p>
-              </Link>
-            </motion.div>
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link to="/entreprise" className="quick-link-card">
-              <h3 className="quick-link-title">Entreprise</h3>
-              <p className="quick-link-text">
-                Découvrez mon entreprise
-              </p>
-            </Link>
-            </motion.div>
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-            <Link to="/veille" className="quick-link-card">
-              <h3 className="quick-link-title">Veille</h3>
-              <p className="quick-link-text">
-                Découvrez ma veille technologique
-              </p>
-            </Link>
-            </motion.div>
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-            <Link to="/synthèse" className="quick-link-card">
-              <h3 className="quick-link-title">Synthèse</h3>
-              <p className="quick-link-text">
-                Découvrez ma synthèse
-              </p>
-            </Link>
-          </motion.div>
-          </motion.div>
         </div>
+
+        {/* ── Séparateur animé ────────────────────────────── */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            height: '1px',
+            backgroundColor: 'var(--foreground)',
+            transformOrigin: 'left',
+            opacity: 0.12,
+          }}
+        />
+
+        {/* ── Liens numérotés ─────────────────────────────── */}
+        <motion.div
+          className="home-links-grid"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.55 }}
+        >
+          {quickLinks.map((link, i) => (
+            <motion.div
+              key={link.to}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + i * 0.06, duration: 0.45, ease: 'easeOut' }}
+              whileHover={{ x: 7 }}
+            >
+              <Link to={link.to} className="quick-link-card">
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.62rem',
+                  color: 'var(--neutral-400)',
+                  letterSpacing: '0.06em',
+                  display: 'block',
+                  marginBottom: '0.35rem',
+                }}>
+                  {link.num}
+                </span>
+                <span className="quick-link-title">{link.label} →</span>
+                <span className="quick-link-text">{link.desc}</span>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
       </div>
     </section>
   )
-} 
+}

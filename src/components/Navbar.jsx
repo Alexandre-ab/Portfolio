@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="container">
         <div className="navbar-content">
           <Link to="/" className="navbar-logo">
-            <span className="text-gradient">Portfolio BTS SIO</span>
+            AB
           </Link>
 
           {/* Desktop Navigation */}

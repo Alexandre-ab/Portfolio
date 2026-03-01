@@ -101,24 +101,6 @@ export default function Projects() {
                 className="card"
                 style={{ position: 'relative' }}
               >
-                {/* Badge Featured */}
-                {project.featured && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    zIndex: 10,
-                    backgroundColor: 'var(--accent)',
-                    color: 'white',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.75rem',
-                    fontWeight: 'bold'
-                  }}>
-                    ⭐ En vedette
-                  </div>
-                )}
-
                 {/* Image du projet */}
                 <div className="aspect-video rounded-md" style={{ position: 'relative', overflow: 'hidden' }}>
                   <img
