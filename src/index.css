@@ -85,6 +85,8 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ── App layout ──────────────────────────────────────────── */
@@ -100,7 +102,6 @@ body {
 
 /* ── Hero / Home ─────────────────────────────────────────── */
 .hero-section {
-  min-height: calc(100vh - var(--header-height));
   padding: 4rem 0 3rem;
   background-color: var(--background);
 }
@@ -526,7 +527,9 @@ body::after {
 }
 
 .navbar-toggle {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
@@ -563,10 +566,10 @@ body::after {
   color: var(--foreground);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .navbar-menu    { display: flex; }
   .navbar-toggle  { display: none; }
-  .navbar-mobile  { display: none; }
+  .navbar-mobile  { display: none !important; }
 }
 
 /* ── Footer ──────────────────────────────────────────────── */
@@ -767,13 +770,26 @@ body::after {
   display: block;
 }
 
-/* ── Grille hero home ────────────────────────────────────── */
+/* ── Grille contact ──────────────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── Grille hero home (infos + photo, sous le titre) ────── */
 .home-hero-grid {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 240px;
   gap: 4rem;
-  align-items: flex-end;
-  margin-bottom: 4rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+/* Empêche le texte de faire déborder sa colonne */
+.home-hero-grid > * {
+  min-width: 0;
 }
 
 .home-links-grid {
@@ -781,28 +797,86 @@ body::after {
   grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 768px) {
+/* ── Responsive tablette (< 1024px) ─────────────────────── */
+@media (max-width: 1023px) {
   .home-hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .home-links-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .profile-image {
-    width: 160px;
-    height: 200px;
+    gap: 2rem;
   }
 
   .profile-image-container {
     justify-content: flex-start;
   }
 
+  .profile-image {
+    width: 180px;
+    height: 225px;
+  }
+
   .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ── Responsive mobile (< 768px) ────────────────────────── */
+@media (max-width: 767px) {
+  .home-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Responsive petit mobile (< 640px) ──────────────────── */
+@media (max-width: 639px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .hero-section {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .home-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero-grid {
+    gap: 1.5rem;
+  }
+
+  .profile-image {
+    width: 140px;
+    height: 175px;
+  }
+}
+
+/* ── Responsive image & PDF fixes ───────────────────────── */
+@media (max-width: 767px) {
+  /* Image Entreprise : réduire la hauteur fixe */
+  .entreprise-hero { height: 260px !important; }
+
+  /* PDF Synthèse : réduire la hauteur */
+  .pdf-container object,
+  .pdf-container iframe {
+    height: 500px !important;
+  }
+
+  /* Boutons côte à côte → colonne sur mobile */
+  .pdf-container > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pdf-container > div:first-child a,
+  .pdf-container > div:first-child button {
+    margin-right: 0 !important;
+    min-width: unset !important;
+    width: 100%;
   }
 }
 

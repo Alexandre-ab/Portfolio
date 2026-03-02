@@ -15,29 +15,37 @@ export default function Home() {
     <section className="hero-section">
       <div className="container">
 
-        {/* ── Bloc héros ──────────────────────────────────── */}
+        {/* ── Titre pleine largeur ────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h1 style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: 'clamp(2rem, 7vw, 6.5rem)',
+            fontWeight: 800,
+            lineHeight: 0.92,
+            letterSpacing: '-0.035em',
+            color: 'var(--foreground)',
+            marginBottom: '2.5rem',
+            background: 'none',
+            WebkitTextFillColor: 'var(--foreground)',
+          }}>
+            ALEXANDRE<br />BOUÉ
+          </h1>
+        </motion.div>
+
+        {/* ── Infos + photo (sous le titre) ───────────────── */}
         <div className="home-hero-grid">
 
-          {/* Colonne texte */}
+          {/* Colonne infos */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            style={{ minWidth: 0 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(4.5rem, 11vw, 8.5rem)',
-              fontWeight: 800,
-              lineHeight: 0.92,
-              letterSpacing: '-0.035em',
-              color: 'var(--foreground)',
-              marginBottom: '2rem',
-              background: 'none',
-              WebkitTextFillColor: 'var(--foreground)',
-            }}>
-              ALEXANDRE<br />BOUÉ
-            </h1>
-
             {/* Trait + label */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
               <div style={{ width: '2.5rem', height: '2px', backgroundColor: 'var(--primary)', flexShrink: 0 }} />
@@ -87,12 +95,12 @@ export default function Home() {
             </motion.a>
           </motion.div>
 
-          {/* Photo carrée */}
+          {/* Photo */}
           <motion.div
             className="profile-image-container"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="profile-image">
               <img

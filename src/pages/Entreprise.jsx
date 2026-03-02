@@ -20,7 +20,7 @@ export default function Entreprise() {
           {/* En-tête avec image */}
           <motion.div variants={fadeIn} className="mb-8">
             <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
-              <div style={{ position: 'relative', height: '400px' }}>
+              <div className="entreprise-hero" style={{ position: 'relative', height: '400px' }}>
                 <img 
                   src="/images/Ekium.jpeg" 
                   alt="Ekium" 
@@ -35,24 +35,44 @@ export default function Entreprise() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.4) 60%, transparent)',
                   padding: '3rem 2rem 2rem 2rem'
                 }}>
-                  <h1 className="hero-title" style={{ marginBottom: '0.5rem', color: 'white' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+                    <div style={{ width: '2.5rem', height: '2px', backgroundColor: 'white', opacity: 0.5, flexShrink: 0 }} />
+                    <span style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.65rem',
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'rgba(255,255,255,0.6)',
+                    }}>
+                      Entreprise d'alternance · 2024 – 2026
+                    </span>
+                  </div>
+                  <h1 className="hero-title" style={{ marginBottom: '0.5rem', color: 'white', WebkitTextFillColor: 'white' }}>
                     Ekium
                   </h1>
-                  <p className="hero-subtitle" style={{ marginBottom: '1rem' }}>
-                    Leader de l'ingénierie industrielle au service de vos projets
+                  <p style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)',
+                    color: 'rgba(255,255,255,0.85)',
+                    fontWeight: 500,
+                    marginBottom: '1.25rem',
+                    maxWidth: '520px',
+                    lineHeight: 1.5,
+                  }}>
+                    Société d'ingénierie industrielle basée à Lyon — je gère le parc de logiciels métiers et assure le support aux utilisateurs.
                   </p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    <span className="badge" style={{ backgroundColor: '#000000', color: 'white' }}>
+                    <span className="badge" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
+                      Alternant développeur
+                    </span>
+                    <span className="badge" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: 'white', border: '1px solid rgba(255,255,255,0.25)' }}>
+                      Lyon, France
+                    </span>
+                    <span className="badge" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: 'white', border: '1px solid rgba(255,255,255,0.25)' }}>
                       Ingénierie industrielle
-                    </span>
-                    <span className="badge" style={{ backgroundColor: '#000000', color: 'white' }}>
-                      Solutions Digitales
-                    </span>
-                    <span className="badge" style={{ backgroundColor: '#000000', color: 'white' }}>
-                      Innovation
                     </span>
                   </div>
                 </div>

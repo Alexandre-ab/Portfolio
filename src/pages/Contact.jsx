@@ -39,7 +39,7 @@ export default function Contact() {
           <motion.div {...fadeUp} style={{ marginBottom: '3.5rem' }}>
             <h1 style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(3.5rem, 9vw, 7rem)',
+              fontSize: 'clamp(2rem, 9vw, 7rem)',
               fontWeight: 800,
               lineHeight: 0.92,
               letterSpacing: '-0.035em',
@@ -63,12 +63,7 @@ export default function Contact() {
           </motion.div>
 
           {/* ── Grille info + formulaire ─────────────────── */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.4fr',
-            gap: '5rem',
-            alignItems: 'start',
-          }}>
+          <div className="contact-grid">
 
             {/* ── Colonne info ─────────────────────────── */}
             <motion.div

@@ -26,6 +26,8 @@ cd portfolio-bts-sio
 2. Installez les dépendances :
 ```bash
 npm install
+
+
 # ou
 yarn install
 ```

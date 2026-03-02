@@ -30,7 +30,7 @@ function Synthèse() {
           <p style={{ color: 'var(--neutral-300)', fontSize: '1.125rem', marginBottom: '2rem' }}>
             Synthèse des réalisations professionnelles - BTS SIO SLAM 2026
           </p>
-          
+
           <div className="pdf-container" style={{
             marginTop: '2rem',
             backgroundColor: 'var(--card)',
@@ -40,82 +40,24 @@ function Synthèse() {
             boxShadow: 'var(--shadow-sm)'
           }}>
             <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-              <button 
+              <button
                 onClick={handleDownload}
                 className="btn btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: '#7c3aed',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '25px',
-                  marginRight: '1rem',
-                  marginBottom: '0.5rem',
-                  fontWeight: '600',
-                  fontSize: '1rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)',
-                  minWidth: '250px',
-                  height: '48px'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#6d28d9'
-                  e.target.style.transform = 'translateY(-2px)'
-                  e.target.style.boxShadow = '0 6px 15px rgba(124, 58, 237, 0.4)'
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = '#7c3aed'
-                  e.target.style.transform = 'translateY(0)'
-                  e.target.style.boxShadow = '0 4px 10px rgba(124, 58, 237, 0.3)'
-                }}
+                style={{ marginRight: '1rem', marginBottom: '0.5rem', minWidth: '220px' }}
               >
-                📥 Télécharger le PDF
+                ↓ Télécharger le PDF
               </button>
-              <a 
+              <a
                 href={pdfPath}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: '#7c3aed',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '25px',
-                  marginRight: '1rem',
-                  marginBottom: '0.5rem',
-                  fontWeight: '600',
-                  fontSize: '1rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 10px rgba(124, 58, 237, 0.3)',
-                  minWidth: '250px',
-                  height: '48px'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#6d28d9'
-                  e.target.style.transform = 'translateY(-2px)'
-                  e.target.style.boxShadow = '0 6px 15px rgba(124, 58, 237, 0.4)'
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = '#7c3aed'
-                  e.target.style.transform = 'translateY(0)'
-                  e.target.style.boxShadow = '0 4px 10px rgba(124, 58, 237, 0.3)'
-                }}
+                className="btn btn-outline"
+                style={{ marginBottom: '0.5rem', minWidth: '220px' }}
               >
-                🔗 Ouvrir dans un nouvel onglet
+                Ouvrir dans un nouvel onglet ↗
               </a>
             </div>
-            
+
             {!pdfError ? (
               <object
                 data={pdfPath}
