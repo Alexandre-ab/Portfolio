@@ -306,6 +306,37 @@ export default function Entreprise() {
             </div>
           </motion.div>
 
+          {/* Diaporama Canva — Missions */}
+          <motion.div variants={fadeIn} className="mb-8">
+            <h2 className="section-title">Mes Missions en Alternance</h2>
+            <p className="card-text" style={{ marginBottom: '1.5rem', color: 'var(--neutral-400)' }}>
+              Présentation détaillée de mes missions et projets réalisés chez Ekium durant mon alternance.
+            </p>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              paddingTop: '56.25%', /* ratio 16:9 */
+              borderRadius: 'var(--radius-lg)',
+              overflow: 'hidden',
+              boxShadow: '0 4px 32px rgba(0,0,0,0.25)',
+            }}>
+              <iframe
+                src="https://www.canva.com/design/DAGqf1ZUE1s/LTAvcoFpEPx8JIXIKuPEPQ/view?embed"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  borderRadius: 'var(--radius-lg)',
+                }}
+                allowFullScreen
+                title="Missions en alternance chez Ekium"
+              />
+            </div>
+          </motion.div>
+
           {/* Mon rôle */}
           <motion.div variants={fadeIn} className="card" style={{ backgroundColor: 'rgba(26, 63, 191, 0.05)', borderLeft: '4px solid var(--primary)' }}>
             <div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
