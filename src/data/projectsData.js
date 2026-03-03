@@ -85,7 +85,19 @@ export const projectsData = [
       "Calcul automatique et fiable des soldes de congés avec prise en compte des jours fériés et weekends",
       "Gestion des conflits de dates (chevauchements) et validation business (solde suffisant, délai de prévenance)"
     ],
-    
+
+    difficulties: [
+      "Les connexions WebSocket se coupaient silencieusement sans erreur visible côté client. J'ai passé deux jours à comprendre pourquoi, avant de réaliser qu'il fallait implémenter un heartbeat manuellement — rien dans la doc de Socket.io ne m'avait préparé à ça.",
+      "Mon premier modèle de permissions était trop simple et ne couvrait pas les cas limites (un manager qui est aussi RH, un employé responsable d'un sous-service). J'ai dû refaire toute l'architecture des rôles à mi-projet, ce qui a coûté beaucoup de temps.",
+      "J'avais clairement sous-estimé la complexité du backend : l'API m'a pris deux fois plus longtemps que prévu, et j'ai dû sabrer certaines fonctionnalités pour tenir les délais."
+    ],
+
+    learnings: [
+      "Modéliser les données et les flux métier sur papier avant de coder évite des refactorisations coûteuses. J'ai appris ça à mes dépens à mi-projet.",
+      "Le debugging WebSocket en production est un autre monde qu'en local. Les logs structurés et les outils réseau ne sont pas un luxe — ils sont indispensables.",
+      "Un système RBAC mal pensé dès le départ est à la fois un risque de sécurité et un cauchemar à corriger. La modélisation des droits mérite autant d'attention que le code lui-même."
+    ],
+
     futureEnhancements: [
       "Intégration avec des calendriers externes (Google Calendar, Outlook) pour synchroniser les congés",
       "Module de statistiques avancées avec graphiques interactifs (Chart.js ou Recharts) et prédictions IA",
@@ -186,7 +198,19 @@ export const projectsData = [
       "Optimisation des coûts d'API OpenAI en cachant les analyses similaires et en limitant le nombre de tokens",
       "Sécurisation complète de l'application avec Firebase Rules et validation serveur"
     ],
-    
+
+    difficulties: [
+      "Une erreur dans une boucle de test m'a généré plusieurs euros de frais OpenAI en quelques minutes. Ça m'a obligé à revoir toute ma stratégie de cache et à implémenter des limites de dépenses — une leçon douloureuse mais efficace.",
+      "Intégrer les webhooks Stripe en local était une vraie galère : ngrok cassait le tunnel à chaque redémarrage, et déboguer les événements de paiement sans environnement stable prenait un temps fou.",
+      "Redux m'a semblé sur-architecturé pour l'état du projet. J'ai passé plus de temps à gérer le boilerplate qu'à écrire de la logique métier, ce qui a soulevé la question : est-ce qu'on choisit les bons outils par habitude ou par réel besoin ?"
+    ],
+
+    learnings: [
+      "Toujours estimer les coûts d'API avant de coder en production. Les LLM peuvent devenir très coûteux rapidement — le prototypage doit inclure des garde-fous budgétaires dès le début.",
+      "Stripe est bien documenté, mais comprendre la différence entre les états d'un PaymentIntent et d'un abonnement récurrent demande du temps. Lire la doc en entier avant de coder évite des surprises.",
+      "Firebase est excellent pour avancer vite, mais le vendor lock-in est réel. Il faut en avoir conscience avant de construire toute son architecture dessus."
+    ],
+
     futureEnhancements: [
       "Support de nouveaux jeux eSport populaires (League of Legends, Valorant, CS:GO, Dota 2)",
       "Système de coaching en direct par visioconférence avec partage d'écran",
@@ -279,7 +303,19 @@ export const projectsData = [
       "Documenter exhaustivement les vulnérabilités et techniques pour fins éducatives",
       "Maintenir une approche éthique tout au long du projet"
     ],
-    
+
+    difficulties: [
+      "Configurer un réseau isolé entre plusieurs VMs — sans accès internet mais avec communication C&C interne — m'a demandé plusieurs tentatives. Les modes réseau VirtualBox (NAT, Bridge, Internal) ne sont pas intuitifs et j'ai fait plusieurs fausses routes.",
+      "Tester les mécanismes de persistence signifiait que des fichiers 'malveillants' survivaient aux redémarrages. J'ai dû restaurer des snapshots propres plusieurs fois après des erreurs, ce qui rendait le cycle de test long et contraignant.",
+      "Maintenir une rigueur éthique tout au long du projet était une contrainte mentale réelle : à chaque fonctionnalité développée, il fallait se demander si on restait bien dans le cadre éducatif, ce qui n'est pas toujours une ligne évidente."
+    ],
+
+    learnings: [
+      "La cybersécurité offensive et défensive sont les deux faces de la même pièce. Pour bien défendre un système, il faut comprendre concrètement comment il peut être attaqué.",
+      "L'isolation des environnements de test n'est pas optionnelle — même un projet éducatif peut causer des dommages si le périmètre n'est pas strictement contrôlé.",
+      "Documenter chaque étape d'un projet sensible force une réflexion sur ce qu'on fait et pourquoi. Cette rigueur est ce qui distingue la recherche en sécurité d'une activité irresponsable."
+    ],
+
     futureEnhancements: [
       "Module de détection et d'analyse de malwares réels (honeypot)",
       "Développement de signatures antivirus personnalisées",
@@ -373,7 +409,19 @@ export const projectsData = [
       "Gestion efficace du chargement des images pour éviter les ralentissements",
       "Implémentation de filtres et recherche en temps réel sans latence perceptible"
     ],
-    
+
+    difficulties: [
+      "Venir du développement web JavaScript, passer à C# et Windows Forms a demandé un effort d'adaptation plus important que prévu. Ce n'est pas juste la syntaxe — c'est toute la façon de penser l'UI (event-driven vs déclaratif) qui est fondamentalement différente.",
+      "Importer les données de 1000+ Pokémon avec leurs formes alternatives, Méga-évolutions et formes régionales était bien plus complexe que prévu. Chaque exception cassait mes parsers et il a fallu traiter des dizaines de cas particuliers manuellement.",
+      "La relation many-to-many entre Pokémon et types, couplée aux chaînes d'évolution ramifiées (Évoli → 8 évolutions possibles), m'a donné du fil à retordre pour la normalisation SQL et les requêtes LINQ associées."
+    ],
+
+    learnings: [
+      "La modélisation relationnelle exige une réflexion en amont très différente du NoSQL. Un schéma mal normalisé dès le début se paye à chaque requête complexe — et le corriger en cours de route est douloureux.",
+      "Windows Forms est daté, mais apprendre ses contraintes m'a donné une meilleure compréhension de pourquoi les frameworks modernes ont évolué vers des approches déclaratives. Comprendre l'ancien aide à apprécier le nouveau.",
+      "L'import de données depuis des sources externes n'est jamais trivial. Il faut systématiquement prévoir les cas d'exception et les données mal formées — le cas 'normal' est souvent minoritaire."
+    ],
+
     futureEnhancements: [
       "Ajout des générations 9+ au fur et à mesure des nouvelles sorties",
       "Module Team Builder pour constituer et tester des équipes compétitives",
@@ -467,7 +515,19 @@ export const projectsData = [
       "Traçabilité complète respectant les normes pharmaceutiques strictes (BPD, BPF)",
       "Performance optimale avec grands volumes (10000+ références, 100000+ transactions)"
     ],
-    
+
+    difficulties: [
+      "Je n'avais aucune connaissance du secteur pharmaceutique avant ce projet. Comprendre les contraintes métier réelles (BPD, niveaux d'alerte réglementaires, traçabilité obligatoire) a demandé plusieurs heures de recherche avant d'écrire la moindre ligne de code.",
+      "Les calculs de dates de péremption avec fuseaux horaires et cas limites (fin de mois, passage à l'heure d'été) avaient des comportements inattendus. Les bugs liés aux dates ont été les plus difficiles à reproduire et corriger.",
+      "Générer des rapports PDF bien mis en page s'est révélé bien plus difficile qu'attendu. Les bibliothèques Node.js pour PDF ont une courbe d'apprentissage abrupte, et le rendu ne correspondait pas toujours aux maquettes."
+    ],
+
+    learnings: [
+      "La recherche métier est une partie à part entière du développement. Livrer une application de gestion pharmaceutique sans comprendre les normes du secteur serait une erreur potentiellement grave.",
+      "La logique de dates doit être testée exhaustivement avec des cas limites : fin de mois, années bissextiles, changement d'heure. Ne jamais sous-estimer les calculs temporels.",
+      "Dans un domaine critique comme la santé, les faux négatifs sont inacceptables. Mieux vaut trop d'alertes qu'un médicament périmé qui passe entre les mailles — et concevoir pour ça change les priorités."
+    ],
+
     futureEnhancements: [
       "Lecteur de codes-barres USB pour scan rapide des médicaments à l'entrée/sortie",
       "Prédiction IA des besoins de réapprovisionnement basée sur l'historique de consommation",
@@ -562,7 +622,19 @@ export const projectsData = [
       "Gestion des cas complexes (polymédication, patients âgés, insuffisance rénale)",
       "Conformité stricte à la réglementation française sur les prescriptions"
     ],
-    
+
+    difficulties: [
+      "La réglementation française sur les prescriptions médicales est dense et technique : durées de validité différentes selon la classe du médicament, ordonnances sécurisées pour les stupéfiants, règles de chevauchement. Plusieurs lectures de textes officiels ont été nécessaires pour comprendre ce que je devais implémenter.",
+      "Crystal Reports avait une courbe d'apprentissage très frustrante. Les templates d'ordonnances devaient être précis — c'est une exigence réglementaire — mais le designer n'était pas intuitif et les exports PDF avaient régulièrement des artefacts de rendu inattendus.",
+      "N'ayant pas accès à Vidal ou Thériaque, j'ai dû créer manuellement une base d'interactions médicamenteuses pour les tests. C'était chronophage, et la base était forcément limitée — ce qui posait la question de la fiabilité dans un vrai contexte médical."
+    ],
+
+    learnings: [
+      "Les applications médicales ont une tolérance à l'erreur proche de zéro. Cela change fondamentalement l'approche : il vaut mieux bloquer une action douteuse que laisser une incohérence passer — quitte à frustrer l'utilisateur.",
+      "Crystal Reports est un outil vieillissant. Cette expérience m'a appris l'importance de choisir des outils activement maintenus et bien documentés, surtout quand le rendu final a des contraintes réglementaires.",
+      "Travailler sur un domaine réglementé m'a appris à lire des textes de loi et à les traduire en règles métier concrètes. C'est une compétence que les développeurs sous-estiment souvent."
+    ],
+
     futureEnhancements: [
       "Intégration avec DMP (Dossier Médical Partagé) pour historique complet patient",
       "Télétransmission sécurisée vers pharmacies (e-prescription)",
@@ -657,7 +729,19 @@ export const projectsData = [
       "Performance : scripts légers ne consommant pas ressources système excessives",
       "Fiabilité : scripts doivent fonctionner 24/7 sans intervention humaine"
     ],
-    
+
+    difficulties: [
+      "Les mêmes cmdlets PowerShell avaient des comportements différents selon la version de Windows — ce qui fonctionnait parfaitement sur ma machine échouait silencieusement sur Windows 11 Home ou Server 2019. Déboguer ça sans accès direct aux machines cibles était épuisant.",
+      "Certaines opérations d'administration (suppression de fichiers verrouillés, arrêt de services système) nécessitaient des élévations de privilèges que le script ne gérait pas correctement au départ, générant des erreurs cryptiques sans message utile.",
+      "Tester des scripts planifiés à 2h du matin via Task Scheduler était difficile : simuler l'exécution sans interface, sans session utilisateur active, révélait des bugs impossibles à reproduire en mode interactif."
+    ],
+
+    learnings: [
+      "L'automatisation doit être conçue pour échouer proprement. Chaque script doit logger ses erreurs de façon claire et ne jamais bloquer silencieusement une tâche suivante — quand personne ne surveille, les logs sont la seule trace.",
+      "Tester sur l'environnement cible réel est non-négociable pour l'administration système. Les différences entre versions Windows ne sont pas anecdotiques — elles cassent des scripts en production.",
+      "La rigueur de documentation est différente en scripting système : quand le script tourne sans surveillance à 2h du matin, la lisibilité et les commentaires ne sont pas un luxe mais une nécessité opérationnelle."
+    ],
+
     futureEnhancements: [
       "Interface GUI avec Windows Forms pour configuration visuelle (remplacer fichier JSON)",
       "Intégration avec Azure pour sauvegardes cloud automatiques",
@@ -752,7 +836,19 @@ export const projectsData = [
       "Validation sur environnements variés (VMs, physiques, différentes configs matérielles)",
       "Gestion des licences flottantes Aveva (connexion serveur lmgrd)"
     ],
-    
+
+    difficulties: [
+      "La documentation officielle Aveva pour le déploiement silencieux était propriétaire, peu détaillée et en anglais technique. J'ai dû reconstruire les bons paramètres MSI par essais-erreurs et en fouillant des forums spécialisés — il n'y avait pas de réponse directe disponible.",
+      "Les 50 postes de production avaient des configurations bien plus diverses que mes VMs de test : anciennes versions d'Aveva partiellement désinstallées, polices GPO restrictives, chemins d'installation non standards. Le déploiement réel a révélé une dizaine de cas d'exception que je n'avais pas anticipés.",
+      "C'était mon premier projet en contexte professionnel avec des contraintes réseau d'entreprise (proxy, pare-feu, GPO). Ce qui fonctionnait en VM ne fonctionnait pas forcément sur le réseau Ekium — et comprendre pourquoi demandait de naviguer dans des couches que je ne maîtrisais pas encore."
+    ],
+
+    learnings: [
+      "Le déploiement en production est fondamentalement différent du développement. La diversité des environnements réels dépasse toujours ce qu'on a prévu en VM. Prévoir des mécanismes de rollback n'est pas de la paranoïa — c'est de la prudence.",
+      "La documentation technique à destination des collègues est aussi importante que le code lui-même. Un script non documenté n'est pas réutilisable — il sera réécrit par le prochain, ou pire, il ne sera pas maintenu.",
+      "Mon premier projet professionnel m'a appris que la communication avec les utilisateurs finaux est cruciale. Comprendre comment les ingénieurs utilisaient vraiment Aveva m'a aidé à anticiper des contraintes que je n'aurais jamais devinées depuis mon bureau."
+    ],
+
     futureEnhancements: [
       "Interface GUI (Windows Forms) pour sélectionner options installation de manière visuelle",
       "Intégration avec Active Directory pour attribution automatique licences selon groupes",
@@ -847,7 +943,19 @@ export const projectsData = [
       "Performances excellentes malgré nombreuses images (score Lighthouse >90)",
       "SEO local optimisé pour apparaître dans recherches Google Maps coiffeur à proximité"
     ],
-    
+
+    difficulties: [
+      "Travailler en binôme avec RyukSylux a mis en évidence des problèmes de coordination que je n'avais jamais rencontrés en solo : conflits Git, conventions de nommage incohérentes, difficulté à se répartir les tâches sans empiéter sur le code de l'autre. Il a fallu établir des règles explicites à mi-parcours.",
+      "Reproduire un design véritablement haut de gamme sans être graphiste était un défi constant. La frontière entre élégant et chargé est mince, et plusieurs versions du design ont été abandonnées avant d'arriver à quelque chose de satisfaisant — parfois après des heures de travail.",
+      "Le système de réservation Firestore avait des race conditions : deux utilisateurs réservant le même créneau en même temps pouvaient aboutir à une double réservation. Implémenter des transactions atomiques Firestore pour résoudre ça a demandé une lecture approfondie de la documentation."
+    ],
+
+    learnings: [
+      "Travailler en équipe demande une rigueur de communication que le code seul ne suffit pas à assurer. Définir les conventions de branche, se synchroniser régulièrement et faire des code reviews — même informelles — sont des habitudes que j'ai commencé à prendre sur ce projet.",
+      "Le design UI/UX est un vrai métier. Même avec un bon framework CSS, obtenir un rendu premium nécessite une méthode : maquettes, itérations, retours. Le code vient en dernier.",
+      "Firebase est excellent pour démarrer vite, mais la cohérence des données en production nécessite de comprendre les transactions et les règles de sécurité en profondeur — ce n'est pas qu'une base de données simplifiée."
+    ],
+
     futureEnhancements: [
       "Programme de fidélité : carte virtuelle avec points cumulés (10ème coupe offerte)",
       "Paiement en ligne sécurisé d'acompte à la réservation (réduire no-shows)",
@@ -857,6 +965,219 @@ export const projectsData = [
       "Marketplace de produits capillaires : vente en ligne shampoings, cires, huiles utilisés au salon",
       "Programme de parrainage : réduction si client amène un ami",
       "Intégration TikTok pour afficher tutoriels coiffure viraux du salon"
+    ]
+  },
+
+  {
+    id: "reveal-barbershop",
+    title: "Reveal Barbershop — Refonte Next.js",
+    period: "Février 2026",
+    context: "Projet personnel",
+    category: "personnel",
+    description: "Refonte complète du site Reveal Barbershop avec Next.js 16, TypeScript et Tailwind CSS v4.",
+    detailedDescription: "Refonte intégrale du site vitrine du salon Reveal Barbershop (Bourgoin-Jallieu) avec une stack moderne : Next.js 16 App Router, React 19, TypeScript strict, Tailwind CSS v4 et Framer Motion v12. Remplacement de l'ancienne version React/Firebase par une architecture Next.js pour de meilleures performances SEO, un rendu serveur natif et une expérience utilisateur premium. Intègre Lenis pour le smooth scrolling, une intégration de réservation en ligne via Planity, et un scroll-spy sur le header via IntersectionObserver.",
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "Framer Motion", "Lenis"],
+    skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
+    github: "https://github.com/Alexandre-ab/Reveal-",
+    image: "/images/revealLogo.png",
+
+    technicalChoices: [
+      {
+        technology: "Next.js 16 (App Router)",
+        reason: "Passage de React pur à Next.js pour bénéficier du rendu serveur (SSR/SSG) natif, indispensable pour le SEO local du salon. L'App Router de Next.js 16 simplifie la gestion des layouts, des métadonnées par page et du chargement optimisé des polices via next/font. Le rendu serveur génère des pages HTML complètes indexables par Google, contrairement à la SPA React précédente."
+      },
+      {
+        technology: "TypeScript (strict mode)",
+        reason: "Adoption du typage strict pour fiabiliser le code sur le long terme : détection d'erreurs à la compilation, autocomplétion précise dans VSCode, refactorisation plus sûre. Les alias de chemin TypeScript (@/*) nettoient les imports relatifs profonds. Sur un projet avec des composants animés complexes, le typage des props Framer Motion et des événements DOM évite de nombreuses erreurs silencieuses."
+      },
+      {
+        technology: "Tailwind CSS v4",
+        reason: "Utilisation de la toute dernière version de Tailwind (v4) avec configuration inline dans globals.css, supprimant le fichier tailwind.config.js traditionnel. Approche utility-first qui accélère le développement du design premium du salon. Les nouvelles fonctionnalités v4 (CSS variables natives, meilleure intégration PostCSS) permettent une personnalisation fine de la charte graphique sans couche CSS supplémentaire."
+      },
+      {
+        technology: "Framer Motion v12 + Lenis",
+        reason: "Framer Motion v12 avec whileInView pour animer les éléments à l'entrée dans le viewport, donnant l'impression de fluidité premium attendue pour un salon haut de gamme. Lenis assure un smooth scrolling natif et homogène sur tous navigateurs, remplaçant avantageusement les solutions CSS seules. La combinaison des deux crée une expérience de navigation élégante et différenciante."
+      }
+    ],
+
+    architecture: {
+      description: "Architecture Next.js App Router avec composants client, scroll-spy via IntersectionObserver et intégration Planity",
+      layers: [
+        {
+          name: "App Router (src/app/)",
+          role: "Structure de pages Next.js 16 avec layout racine gérant les métadonnées globales, le chargement des polices Google via next/font, et le wrapper Lenis pour le smooth scrolling. Chaque page exporte ses propres métadonnées pour le SEO (title, description, Open Graph). Routes : page d'accueil principale avec sections (Hero, Services, Galerie, À propos, Réservation, Contact)."
+        },
+        {
+          name: "Composants (src/components/)",
+          role: "Composants React client pour les sections du site : Header avec scroll-spy IntersectionObserver (détection section active au scroll), HeroSection avec animations Framer Motion, ServicesGrid, GalleryMasonry, BookingSection intégrant le widget Planity, Footer. Tous déclarés 'use client' pour les interactions et animations."
+        },
+        {
+          name: "Scroll-Spy & Navigation",
+          role: "Header intelligent utilisant IntersectionObserver pour suivre quelle section est visible à l'écran et mettre à jour le lien actif dans la navigation. Smooth scrolling vers les ancres via Lenis. Menu mobile full-screen avec animations de staggering Framer Motion sur les liens. Support prefers-reduced-motion pour l'accessibilité."
+        },
+        {
+          name: "Intégration Planity",
+          role: "Système de réservation en ligne externalisé via Planity (plateforme de prise de rendez-vous pour salons). Intégration du widget Planity dans la section dédiée, permettant aux clients de réserver directement depuis le site sans développement d'un back-end de gestion des créneaux. Simplification majeure de l'architecture par rapport à la version Firebase."
+        }
+      ]
+    },
+
+    technicalDetails: {
+      "Next.js App Router": "Architecture moderne basée sur les Server Components par défaut, avec 'use client' explicite pour les composants nécessitant interactivité (animations, scroll events). Layout racine (layout.tsx) centralisant : balises <html> et <body>, chargement polices Google (next/font/google), metadata globale, provider Lenis. Génération statique des pages (SSG) pour performances maximales et indexation SEO complète.",
+      "Tailwind CSS v4": "Configuration nouvelle génération sans fichier tailwind.config.js : thème entièrement défini en variables CSS dans globals.css avec @theme inline. Tokens de design : couleurs de la charte Reveal (noir, or, blanc cassé), espacements personnalisés, breakpoints adaptés. Purge automatique des classes non utilisées en production. Intégration PostCSS via @tailwindcss/postcss.",
+      "Animations Framer Motion v12": "Utilisation de whileInView combiné à viewport={{ once: true }} pour déclencher les animations une seule fois à l'entrée dans le viewport. Variants pour orchestrer des animations coordonnées entre parent et enfants (staggerChildren). Transitions spring pour les interactions hover (scale, opacity). Respect de prefers-reduced-motion via useReducedMotion hook.",
+      "Scroll-Spy IntersectionObserver": "Observer configuré avec rootMargin pour déclencher la mise à jour du lien actif légèrement avant que la section atteigne le haut du viewport. Gestion du cas edge (dernière section). Cleanup de l'observer dans le useEffect de React pour éviter les fuites mémoire. État actif synchronisé avec la navigation pour feedback visuel en temps réel.",
+      "Performance & SEO": "Chargement optimisé des polices avec next/font (zéro layout shift, auto-hébergement). Images optimisées avec next/image (formats WebP/AVIF automatiques, lazy loading natif, dimensions déclarées). Metadata dynamique par page pour SEO local (LocalBusiness schema.org). Score Lighthouse visé > 95/100. Déploiement Vercel avec CDN global et compression Brotli automatique."
+    },
+
+    features: [
+      "Design premium reflétant l'identité visuelle haut de gamme du salon",
+      "Smooth scrolling fluide sur tous navigateurs via Lenis",
+      "Navigation avec scroll-spy : lien actif mis à jour en temps réel au scroll",
+      "Animations au scroll via Framer Motion (whileInView)",
+      "Menu mobile full-screen avec animations de staggering",
+      "Intégration réservation en ligne Planity (sans développement back-end)",
+      "SEO local optimisé avec métadonnées structurées (schema.org LocalBusiness)",
+      "TypeScript strict sur l'ensemble du projet",
+      "Design 100% responsive mobile-first",
+      "Support accessibilité (prefers-reduced-motion, navigation clavier)"
+    ],
+
+    challenges: [
+      "Migration de l'architecture React SPA vers Next.js App Router avec la distinction Server/Client Components",
+      "Intégration de Lenis avec Next.js sans conflit avec le routing côté client",
+      "Tailwind CSS v4 très récent avec peu de ressources disponibles en ligne",
+      "Implémentation d'un scroll-spy performant et précis via IntersectionObserver",
+      "Cohérence des animations Framer Motion entre mobile et desktop avec gestion de l'accessibilité"
+    ],
+
+    difficulties: [
+      "La frontière entre Server Components et Client Components dans Next.js App Router n'était pas intuitive au départ. J'ai eu des erreurs d'hydratation difficiles à diagnostiquer parce que j'utilisais des hooks React dans des composants non marqués 'use client'.",
+      "Tailwind CSS v4 étant très récent, la documentation était parfois incomplète et plusieurs comportements avaient changé par rapport à la v3. J'ai dû tester par essais-erreurs certaines configurations que je n'aurais pas hésité à faire en v3.",
+      "Faire cohabiter Lenis (smooth scrolling global) avec le scroll natif du navigateur et le routing Next.js a demandé plusieurs ajustements. Des conflits surgissaient notamment sur mobile et lors de la navigation entre sections via les ancres."
+    ],
+
+    learnings: [
+      "Next.js App Router représente un vrai changement de paradigme par rapport à React pur. Comprendre quand utiliser Server vs Client Components est fondamental — pas juste pour les performances, mais pour éviter des bugs d'hydratation silencieux.",
+      "Adopter TypeScript strict dès le début d'un projet coûte un peu de temps au démarrage mais en économise beaucoup ensuite. Les erreurs de type signalées pendant le développement évitent des bugs en production qui auraient été difficiles à tracer.",
+      "Le choix de Planity pour la réservation était la bonne décision : externaliser les fonctionnalités complexes (gestion des créneaux, rappels SMS) à des services spécialisés permet de se concentrer sur ce qu'on fait vraiment — l'interface et l'expérience utilisateur."
+    ],
+
+    futureEnhancements: [
+      "Ajout d'une galerie des réalisations avec système de catégories et lightbox",
+      "Section blog/conseils capillaires pour améliorer le référencement naturel",
+      "Intégration du feed Instagram du salon en temps réel",
+      "Page de présentation de l'équipe avec photos et spécialités",
+      "Module d'avis clients avec intégration Google Reviews",
+      "PWA (Progressive Web App) pour installation sur mobile",
+      "Internationalisation (i18n) pour clientèle anglophone"
+    ]
+  },
+
+  {
+    id: "julia",
+    title: "Projet J — Application de Soutien Psychologique",
+    period: "Janvier 2026",
+    context: "Projet personnel",
+    category: "personnel",
+    description: "Application mobile de soutien thérapeutique combinant IA (Google Gemini) et supervision professionnelle.",
+    detailedDescription: "Projet J est une application mobile de soutien psychologique qui combine l'intelligence artificielle et la supervision de professionnels de santé. Les patients peuvent engager des conversations thérapeutiques avec une IA (Google Gemini) depuis leur smartphone, tandis qu'un dashboard dédié permet aux thérapeutes de surveiller les échanges, détecter les niveaux de sévérité et intervenir si nécessaire. Le projet inclut un bouton SOS d'urgence, un historique des conversations, un système d'invitation patients et une génération de rapports de séance.",
+    technologies: ["React Native", "Expo", "TypeScript", "Node.js", "Express", "MongoDB", "Google Gemini API", "NativeWind", "JWT"],
+    skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
+    github: "https://github.com/Alexandre-ab/Julia",
+    image: "/images/julia.svg",
+
+    technicalChoices: [
+      {
+        technology: "React Native + Expo",
+        reason: "Framework mobile multiplateforme permettant de cibler iOS et Android depuis une seule base de code TypeScript. Expo simplifie radicalement le setup, les builds et les mises à jour OTA sans passer par les stores. Expo Router apporte le file-based routing connu de Next.js à l'univers mobile. NativeWind adapte Tailwind CSS au monde React Native, permettant de styler les composants avec des classes utilitaires familières."
+      },
+      {
+        technology: "Google Gemini API",
+        reason: "LLM multimodal de Google choisi pour ses capacités conversationnelles en français et sa compréhension des nuances émotionnelles. L'API Gemini permet de configurer un contexte système précis pour orienter les réponses vers un rôle de soutien psychologique bienveillant, non directif et sans conseil médical. La détection automatique de la sévérité des échanges repose sur l'analyse sémantique du modèle."
+      },
+      {
+        technology: "Node.js + Express + MongoDB",
+        reason: "Stack JavaScript unifiée frontend/backend facilitant le partage de types TypeScript entre les deux couches. Express structure l'API REST avec une séparation claire controllers/services/middleware. MongoDB Atlas stocke les conversations, profils patients et rapports dans un format document flexible, adapté à des structures de données variables (messages, métadonnées de séance). Mongoose apporte la validation de schéma et les hooks pre/post save."
+      },
+      {
+        technology: "JWT + sécurité (Helmet, CORS, rate limiting)",
+        reason: "JWT pour l'authentification sans état côté serveur, avec tokens à durée de vie courte pour limiter l'exposition en cas de compromission. Helmet sécurise les en-têtes HTTP contre les attaques communes (XSS, clickjacking). Le rate limiting protège les endpoints sensibles (/chat, /auth) contre les abus. CORS configuré strictement pour n'accepter que les requêtes depuis l'application mobile. La sensibilité des données médicales a exigé une rigueur de sécurité maximale."
+      }
+    ],
+
+    architecture: {
+      description: "Architecture mobile full-stack avec séparation patient/professionnel, moteur IA central et système de détection de sévérité",
+      layers: [
+        {
+          name: "Application Mobile (React Native / Expo)",
+          role: "Deux espaces distincts selon le rôle : interface patient (authentification, démarrage de conversation, chat temps réel avec l'IA, historique des sessions, bouton SOS avec numéros d'urgence) et dashboard professionnel (liste de patients, suivi des conversations actives, indicateurs de sévérité, génération de rapports). Navigation gérée par Expo Router avec routes protégées selon le rôle JWT."
+        },
+        {
+          name: "API REST (Node.js / Express)",
+          role: "Endpoints organisés par domaine : /auth (login, register, invite, profil), /chat (démarrer session, envoyer message, terminer, historique), /professional (liste patients, profil détaillé, conversations actives, rapports). Middleware JWT sur toutes les routes protégées. Middleware de rôle (patient vs professionnel) sur les routes sensibles. Logs structurés via Winston pour audit et debugging."
+        },
+        {
+          name: "Moteur IA (Google Gemini)",
+          role: "Service centralisé côté backend qui gère les appels à l'API Gemini. Prompt système configuré pour un rôle de soutien bienveillant et non directif, avec instructions explicites sur les limites (ne pas diagnostiquer, ne pas prescrire, orienter vers un professionnel en cas de crise). Analyse sémantique de chaque message pour calculer un score de sévérité (faible / modéré / élevé) transmis au dashboard professionnel."
+        },
+        {
+          name: "Base de données (MongoDB Atlas)",
+          role: "Collections : Users (patients et professionnels avec rôle, profil, thérapeute assigné), Conversations (sessions avec liste de messages, score de sévérité global, statut actif/terminé), Messages (contenu, auteur, timestamp, score sévérité individuel), Reports (rapports générés par session avec résumé IA). Indexes sur userId, conversationId et createdAt pour requêtes performantes sur l'historique."
+        }
+      ]
+    },
+
+    technicalDetails: {
+      "Détection de Sévérité": "Chaque message patient est analysé par Gemini avec un prompt de scoring retournant un niveau (1-faible, 2-modéré, 3-élevé) selon les signaux de détresse détectés. Le score est stocké avec le message et agrégé au niveau de la conversation (max des scores). Le dashboard professionnel affiche un indicateur coloré par patient permettant une priorisation rapide des interventions. En cas de sévérité 3, une alerte visuelle est déclenchée côté professionnel.",
+      "Système de Chat Temps Réel": "Communication HTTP classique via Axios (polling ou requête à chaque envoi) plutôt que WebSocket pour simplifier l'architecture et la gestion d'état mobile. Chaque message est envoyé à l'API qui appelle Gemini, stocke la réponse en base et la retourne. Historique des conversations chargé à l'ouverture de chaque session. Gestion des états de chargement (indicateur de frappe IA) pour une UX fluide.",
+      "Authentification & Rôles": "Deux types de comptes distincts : patient (créé via invitation du professionnel par token unique à usage unique) et professionnel (enregistrement direct avec validation). JWT avec payload incluant userId et role, vérifié par middleware Express sur chaque requête protégée. Refresh token pour prolonger la session sans ré-authentification. Isolation stricte des données : un patient ne peut voir que ses propres conversations.",
+      "Génération de Rapports": "Après chaque session terminée, l'API génère automatiquement un rapport via Gemini : résumé des thèmes abordés, évolution de la sévérité au cours de la session, points d'attention pour le thérapeute. Le rapport est stocké en base et accessible depuis le dashboard. Format structuré (JSON → rendu mobile) permettant au professionnel de préparer ses séances en ayant un aperçu des échanges IA.",
+      "Sécurité des Données Médicales": "Les données de santé étant particulièrement sensibles, plusieurs mesures ont été prises : chiffrement en transit (HTTPS obligatoire), pas de logs des contenus de messages (uniquement les métadonnées), rate limiting strict sur les endpoints de chat (10 req/min), MongoDB Atlas avec accès restreint par IP, variables d'environnement pour toutes les clés API (Gemini, JWT secret). Winston log uniquement les événements système, jamais le contenu des conversations."
+    },
+
+    features: [
+      "Conversations thérapeutiques en temps réel avec IA (Google Gemini)",
+      "Détection automatique du niveau de sévérité à chaque message",
+      "Dashboard professionnel avec suivi en temps réel des patients",
+      "Bouton SOS d'urgence avec numéros de crise directement accessibles",
+      "Historique complet des conversations avec rejouer les sessions",
+      "Génération automatique de rapports de séance",
+      "Système d'invitation patients par token unique",
+      "Authentification sécurisée avec rôles (patient / professionnel)",
+      "Indicateurs visuels de sévérité pour priorisation clinique",
+      "Architecture sécurisée adaptée aux données de santé sensibles"
+    ],
+
+    challenges: [
+      "Conception d'une IA thérapeutique responsable : calibrer les instructions Gemini pour rester dans un rôle de soutien sans franchir les limites du conseil médical",
+      "Sécurité renforcée pour des données de santé ultra-sensibles (conversations psychologiques)",
+      "Détection de sévérité fiable sans faux négatifs dangereux (ne pas manquer une situation de crise)",
+      "Architecture mobile full-stack cohérente entre React Native et l'API Express",
+      "Gestion des deux rôles (patient/professionnel) avec isolation stricte des données"
+    ],
+
+    difficulties: [
+      "Calibrer le prompt système de Gemini pour un usage thérapeutique a été un travail itératif long. Trop directif, l'IA semblait donner des conseils médicaux. Trop permissif, les réponses manquaient de structure bienveillante. Trouver le bon équilibre a demandé des dizaines de tests avec des scénarios variés.",
+      "React Native avec NativeWind se comporte différemment de React web : certaines classes Tailwind ne sont pas supportées, le rendu sur iOS et Android diffère parfois subtilement, et déboguer sur émulateur sans device réel laisse des incertitudes sur le rendu final.",
+      "La gestion de l'état de la conversation dans le chat (React useEffect provoquant des appels multiples à /chat/start) a causé des bugs difficiles à reproduire. C'est un problème connu resté partiellement non résolu faute de temps, mais qui ne bloque pas l'usage."
+    ],
+
+    learnings: [
+      "Concevoir une IA pour un usage sensible (santé mentale) force à réfléchir à des questions éthiques que le développement classique n'aborde pas : que se passe-t-il si l'IA dit quelque chose de mal à quelqu'un en détresse ? Cette responsabilité a changé ma façon d'aborder le prompt engineering.",
+      "React Native est un monde à part entière. La courbe d'apprentissage par rapport à React web est réelle — les concepts sont familiers mais les contraintes mobiles (performances, navigation, gestion du clavier, différences iOS/Android) nécessitent une adaptation constante.",
+      "Sur un projet de santé, la documentation n'est pas optionnelle. Avoir écrit une documentation complète (/docs) dès le début a facilité la reprise du code et m'a forcé à clarifier des décisions d'architecture que j'aurais autrement laissées implicites."
+    ],
+
+    futureEnhancements: [
+      "WebSocket pour un vrai temps réel (indicateur de frappe IA, notifications push)",
+      "Chiffrement de bout en bout des messages dans la base de données",
+      "Module de planification de séances entre patient et thérapeute",
+      "Conformité RGPD complète avec droit à l'oubli et export des données",
+      "Déploiement sur les stores App Store et Google Play",
+      "Tests automatisés E2E avec Detox (React Native testing framework)",
+      "Support multilingue pour étendre à d'autres pays francophones",
+      "Tableau de bord analytique pour les professionnels (tendances, évolution du bien-être)"
     ]
   }
 ];

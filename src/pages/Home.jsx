@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const quickLinks = [
-  { to: '/projects',  label: 'Projets',    num: '01', desc: 'Réalisations & compétences' },
-  { to: '/about',     label: 'À propos',   num: '02', desc: 'Parcours & formation' },
-  { to: '/contact',   label: 'Contact',    num: '03', desc: 'Discutons ensemble' },
-  { to: '/entreprise',label: 'Entreprise', num: '04', desc: 'Ekium & alternance' },
-  { to: '/veille',    label: 'Veille',     num: '05', desc: 'Tendances technologiques' },
-  { to: '/synthèse',  label: 'Synthèse',   num: '06', desc: 'Tableau E5 — Session 2026' },
+  { to: '/about',     label: 'À propos',   num: '01', desc: 'Parcours & formation' },
+  { to: '/entreprise',label: 'Entreprise', num: '02', desc: 'Ekium & alternance' },
+  { to: '/projects',  label: 'Projets',    num: '03', desc: 'Réalisations & compétences' },
+  { to: '/veille',    label: 'Veille',     num: '04', desc: 'Tendances technologiques' },
+  { to: '/synthèse',  label: 'Synthèse',   num: '05', desc: 'Tableau E5 — Session 2026' },
+  { to: '/contact',   label: 'Contact',    num: '06', desc: 'Discutons ensemble' },
 ]
 
 export default function Home() {

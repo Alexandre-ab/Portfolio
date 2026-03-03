@@ -227,6 +227,64 @@ export default function ProjectDetail() {
             </motion.div>
           )}
 
+          {/* Difficultés rencontrées */}
+          {project.difficulties && (
+            <motion.div variants={fadeIn} className="card mb-8" style={{
+              borderLeft: '4px solid #e07b39',
+              backgroundColor: 'rgba(224, 123, 57, 0.04)'
+            }}>
+              <h2 className="section-title" style={{ color: '#e07b39' }}>Difficultés rencontrées</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', color: 'var(--neutral-400)', fontStyle: 'italic' }}>
+                Ce que j'ai vraiment eu du mal à résoudre — sans filtre.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {project.difficulties.map((item, index) => (
+                  <div key={index} style={{
+                    padding: '1rem 1.25rem',
+                    backgroundColor: 'rgba(224, 123, 57, 0.06)',
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: '2px solid rgba(224, 123, 57, 0.4)'
+                  }}>
+                    <p className="card-text" style={{ marginBottom: 0, lineHeight: '1.75' }}>
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Ce que j'ai appris */}
+          {project.learnings && (
+            <motion.div variants={fadeIn} className="card mb-8" style={{
+              borderLeft: '4px solid var(--secondary)',
+              backgroundColor: 'rgba(26, 122, 74, 0.04)'
+            }}>
+              <h2 className="section-title" style={{ color: 'var(--secondary)' }}>Ce que j'ai appris</h2>
+              <p className="card-text" style={{ marginBottom: '1.5rem', color: 'var(--neutral-400)', fontStyle: 'italic' }}>
+                Les vraies leçons tirées de ce projet — celles qui ont changé ma façon de coder.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {project.learnings.map((item, index) => (
+                  <div key={index} style={{
+                    padding: '1rem 1.25rem',
+                    backgroundColor: 'rgba(26, 122, 74, 0.06)',
+                    borderRadius: 'var(--radius-md)',
+                    borderLeft: '2px solid rgba(26, 122, 74, 0.4)',
+                    display: 'flex',
+                    gap: '0.75rem',
+                    alignItems: 'flex-start'
+                  }}>
+                    <span style={{ color: 'var(--secondary)', fontWeight: 700, flexShrink: 0, marginTop: '0.1rem' }}>↑</span>
+                    <p className="card-text" style={{ marginBottom: 0, lineHeight: '1.75' }}>
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {/* Technologies */}
           <motion.div variants={fadeIn} className="card mb-8">
             <h2 className="section-title">Technologies utilisées</h2>

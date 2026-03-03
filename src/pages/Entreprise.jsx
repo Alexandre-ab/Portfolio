@@ -21,13 +21,13 @@ export default function Entreprise() {
           <motion.div variants={fadeIn} className="mb-8">
             <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
               <div className="entreprise-hero" style={{ position: 'relative', height: '400px' }}>
-                <img 
-                  src="/images/Ekium.jpeg" 
-                  alt="Ekium" 
-                  style={{ 
-                    width: '100%', 
-                    height: '100%', 
-                    objectFit: 'cover' 
+                <img
+                  src="/images/Ekium.jpeg"
+                  alt="Ekium"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
                   }}
                 />
                 <div style={{
@@ -87,12 +87,12 @@ export default function Entreprise() {
             </h2>
             <div className="card">
               <p className="card-text" style={{ fontSize: '1.125rem', marginBottom: '1.5rem' }}>
-                Ekium accompagne ses clients dans leur stratégie industrielle, la conception de leurs équipements et bâtiments, 
+                Ekium accompagne ses clients dans leur stratégie industrielle, la conception de leurs équipements et bâtiments,
                 la gestion de la construction, le pilotage de la production et la maintenance des installations.
               </p>
               <p className="card-text">
-                L'un des enjeux du développement de notre société sur la scène internationale demeure sur son adaptation aux spécificités locales. 
-                La société d'ingénierie et d'automation Ekium s'engage à garantir la même qualité de prestations, méthodes de gestion des projets 
+                L'un des enjeux du développement de notre société sur la scène internationale demeure sur son adaptation aux spécificités locales.
+                La société d'ingénierie et d'automation Ekium s'engage à garantir la même qualité de prestations, méthodes de gestion des projets
                 et la même qualité technique de conception.
               </p>
             </div>
@@ -102,14 +102,14 @@ export default function Entreprise() {
           <motion.div variants={fadeIn} className="grid grid-2 gap-4 mb-8">
             <div className="card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'var(--primary)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center' 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
                   <LightBulbIcon style={{ width: '1.5rem', height: '1.5rem', color: 'white' }} />
                 </div>
@@ -118,21 +118,21 @@ export default function Entreprise() {
                 </h3>
               </div>
               <p className="card-text">
-                Ekium intervient dans la chaîne de valeur du cycle de vie de l'industrie. Notre expérience nous permet de proposer 
+                Ekium intervient dans la chaîne de valeur du cycle de vie de l'industrie. Notre expérience nous permet de proposer
                 des solutions innovantes dans des environnements industriels complexes et évolutifs.
               </p>
             </div>
 
             <div className="card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'var(--secondary)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center' 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--secondary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
                   <UsersIcon style={{ width: '1.5rem', height: '1.5rem', color: 'white' }} />
                 </div>
@@ -168,13 +168,13 @@ export default function Entreprise() {
             </h2>
             <div className="grid grid-4 gap-4">
               <div className="card">
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(26, 63, 191, 0.05)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(26, 63, 191, 0.05)',
+                  display: 'flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '1rem'
                 }}>
@@ -189,13 +189,13 @@ export default function Entreprise() {
               </div>
 
               <div className="card">
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(20, 184, 166, 0.1)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(20, 184, 166, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '1rem'
                 }}>
@@ -210,13 +210,13 @@ export default function Entreprise() {
               </div>
 
               <div className="card">
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(244, 63, 94, 0.1)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(244, 63, 94, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '1rem'
                 }}>
@@ -231,13 +231,13 @@ export default function Entreprise() {
               </div>
 
               <div className="card">
-                <div style={{ 
-                  width: '3rem', 
-                  height: '3rem', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(59, 130, 246, 0.1)', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <div style={{
+                  width: '3rem',
+                  height: '3rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '1rem'
                 }}>
@@ -309,13 +309,13 @@ export default function Entreprise() {
           {/* Mon rôle */}
           <motion.div variants={fadeIn} className="card" style={{ backgroundColor: 'rgba(26, 63, 191, 0.05)', borderLeft: '4px solid var(--primary)' }}>
             <div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
-              <div style={{ 
-                width: '3rem', 
-                height: '3rem', 
-                borderRadius: '50%', 
-                backgroundColor: 'var(--primary)', 
-                display: 'flex', 
-                alignItems: 'center', 
+              <div style={{
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '50%',
+                backgroundColor: 'var(--primary)',
+                display: 'flex',
+                alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
