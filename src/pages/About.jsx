@@ -19,7 +19,7 @@ const skills = [
   },
   {
     category: 'Outils & Technologies',
-    items: ['Git', 'Docker', 'VS Code', 'Figma', 'SQL', 'Cursor','Visual Studio']
+    items: ['Git', 'Docker', 'VS Code', 'Figma', 'Cursor', 'Visual Studio']
   },
   {
     category: 'Compétences comportementales',
@@ -52,7 +52,7 @@ export default function About() {
               Parcours scolaire et professionnel
             </h2>
             <div className="grid grid-1 mb-4">
-              <motion.div 
+              <motion.div
                 className="card"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
@@ -67,7 +67,7 @@ export default function About() {
                   Formation en développement d'applications et solutions logicielles
                 </p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="card"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
@@ -79,7 +79,7 @@ export default function About() {
                   Alternance
                 </p>
                 <p className="card-text">
-                  Ma mission est de gérer un parc de logiciels Métiers et de gérers l'assistance utilisateurs.
+                  Ma mission est de gérer un parc de logiciels Métiers et de gérer l'assistance utilisateurs.
                 </p>
               </motion.div>
             </div>
@@ -90,7 +90,7 @@ export default function About() {
             <h2 className="section-title">
               Le BTS SIO SLAM
             </h2>
-            <motion.div 
+            <motion.div
               className="card"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}

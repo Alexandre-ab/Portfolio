@@ -15,7 +15,7 @@ export const projectsData = [
     github: "https://github.com/Alexandre-ab/Gestion-de-cong-s",
     image: "/images/conges.webp",
     featured: true,
-    
+
     technicalChoices: [
       {
         technology: "React",
@@ -34,7 +34,7 @@ export const projectsData = [
         reason: "Communication bidirectionnelle en temps réel indispensable pour les notifications instantanées. Permet d'informer immédiatement les managers des nouvelles demandes, les employés des validations/rejets, sans nécessiter de rechargement de page ou de polling côté client. Socket.io gère automatiquement les reconnexions et le fallback vers le long-polling si WebSocket n'est pas disponible."
       }
     ],
-    
+
     architecture: {
       description: "Architecture client-serveur moderne avec séparation claire des responsabilités (principe MVC adapté)",
       layers: [
@@ -56,7 +56,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Authentification & Sécurité": "JWT (JSON Web Tokens) avec access tokens (15 min) et refresh tokens (7 jours) pour la sécurité. Tokens stockés en httpOnly cookies pour éviter les attaques XSS. Bcrypt pour le hachage des mots de passe (10 rounds). Helmet.js pour sécuriser les en-têtes HTTP. Rate limiting (100 requêtes/15min) pour prévenir les attaques DDoS.",
       "Autorisation (RBAC)": "Système de rôles basé sur 3 niveaux : Employé (soumettre/consulter ses congés), Manager (valider/rejeter pour son équipe), RH (gestion globale, paramétrage, exports). Middleware Express vérifiant les permissions sur chaque route protégée. Principe du moindre privilège appliqué.",
@@ -65,7 +65,7 @@ export const projectsData = [
       "Performance": "Lazy loading des composants React avec React.lazy() et Suspense. Code splitting automatique par route. Debouncing sur les champs de recherche (500ms). Cache côté client pour les données de référence (utilisateurs, départements). Pagination côté serveur pour limiter la charge.",
       "Déploiement": "Frontend hébergé sur Vercel avec CI/CD automatique depuis GitHub. Backend déployé sur Railway avec monitoring. Variables d'environnement sécurisées. CORS configuré pour autoriser uniquement le domaine frontend."
     },
-    
+
     features: [
       "Système de demande de congés en ligne avec calendrier interactif",
       "Workflow d'approbation multi-niveaux (validation manager puis RH)",
@@ -77,7 +77,7 @@ export const projectsData = [
       "Système de commentaires entre employés et managers",
       "Paramétrage RH (soldes initiaux, types de congés, règles métier)"
     ],
-    
+
     challenges: [
       "Mise en place d'un système de notifications en temps réel avec WebSocket tout en gérant les déconnexions/reconnexions",
       "Gestion fine des droits d'accès selon les rôles (employé, manager, RH) avec middleware Express personnalisé",
@@ -120,8 +120,8 @@ export const projectsData = [
     technologies: ["React", "Redux", "Stripe", "Firebase", "Node.js", "Express", "OpenAI API"],
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Versus",
-    image: "/images/placeholder-project.svg",
-    
+    image: "/images/IRIS.png",
+
     technicalChoices: [
       {
         technology: "React",
@@ -144,7 +144,7 @@ export const projectsData = [
         reason: "Utilisation de modèles de machine learning avancés (GPT-4) pour analyser les replays de jeu et générer des recommandations en langage naturel. Traitement des données de performance (APM, précision, positionnement) pour identifier les points faibles et suggérer des axes d'amélioration. Fine-tuning possible sur des données spécifiques à chaque jeu eSport."
       }
     ],
-    
+
     architecture: {
       description: "Architecture moderne serverless avec intégration IA et paiements sécurisés",
       layers: [
@@ -170,7 +170,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Intelligence Artificielle": "Intégration de l'API OpenAI (GPT-4) avec prompts engineering spécifiques pour l'analyse eSport. Extraction de métriques : APM (Actions Par Minute), précision de visée, positionnement stratégique, gestion de l'économie, timing des compétences. Algorithme de scoring propriétaire : agrégation pondérée des métriques en score global 0-100. Comparaison avec base de données de joueurs du même niveau (percentile).",
       "Système de Paiement": "Intégration complète Stripe : Checkout Session pour paiements one-shot (analyse unique), Stripe Billing pour abonnements récurrents (mensuel/annuel). Webhooks Stripe pour gérer les événements : paiement réussi → activation compte premium, échec → email relance, annulation → downgrade vers free. Customer Portal Stripe pour que les utilisateurs gèrent eux-mêmes leurs abonnements.",
@@ -178,7 +178,7 @@ export const projectsData = [
       "Performance & Optimisation": "Lazy loading des routes React avec React.lazy() et Suspense. Code splitting automatique par route avec Webpack. Memoization des composants coûteux avec React.memo(). Images optimisées et lazy loaded. Cache des analyses récentes en localStorage. Debouncing des recherches (300ms).",
       "Sécurité": "Firebase Security Rules pour restreindre l'accès aux données sensibles. Validation côté serveur dans Cloud Functions avant toute écriture Firestore. Clés API (OpenAI, Stripe) stockées dans Firebase Environment Config (jamais côté client). Rate limiting sur les Cloud Functions (max 10 analyses/heure pour free tier)."
     },
-    
+
     features: [
       "Analyse IA complète des performances de jeu en quelques secondes",
       "Recommandations personnalisées basées sur le niveau et le style de jeu",
@@ -190,7 +190,7 @@ export const projectsData = [
       "Suggestions d'exercices ciblés pour améliorer les points faibles",
       "Système de badges et achievements pour gamifier la progression"
     ],
-    
+
     challenges: [
       "Intégration de l'IA OpenAI avec prompts engineering pour générer des analyses pertinentes et actionnables",
       "Mise en place du système de paiement Stripe avec gestion complète des webhooks et des états d'abonnement",
@@ -234,7 +234,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Malware-",
     image: "/images/malware.png",
-    
+
     technicalChoices: [
       {
         technology: "JavaScript (Node.js)",
@@ -253,7 +253,7 @@ export const projectsData = [
         reason: "Chiffrement AES-256 des communications entre bots et serveur C&C pour éviter la détection par analyse réseau (DPI - Deep Packet Inspection). Hachage SHA-256 pour vérifier l'intégrité des commandes reçues. Génération de clés uniques par bot pour limiter la compromission globale. Étude des techniques de chiffrement utilisées par les malwares modernes."
       }
     ],
-    
+
     architecture: {
       description: "Architecture botnet classique Command & Control (C&C) à des fins strictement éducatives",
       layers: [
@@ -275,7 +275,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Techniques de Persistence": "Windows : ajout au registre HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run avec valeur pointant vers le bot. Création de tâches planifiées Windows Task Scheduler pour exécution automatique. Linux : ajout au crontab (@reboot) ou création de service systemd. macOS : LaunchAgents dans ~/Library/LaunchAgents/. Copie du bot dans répertoires système avec noms anodins (svchost.js, system-update.js).",
       "Obfuscation du Code": "Minification et uglification du code JavaScript avec Terser. Encodage des strings sensibles en Base64. Chiffrement des payloads avec clés dynamiques. Utilisation de packer (pkg) pour compiler le script Node.js en exécutable natif. Polymorphisme du code : modification automatique des signatures à chaque déploiement. Injection de code mort pour tromper l'analyse statique.",
@@ -283,7 +283,7 @@ export const projectsData = [
       "Détection & Évasion": "Analyse des signatures antiviruses : test sur VirusTotal pour identifier les patterns détectés. Étude des heuristiques de détection comportementale. Techniques d'évasion : sleep aléatoire pour éviter l'analyse en sandbox, détection de VM (vérification de registre, processus suspects), anti-debugging (IsDebuggerPresent). Limitation volontaire des actions suspectes (pas de keylogger, pas de ransomware) pour rester sous le radar.",
       "Éthique & Légalité": "⚠️ AVERTISSEMENT : Ce projet est strictement éducatif et développé dans un environnement 100% isolé. Aucune utilisation malveillante. Aucun test sur systèmes réels non autorisés. Le but est de comprendre les menaces pour mieux les prévenir et développer des contre-mesures. Respect absolu de la loi et de l'éthique en cybersécurité."
     },
-    
+
     features: [
       "Serveur Command & Control avec interface web d'administration",
       "Communication chiffrée AES-256 entre C&C et bots",
@@ -295,7 +295,7 @@ export const projectsData = [
       "Domain Generation Algorithm (DGA) pour fallback C&C",
       "Auto-suppression à distance (commande UNINSTALL)"
     ],
-    
+
     challenges: [
       "Comprendre en profondeur les mécanismes de sécurité des OS modernes (Windows Defender, SELinux, Gatekeeper)",
       "Développer dans un environnement 100% sécurisé sans risque de propagation accidentelle",
@@ -339,7 +339,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Pokedex",
     image: "/images/pokedex.png",
-    
+
     technicalChoices: [
       {
         technology: "C# & .NET Framework",
@@ -358,7 +358,7 @@ export const projectsData = [
         reason: "ORM (Object-Relational Mapping) qui simplifie l'accès aux données en mappant les tables SQL sur des classes C#. Code-First ou Database-First selon les besoins. LINQ to Entities pour écrire des requêtes typées et vérifiées à la compilation. Migrations automatiques pour gérer l'évolution du schéma de base de données. Lazy loading et eager loading pour optimiser les performances."
       }
     ],
-    
+
     architecture: {
       description: "Architecture en couches (3-tier) séparant présentation, logique métier et accès aux données",
       layers: [
@@ -380,7 +380,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Base de Données SQL": "Schéma relationnel normalisé (3NF). Table Pokemon : colonnes Id, Name, Generation, HP, Attack, Defense, Speed, Type1, Type2, Description, ImagePath. Relation many-to-many Pokemon ↔ Types via table junction PokemonTypes. Table Evolutions : FromPokemonId, ToPokemonId, Level, Method. Indexes clustered sur PK, non-clustered sur Name (recherche), Generation (filtre). Procédures stockées pour requêtes complexes (chaîne d'évolution).",
       "Optimisation Requêtes": "Entity Framework avec Eager Loading (.Include(p => p.Types)) pour éviter le problème N+1. Requêtes LINQ compilées pour performances. Pagination côté serveur avec Skip() et Take(). Cache en mémoire (Dictionary<int, Pokemon>) des Pokémon fréquemment consultés. Requêtes asynchrones (async/await) pour ne pas bloquer l'UI thread lors du chargement.",
@@ -388,7 +388,7 @@ export const projectsData = [
       "Gestion Images": "Images Pokémon stockées localement dans dossier Resources/Images/. Noms de fichiers : {PokemonId}.png (ex: 001.png pour Bulbizarre). Chargement asynchrone avec Image.FromFile() pour ne pas bloquer l'UI. Image placeholder si fichier manquant. Redimensionnement automatique selon taille PictureBox (SizeMode = Zoom).",
       "Patterns & Architecture": "Pattern Repository pour abstraction accès données. Interface IPokemonRepository avec implémentation PokemonRepository. Singleton pour classe Cache. Pattern Observer (events) pour notifier l'UI des changements. Separation of Concerns : UI ← Business Logic ← Data Access. Injection de dépendances manuelle (constructor injection)."
     },
-    
+
     features: [
       "Base de données complète de 1000+ Pokémon sur 9 générations",
       "Système de recherche avancée par nom, numéro ou description",
@@ -401,7 +401,7 @@ export const projectsData = [
       "Export de la liste en CSV/Excel",
       "Mode Comparaison pour comparer 2 Pokémon côte à côte"
     ],
-    
+
     challenges: [
       "Conception d'un schéma de base de données normalisé gérant les relations complexes (types, évolutions)",
       "Optimisation des requêtes SQL et LINQ pour performances avec 1000+ entrées",
@@ -445,7 +445,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.1.2", "A1.2.3", "A1.3.1"],
     github: "https://github.com/Alexandre-ab/GSB-",
     image: "/images/GSB.png",
-    
+
     technicalChoices: [
       {
         technology: "React",
@@ -464,7 +464,7 @@ export const projectsData = [
         reason: "Bibliothèque de planification de tâches pour exécuter automatiquement le scanner de péremptions chaque jour. Syntaxe cron classique (0 6 * * *) pour programmer l'exécution à 6h du matin. Légère et fiable, parfaite pour les tâches récurrentes comme la vérification des dates de péremption et la génération d'alertes automatiques."
       }
     ],
-    
+
     architecture: {
       description: "Architecture MVC adaptée au domaine pharmaceutique avec système d'alertes automatisé et traçabilité complète",
       layers: [
@@ -486,7 +486,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Gestion Péremptions": "Cron job (node-cron) exécuté quotidiennement à 6h pour scanner toutes les dates de péremption. Alertes à 3 niveaux de priorité : 🟢 >3 mois (info préventive), 🟡 1-3 mois (warning à surveiller), 🔴 <1 mois (urgent, retrait immédiat). Calcul automatique avec moment.js ou date-fns. Notifications email automatiques aux pharmaciens responsables. Marquage automatique statut périmé dans base avec blocage des sorties de stock.",
       "Système Alertes Automatiques": "Deux types principaux : alerte stock bas (quantity < minStock personnalisé par médicament) et alerte péremption. Chaque alerte possède un statut (active/resolved/archived) et historique complet. Badge rouge sur icône cloche avec nombre d'alertes non résolues. Tri intelligent par priorité (urgence puis date). Résolution manuelle par pharmacien avec commentaire obligatoire (action prise, commande passée...). Dashboard statistiques : alertes par mois, taux de résolution, délai moyen.",
@@ -494,7 +494,7 @@ export const projectsData = [
       "Traçabilité Complète": "Chaque mouvement de stock (entrée, sortie, ajustement, péremption) enregistré dans collection Transactions avec : timestamp précis, utilisateur responsable, quantité, raison/justification, numéro de lot concerné. Permet audit complet en cas de contrôle. Conformité aux normes pharmaceutiques (Bonnes Pratiques de Dispensation). Historique inaltérable (append-only) pour prévenir fraudes.",
       "Sécurité & Conformité": "Authentification obligatoire pour toutes les opérations. Rôles : pharmacien titulaire (tous droits), préparateur (lecture + sorties), stagiaire (lecture seule). Chiffrement des données sensibles (prix d'achat). Respect RGPD pour données patients si prescriptions. Sauvegardes automatiques quotidiennes. Logs d'accès détaillés (qui a accédé à quoi et quand)."
     },
-    
+
     features: [
       "Gestion complète des stocks de médicaments avec codes CIP",
       "Alertes automatiques de péremption (3 niveaux : info, warning, urgent)",
@@ -507,7 +507,7 @@ export const projectsData = [
       "Export des données en CSV/Excel pour comptabilité",
       "Scanner code-barres pour saisie rapide"
     ],
-    
+
     challenges: [
       "Gestion précise des dates de péremption avec alertes automatiques multiniveaux sans faux positifs",
       "Système d'alertes robuste et intelligent ne manquant aucun médicament à risque",
@@ -552,7 +552,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Gestion-de-prescription",
     image: "/images/Medecin.png",
-    
+
     technicalChoices: [
       {
         technology: "C# & .NET Framework",
@@ -571,7 +571,7 @@ export const projectsData = [
         reason: "Outil professionnel de génération de rapports pour créer des ordonnances conformes à la réglementation française. Templates personnalisables incluant en-tête médecin, logo cabinet, mentions légales obligatoires. Export PDF sécurisé avec signature électronique possible. Mise en page précise respectant les formats réglementaires (taille police minimale pour lisibilité pharmacien)."
       }
     ],
-    
+
     architecture: {
       description: "Architecture desktop 3-tier sécurisée avec base de données médicale chiffrée et système de vérification d'interactions",
       layers: [
@@ -593,7 +593,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Sécurité & RGPD": "Chiffrement AES-256 des données patients au repos (SQL Server TDE). Authentification Windows (Active Directory) ou login sécurisé avec politique mot de passe stricte (12 caractères, complexité). Logs d'audit complets : qui a consulté/modifié quel dossier patient et quand (conformité article 32 RGPD). Masquage données sensibles sauf pour médecin traitant. Gestion des consentements patients pour partage données. Droit à l'oubli implémenté (anonymisation après délai légal 20 ans).",
       "Vérification Interactions Médicamenteuses": "Base de données locale des interactions médicamenteuses (import depuis Thériaque ou Vidal). Algorithme de détection : pour chaque nouveau médicament ajouté, vérification croisée avec médicaments déjà prescrits + traitements en cours patient. Classification interactions : contre-indication absolue (blocage), précaution d'emploi (warning), interaction mineure (info). Prise en compte allergies patients (alerte si prescription pénicilline → patient allergique). Vérification posologie max (adulte/enfant/personne âgée) avec calcul selon poids si nécessaire.",
@@ -601,7 +601,7 @@ export const projectsData = [
       "Gestion Dossiers Patients": "Fiche patient complète : état civil, coordonnées, mutuelle, médecin traitant, antécédents médicaux (maladies chroniques, chirurgies), antécédents familiaux, allergies connues, traitements en cours (avec dates début/fin). Historique consultations chronologique avec motifs, diagnostics, examens prescrits. Recherche rapide patient (nom, prénom, date naissance, numéro sécurité sociale). Export dossier PDF pour transfert confrère (avec consentement patient).",
       "Conformité Réglementaire": "Respect de la réglementation française sur ordonnances : durée maximale traitement selon classe médicament (3 mois renouvellement possible, 28 jours stupéfiants, 7 jours hypnotiques). Chevauchement ordonnances détecté automatiquement. Mention obligatoire Tiers Payant si applicable. Numérotation séquentielle ordonnances pour traçabilité. Conservation électronique 10 ans minimum (Code Santé Publique). Déclaration pharmacovigilance facilitée si effet indésirable."
     },
-    
+
     features: [
       "Création de prescriptions médicales avec assistant intelligent",
       "Gestion complète des dossiers patients (identité, antécédents, allergies)",
@@ -614,7 +614,7 @@ export const projectsData = [
       "Export PDF sécurisé des ordonnances",
       "Système d'audit complet (RGPD)"
     ],
-    
+
     challenges: [
       "Sécurité et confidentialité maximale des données médicales sensibles (conformité RGPD article 9)",
       "Vérification en temps réel des interactions médicamenteuses avec base de données à jour",
@@ -659,7 +659,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Bot-shell-windows",
     image: "/images/shell.avif",
-    
+
     technicalChoices: [
       {
         technology: "PowerShell 7",
@@ -678,7 +678,7 @@ export const projectsData = [
         reason: "Création de modules réutilisables (.psm1) pour fonctions courantes : Send-EmailNotification, Backup-Data, Clean-TempFiles. Import simple avec Import-Module. Facilite maintenance : une fonction = un fichier. Versionning Git pour suivre évolutions. Possibilité de publier sur PowerShell Gallery pour partage communauté."
       }
     ],
-    
+
     architecture: {
       description: "Architecture modulaire avec scripts spécialisés orchestrés par Task Scheduler et système de logs centralisé",
       layers: [
@@ -700,7 +700,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Nettoyage Automatique": "Suppression fichiers temporaires (C:\\Windows\\Temp, %TEMP%, C:\\Users\\*\\AppData\\Local\\Temp). Vidage corbeille tous utilisateurs. Nettoyage cache navigateurs (Chrome, Firefox, Edge). Suppression logs anciens (>90 jours). Défragmentation SSD si fragmentation > 10%. Nettoyage Windows Update (dossier SoftwareDistribution). Vérification avant suppression : fichiers système protégés jamais supprimés. Gain espace moyen : 5-20 Go.",
       "Sauvegardes Planifiées": "Stratégie 3-2-1 : 3 copies, 2 supports différents, 1 hors site. Sauvegarde complète hebdomadaire + incrémentale quotidienne. Robocopy avec options /MIR (miroir), /XO (skip older), /R:3 (3 tentatives si erreur). Vérification intégrité avec checksum MD5. Compression archives (.7z) pour économiser espace. Rotation : garder 4 sauvegardes hebdomadaires + 12 mensuelles. Envoi email si sauvegarde échouée.",
@@ -708,7 +708,7 @@ export const projectsData = [
       "Gestion Erreurs Robuste": "Try/Catch sur toutes opérations critiques. Erreurs non-bloquantes : log warning et continue. Erreurs bloquantes : log error, email admin, arrêt propre. Retry automatique (3 tentatives) pour opérations réseau (sauvegarde NAS). Timeout sur commandes longues (30 min max). Rollback automatique si sauvegarde corrompue. Mode dry-run (simulation sans modification) pour tester changements.",
       "Sécurité & Permissions": "Exécution en compte service dédié (pas Administrator pour limiter risques). Signature des scripts PowerShell (Set-ExecutionPolicy RemoteSigned). Pas de mots de passe en clair : utilisation Windows Credential Manager. Logs d'audit : qui a modifié quels scripts et quand. Protection contre injections : validation paramètres entrée. Isolation : scripts ne communiquent que via fichiers logs (pas de variables globales)."
     },
-    
+
     features: [
       "Nettoyage automatique système (fichiers temporaires, cache, logs anciens)",
       "Sauvegardes planifiées avec vérification d'intégrité et rotation",
@@ -721,7 +721,7 @@ export const projectsData = [
       "Gestion d'erreurs robuste avec retry automatique",
       "Compatibilité Windows 10/11 et Server 2016+"
     ],
-    
+
     challenges: [
       "Gestion robuste des erreurs système imprévisibles sans bloquer l'exécution globale",
       "Compatibilité multi-versions Windows (10, 11, Server 2016/2019/2022)",
@@ -765,7 +765,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.2.2", "A1.3.2", "A1.4.1"],
     github: "https://github.com/Alexandre-ab/Script-batch-Aveva",
     image: "/images/aveva.png",
-    
+
     technicalChoices: [
       {
         technology: "Batch (.bat / .cmd)",
@@ -784,7 +784,7 @@ export const projectsData = [
         reason: "Configuration Aveva stockée dans HKEY_LOCAL_MACHINE\\Software\\Aveva. Scripts modifient automatiquement : chemins projets par défaut, serveur de licences, paramètres réseau, options d'affichage. Utilisation de reg.exe (Batch) ou cmdlets PowerShell (Set-ItemProperty). Sauvegarde registre avant modification (reg export) pour rollback si besoin. Import templates standards pour configuration homogène sur tous postes."
       }
     ],
-    
+
     architecture: {
       description: "Architecture de déploiement en 4 phases orchestrées par script maître avec vérifications à chaque étape",
       layers: [
@@ -806,7 +806,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Installation Silencieuse": "Commande complète : msiexec /i %AVEVA_MSI% /qn /norestart /l*v %LOG_FILE% TARGETDIR=%INSTALL_DIR% ADDLOCAL=ALL. Paramètres : /qn (quiet no UI), /norestart (évite redémarrage automatique), /l*v (log verbeux), TARGETDIR (personnaliser répertoire installation). Vérification ERRORLEVEL après chaque msiexec : 0=succès, 1603=erreur fatale, 1641=succès avec redémarrage requis. Gestion retries : 3 tentatives si erreur réseau temporaire.",
       "Gestion Prérequis": "Vérification automatique avant installation : OS compatible (Windows 10 Pro/Enterprise, Server 2016+), droits administrateur (net session >nul 2>&1), espace disque suffisant (>10 Go sur C:), .NET Framework 4.8 installé, RAM minimale (8 Go). Si prérequis manquant : installation automatique si possible ou message clair à utilisateur. Check version Aveva déjà installée : désinstallation propre avant upgrade.",
@@ -814,7 +814,7 @@ export const projectsData = [
       "Logging & Diagnostic": "Log multi-niveaux : log maître (Install_Aveva.log), log MSI détaillé, log PowerShell (Start-Transcript). Format timestamp ISO8601, code couleur (vert=succès, jaune=warning, rouge=erreur). Log sauvegardé dans C:\\Logs\\Aveva\\[timestamp]. En cas d'erreur : copie automatique logs vers partage réseau pour analyse par admin. Email automatique envoyé avec logs attachés si échec critique. Dashboard web (optionnel) affichant statut déploiements sur parc.",
       "Déploiement Masse": "Script pensé pour déploiement via GPO (Group Policy) sur parc de 50+ postes : exécution au démarrage machine ou connexion utilisateur, détection si déjà installé (skip si version à jour), installation différée si utilisateur actif (pas de perturbation), rapports centralisés sur serveur. Alternative : déploiement via SCCM (System Center Configuration Manager) ou Intune. Package MST (transform) pour personnaliser MSI selon groupes utilisateurs (ingénieurs/techniciens)."
     },
-    
+
     features: [
       "Installation silencieuse complète Aveva sans interaction utilisateur",
       "Vérification et installation automatique des prérequis (.NET, VC++ Redist)",
@@ -827,7 +827,7 @@ export const projectsData = [
       "Réduction temps déploiement : 2h manuelles → 15min automatiques",
       "Déployable en masse via GPO sur parc informatique"
     ],
-    
+
     challenges: [
       "Automatisation 100% sans aucune intervention manuelle (installation silencieuse vraie)",
       "Gestion robuste des erreurs d'installation diverses (espace disque, permissions, services Windows)",
@@ -872,7 +872,7 @@ export const projectsData = [
     skills: ["A1.1.1", "A1.1.2", "A1.2.3", "A1.3.1"],
     github: "https://github.com/RyukSylux/revealBarber/tree/main",
     image: "/images/revealLogo.png",
-    
+
     technicalChoices: [
       {
         technology: "React",
@@ -891,7 +891,7 @@ export const projectsData = [
         reason: "Hébergement rapide et fiable avec CDN global (temps chargement <1s). HTTPS automatique et gratuit. Firestore pour base de données : stockage rendez-vous, articles blog, avis clients. Authentification Firebase pour espace admin (gérer calendrier, publier articles blog). Cloud Functions pour envoi emails confirmation rendez-vous. Analytics intégré pour statistiques visiteurs. Coût quasi-nul pour petit site (<10k visiteurs/mois)."
       }
     ],
-    
+
     architecture: {
       description: "Architecture SPA React avec Firebase backend pour système de réservation et gestion contenu",
       layers: [
@@ -913,7 +913,7 @@ export const projectsData = [
         }
       ]
     },
-    
+
     technicalDetails: {
       "Design Responsive": "Approche mobile-first : design d'abord pour smartphone (80% visiteurs sur mobile) puis adaptation desktop. Breakpoints : 320px (mobile S), 768px (tablet), 1024px (desktop), 1440px (large desktop). Grid CSS pour galerie photos : 1 colonne mobile, 2 colonnes tablet, 3-4 colonnes desktop. Menu navigation : hamburger menu mobile, menu horizontal desktop. Images responsive avec srcset (résolution adaptée à écran). Touch-friendly : boutons min 44px pour facilité tactile.",
       "Système de Réservation": "Calendrier interactif (react-calendar ou FullCalendar) affichant créneaux disponibles. Workflow : 1) Sélection service (coupe homme 30€, barbe 20€...), 2) Choix barbier préféré (ou premier disponible), 3) Sélection date et heure, 4) Infos client (nom, tel, email), 5) Confirmation avec récapitulatif. Vérification disponibilité temps réel (query Firestore). Envoi email confirmation automatique. SMS rappel J-1 (Twilio). Espace client pour gérer/annuler rendez-vous.",
@@ -921,7 +921,7 @@ export const projectsData = [
       "SEO & Performances": "Meta tags optimisés pour chaque page (title unique, description, Open Graph pour réseaux sociaux). Schema.org markup pour référencement local (LocalBusiness avec adresse, horaires, avis). Sitemap.xml généré automatiquement. Robots.txt configuré. Lighthouse score > 90/100. Code splitting React pour réduire bundle size. Compression Gzip/Brotli activée. CDN Firebase pour latence minimale. Lazy loading composants non critiques. Optimisation Google My Business pour recherches locales.",
       "Accessibilité (A11y)": "Contraste couleurs conforme WCAG 2.1 AA (ratio 4.5:1 minimum). Textes alternatifs sur toutes images. Navigation clavier complète (Tab, Enter). Labels formulaires explicites. Aria-labels pour lecteurs d'écran. Skip to content link. Focus visible sur éléments interactifs. Taille police ajustable. Tests avec NVDA/JAWS (screen readers)."
     },
-    
+
     features: [
       "Design moderne et élégant reflétant positionnement haut de gamme",
       "Galerie photo professionnelle avec filtres et lightbox",
@@ -935,7 +935,7 @@ export const projectsData = [
       "Design 100% responsive optimisé mobile-first",
       "Espace admin pour gérer rendez-vous et publier articles"
     ],
-    
+
     challenges: [
       "Design moderne et attractif reflétant l'identité visuelle du salon haut de gamme",
       "Système de réservation ergonomique et fiable évitant les doubles réservations",

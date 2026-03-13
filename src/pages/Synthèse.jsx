@@ -108,60 +108,6 @@ function Synthèse() {
             )}
           </div>
 
-          {/* Section attestations */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ marginTop: '3rem' }}
-          >
-            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>
-              Attestations & Certificats
-            </h2>
-            <p style={{ color: 'var(--neutral-300)', marginBottom: '1.5rem', fontSize: '1rem' }}>
-              Documents officiels exigés par le référentiel de l'épreuve E5 — Session 2026
-            </p>
-            <div className="grid grid-2 gap-4">
-              <div className="card" style={{ borderLeft: '4px solid var(--secondary)' }}>
-                <h3 className="card-title" style={{ marginBottom: '0.5rem' }}>
-                  Certificat de travail — Ekium
-                </h3>
-                <p className="card-text" style={{ marginBottom: '1rem' }}>
-                  Alternance en tant que technicien support et gestionnaire de parc logiciel — 2024/2026
-                </p>
-                <p style={{
-                  color: 'var(--warning)',
-                  fontSize: '0.875rem',
-                  fontStyle: 'italic',
-                  padding: '0.5rem 0.75rem',
-                  backgroundColor: 'rgba(245, 158, 11, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                }}>
-                  À ajouter : déposer le fichier dans <code>public/images/</code> et remplacer ce texte par un bouton de téléchargement
-                </p>
-              </div>
-
-              <div className="card" style={{ borderLeft: '4px solid var(--primary-light)' }}>
-                <h3 className="card-title" style={{ marginBottom: '0.5rem' }}>
-                  Attestation de formation — Nexa Digital School
-                </h3>
-                <p className="card-text" style={{ marginBottom: '1rem' }}>
-                  BTS SIO option SLAM — Lycée Nexa Digital School — 2024/2026
-                </p>
-                <p style={{
-                  color: 'var(--warning)',
-                  fontSize: '0.875rem',
-                  fontStyle: 'italic',
-                  padding: '0.5rem 0.75rem',
-                  backgroundColor: 'rgba(245, 158, 11, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                }}>
-                  À ajouter : déposer le fichier dans <code>public/images/</code> et remplacer ce texte par un bouton de téléchargement
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
         </motion.div>
       </div>
     </section>
