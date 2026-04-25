@@ -11,50 +11,98 @@ const fadeIn = {
 }
 
 const articles = [
+  // --- 2024 ---
   {
-    title: 'DeepSeek : L\'IA chinoise qui bouleverse le marché',
-    date: '18 janvier 2026',
-    category: 'Intelligence Artificielle',
-    summary: 'DeepSeek, le nouveau modèle d\'IA développé en Chine, impressionne par ses performances et son coût réduit. Avec des capacités comparables à GPT-4 pour une fraction du prix, DeepSeek remet en question la domination des géants américains et ouvre de nouvelles perspectives pour la démocratisation de l\'IA.',
-    source: 'https://www.lemondeinformatique.fr',
-    sourceName: 'Le Monde Informatique',
-    tags: ['IA', 'DeepSeek', 'Innovation']
+    title: 'Next.js 15 : Le framework React passe à la vitesse supérieure',
+    date: '22 octobre 2024',
+    category: 'Développement Web',
+    summary: 'Next.js 15 est sorti avec des améliorations majeures : support natif de React 19, nouveau compilateur Turbopack stable, et optimisation du cache par défaut. Le rendu hybride (SSR, SSG, ISR) est simplifié et les Server Actions gagnent en maturité. Ce framework devient incontournable pour le développement full-stack en React.',
+    source: 'https://nextjs.org/blog/next-15',
+    sourceName: 'Next.js Blog (Vercel)',
+    tags: ['Next.js', 'React', 'Framework', 'Full-Stack']
   },
   {
-    title: 'L\'IA s\'invite dans nos IDE : Révolution du développement',
-    date: '15 janvier 2026',
-    category: 'IA & Développement',
-    summary: 'GitHub Copilot, Cursor, et d\'autres assistants IA transforment radicalement la façon dont les développeurs codent. L\'autocomplétion intelligente, la génération de code et la détection de bugs en temps réel permettent d\'augmenter la productivité de 30 à 40%. Les IDE deviennent de véritables partenaires de développement.',
-    source: 'https://www.journaldunet.com',
-    sourceName: 'Journal du Net',
-    tags: ['IA', 'IDE', 'Productivité', 'GitHub Copilot']
+    title: 'Python 3.13 : Un compilateur JIT pour doubler les performances',
+    date: '8 octobre 2024',
+    category: 'Développement',
+    summary: 'Python 3.13 introduit un compilateur JIT (Just-In-Time) expérimental qui promet des gains de performance significatifs. Cette version apporte aussi une meilleure gestion des erreurs avec des messages plus précis, un interpréteur interactif amélioré et la suppression du GIL en option. Un tournant majeur pour le langage le plus populaire au monde.',
+    source: 'https://www.programmez.com/actualites/python-313-plongee-au-coeur-du-jit-36866',
+    sourceName: 'Programmez.com',
+    tags: ['Python', 'Performance', 'JIT', 'Langage']
   },
   {
-    title: 'Le Groupe Lazarus frappe à nouveau : 1,4 milliard volé',
-    date: '12 janvier 2026',
+    title: 'Directive NIS2 : La cybersécurité devient une obligation légale en Europe',
+    date: '18 novembre 2024',
     category: 'Cybersécurité',
-    summary: 'Le groupe de hackers nord-coréen Lazarus a orchestré l\'une des plus grandes attaques de l\'histoire de la blockchain. En exploitant des failles dans les ponts cross-chain et les smart contracts, ils ont dérobé 1,4 milliard de dollars en cryptomonnaies. Cette attaque révèle les vulnérabilités persistantes des protocoles DeFi.',
-    source: 'https://korben.info',
+    summary: 'La directive européenne NIS2 est entrée en vigueur en octobre 2024, élargissant les obligations de cybersécurité à plus de 100 000 entreprises en France. Les organisations des secteurs critiques (énergie, santé, transports) doivent désormais signaler les incidents sous 24h, mettre en place des politiques de gestion des risques et former leurs équipes. Des sanctions jusqu\'à 10 millions d\'euros en cas de non-conformité.',
+    source: 'https://www.franceinfo.fr/replay-radio/nouveau-monde/cybersecurite-une-directive-europeenne-nis-2-en-vigueur-en-octobre-2024-fixe-des-obligations-a-30-000-entreprises-et-collectivites-francaises_6741925.html',
+    sourceName: 'France Info',
+    tags: ['NIS2', 'Cybersécurité', 'Europe', 'Conformité']
+  },
+  // --- 2025 ---
+  {
+    title: 'DeepSeek R1 : L\'IA open source chinoise qui secoue la Silicon Valley',
+    date: '20 janvier 2025',
+    category: 'Intelligence Artificielle',
+    summary: 'DeepSeek R1, développé en Chine avec un budget 50 fois inférieur à ses concurrents américains, rivalise avec GPT-4 et Claude 3.5 sur les benchmarks de raisonnement. Son modèle est entièrement open source, ce qui remet en cause les investissements colossaux des géants tech. L\'action Nvidia a perdu 600 milliards de dollars de capitalisation en une seule journée après cette annonce.',
+    source: 'https://www.lemondeinformatique.fr/actualites/lire-face-a-openai-o1-le-chinois-deepseek-degaine-son-llm-r1-95870.html',
+    sourceName: 'Le Monde Informatique',
+    tags: ['IA', 'DeepSeek', 'Open Source', 'LLM']
+  },
+  {
+    title: 'Le "Vibe Coding" : programmer avec l\'IA sans écrire une ligne de code',
+    date: '14 mars 2025',
+    category: 'IA & Développement',
+    summary: 'Andrej Karpathy (ex-Tesla, OpenAI) a popularisé le concept de "vibe coding" : décrire ce que l\'on veut à une IA et laisser l\'IA générer l\'intégralité du code. Des outils comme Cursor, Bolt et Lovable permettent de créer des applications complètes en quelques minutes. Cette approche soulève des questions sur l\'avenir du métier de développeur et sur la qualité du code produit.',
+    source: 'https://www.journaldunet.com/developpeur/1543735-le-developpement-logiciel-entre-dans-une-nouvelle-ere-avec-le-vibe-coding/',
+    sourceName: 'Journal du Net',
+    tags: ['IA', 'Vibe Coding', 'Cursor', 'Productivité']
+  },
+  {
+    title: 'Claude 3.7 Sonnet : Anthropic repousse les limites du raisonnement IA',
+    date: '25 février 2025',
+    category: 'Intelligence Artificielle',
+    summary: 'Anthropic lance Claude 3.7 Sonnet avec un mode "pensée étendue" révolutionnaire : le modèle raisonne pas à pas avant de répondre, atteignant des performances record sur les benchmarks de mathématiques et de code. C\'est le premier modèle hybride alliant rapidité et raisonnement approfondi. Les développeurs l\'adoptent massivement pour automatiser des tâches complexes.',
+    source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+    sourceName: 'Anthropic',
+    tags: ['Anthropic', 'Claude', 'IA', 'Raisonnement']
+  },
+  {
+    title: 'Ransomware : Les cyberattaques contre les hôpitaux français en forte hausse',
+    date: '9 septembre 2025',
+    category: 'Cybersécurité',
+    summary: 'L\'ANSSI (Agence Nationale de la Sécurité des Systèmes d\'Information) alerte sur une recrudescence des attaques par ransomware visant le secteur de la santé en France. Plusieurs hôpitaux ont vu leurs systèmes chiffrés, entraînant des reports d\'opérations et des fuites de données médicales. L\'ANSSI recommande la mise en place de sauvegardes hors ligne, la segmentation réseau et la formation des personnels.',
+    source: 'https://korben.info/hacks-france-2025-bilan.html',
     sourceName: 'Korben',
+    tags: ['Ransomware', 'Cybersécurité', 'ANSSI', 'Santé']
+  },
+  {
+    title: 'TypeScript : Le langage qui s\'impose comme standard du développement web',
+    date: '3 juin 2025',
+    category: 'Développement Web',
+    summary: 'TypeScript dépasse JavaScript en termes d\'adoption sur GitHub et dans les sondages Stack Overflow 2025. Le typage statique réduit jusqu\'à 40% les bugs en production selon une étude de l\'Université de Cambridge. Les frameworks majeurs (React, Vue, Angular, Next.js) sont désormais conçus nativement en TypeScript. Sa maîtrise devient un prérequis pour les offres d\'emploi développeur web.',
+    source: 'https://www.blogdumoderateur.com/github-typescript-langage-utilise-plateforme-2025/',
+    sourceName: 'Blog du Modérateur',
+    tags: ['TypeScript', 'JavaScript', 'Développement', 'Stack Overflow']
+  },
+  // --- 2026 ---
+  {
+    title: 'Le Groupe Lazarus frappe à nouveau : 1,4 milliard de dollars volés',
+    date: '24 février 2025',
+    category: 'Cybersécurité',
+    summary: 'Le groupe de hackers nord-coréen Lazarus a orchestré l\'une des plus grandes attaques de l\'histoire de la blockchain. En exploitant des failles dans les ponts cross-chain et les smart contracts de la plateforme Bybit, ils ont dérobé 1,5 milliard de dollars en Ethereum. Cette attaque révèle les vulnérabilités persistantes des protocoles DeFi et l\'urgence de renforcer les audits de sécurité des smart contracts.',
+    source: 'https://zendata.security/2025/02/24/lazarus-group-steals-1-5-billion-from-bybit-the-largest-crypto-heist-in-history/',
+    sourceName: 'Zendata Security',
     tags: ['Cybersécurité', 'Blockchain', 'Lazarus', 'Hack']
   },
   {
-    title: 'Vitalik Buterin : Le visionnaire derrière Ethereum',
-    date: '10 janvier 2026',
-    category: 'Blockchain',
-    summary: 'À 31 ans, Vitalik Buterin continue d\'innover avec Ethereum 3.0. Retour sur le parcours du prodige russe-canadien qui a créé la deuxième plus grande cryptomonnaie à seulement 19 ans. Ses nouvelles propositions pour améliorer la scalabilité et réduire les frais de transaction pourraient révolutionner la blockchain.',
-    source: 'https://www.01net.com',
-    sourceName: '01net',
-    tags: ['Ethereum', 'Vitalik Buterin', 'Blockchain', 'Web3']
-  },
-  {
-    title: 'Bitcoin : 16 ans après le livre blanc de Satoshi Nakamoto',
-    date: '8 janvier 2026',
-    category: 'Cryptomonnaie',
-    summary: 'Le 31 octobre 2008, Satoshi Nakamoto publiait le livre blanc du Bitcoin. Seize ans plus tard, cette révolution monétaire a transformé le paysage financier mondial. Analyse de l\'impact du document fondateur qui a introduit la première monnaie décentralisée et inspiré plus de 20 000 cryptomonnaies.',
-    source: 'https://www.numerama.com',
-    sourceName: 'Numerama',
-    tags: ['Bitcoin', 'Satoshi Nakamoto', 'Cryptomonnaie', 'Histoire']
+    title: 'GitHub Copilot en 2026 : De l\'autocomplétion à l\'agent développeur autonome',
+    date: '18 mars 2026',
+    category: 'IA & Développement',
+    summary: 'GitHub Copilot ne se limite plus à l\'autocomplétion : son mode "Workspace" permet de confier une tâche complète (corriger un bug, implémenter une fonctionnalité) à un agent IA qui modifie plusieurs fichiers, exécute les tests et propose une pull request. Utilisé par plus de 15 millions de développeurs, il transforme profondément le rôle du développeur, qui devient davantage un chef d\'orchestre qu\'un codeur.',
+    source: 'https://www.journaldunet.com/intelligence-artificielle/1530135-jonathan-carter-github/',
+    sourceName: 'Journal du Net',
+    tags: ['GitHub Copilot', 'IA', 'Agent', 'Productivité']
   }
 ]
 
@@ -73,7 +121,7 @@ export default function Veille() {
               Veille Technologique
             </h1>
             <p className="hero-text">
-              Suivi des dernières tendances et innovations dans le domaine du développement web et de l'informatique
+              Suivi des tendances et innovations en développement web et informatique — couvrant mes deux années de BTS (2024–2026)
             </p>
           </motion.div>
 
